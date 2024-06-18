@@ -9,8 +9,7 @@ export default defineConfig({
         },
         logo: '/images/logo.png',
         socialLinks: [
-            { icon: 'github', link: 'https://github.com/KohlbacherLab/homepage' },
-            { icon: 'discord', link: 'https://discord.gg/vEsUaEFBVE' },
+            { icon: 'github', link: 'https://github.com/KohlbacherLab/homepage' }
         ],
         footer: {
             copyright: 'Copyright © 2024-present KohlbacherLab'
