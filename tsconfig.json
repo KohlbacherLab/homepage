@@ -1,0 +1,20 @@
+{
+    "extends": "@tada5hi/tsconfig",
+    "compilerOptions": {
+        "lib": [
+            "ESNext"
+        ],
+        "module": "commonjs",
+        "outDir": "dist",
+        "target": "ES2022",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "strictPropertyInitialization": false
+    },
+    "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules/**/*"
+    ]
+}

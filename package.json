@@ -1,0 +1,41 @@
+{
+    "name": "@kohlbacherlab/homepage",
+    "private": true,
+    "version": "1.0.0",
+    "description": "This is a package for the KohlbacherLab website.",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kohlbacherlab/homepage.git"
+    },
+    "author": {
+        "name": "Peter Placzek",
+        "email": "contact@tada5hi.net",
+        "url": "https://github.com/tada5hi"
+    },
+    "files": [
+        "dist/"
+    ],
+    "scripts": {
+        "dev": "vitepress dev src --temp .temp",
+        "build": "vitepress build src --temp .temp",
+        "help": "vitepress --help"
+    },
+    "keywords": [
+        "docs"
+    ],
+    "license": "MIT",
+    "devDependencies": {
+        "@tada5hi/eslint-config-vue-typescript": "^1.3.11",
+        "@tada5hi/tsconfig": "^0.5.1",
+        "eslint": "^8.57.0",
+        "rimraf": "^5.0.7",
+        "typescript": "^5.4.5"
+    },
+    "dependencies": {
+        "bootstrap": "^5.3.3",
+        "smob": "^1.5.0",
+        "vite": "^5.3.1",
+        "vitepress": "^1.2.3",
+        "vue": "^3.4.29"
+    }
+}
