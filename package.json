@@ -29,7 +29,7 @@
         "@tada5hi/tsconfig": "^0.5.1",
         "eslint": "^8.57.0",
         "rimraf": "^5.0.7",
-        "typescript": "^5.5.2"
+        "typescript": "^5.5.3"
     },
     "dependencies": {
         "bootstrap": "^5.3.3",
