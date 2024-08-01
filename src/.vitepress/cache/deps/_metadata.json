@@ -1,49 +1,55 @@
 {
-  "hash": "00bf5bf2",
+  "hash": "36e58c5b",
   "configHash": "1470316b",
-  "lockfileHash": "47730eb1",
-  "browserHash": "4d51ae6c",
+  "lockfileHash": "e7b01ac6",
+  "browserHash": "edcfeceb",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "fe25848b",
+      "fileHash": "4b9e182f",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/@vue/devtools-api/dist/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "0e308a6c",
+      "fileHash": "4c670824",
       "needsInterop": false
     },
     "vitepress > @vueuse/core": {
       "src": "../../../../node_modules/@vueuse/core/index.mjs",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "267d5f15",
+      "fileHash": "450e35da",
       "needsInterop": false
     },
     "vitepress > @vueuse/integrations/useFocusTrap": {
       "src": "../../../../node_modules/@vueuse/integrations/useFocusTrap.mjs",
       "file": "vitepress___@vueuse_integrations_useFocusTrap.js",
-      "fileHash": "5d24888b",
+      "fileHash": "c1181ee6",
       "needsInterop": false
     },
     "vitepress > mark.js/src/vanilla.js": {
       "src": "../../../../node_modules/mark.js/src/vanilla.js",
       "file": "vitepress___mark__js_src_vanilla__js.js",
-      "fileHash": "a215375a",
+      "fileHash": "3a4fedab",
       "needsInterop": false
     },
     "vitepress > minisearch": {
       "src": "../../../../node_modules/minisearch/dist/es/index.js",
       "file": "vitepress___minisearch.js",
-      "fileHash": "7b4112e8",
+      "fileHash": "07aec9ad",
       "needsInterop": false
+    },
+    "@retorquere/bibtex-parser": {
+      "src": "../../../../node_modules/@retorquere/bibtex-parser/index.js",
+      "file": "@retorquere_bibtex-parser.js",
+      "fileHash": "363dd6eb",
+      "needsInterop": true
     },
     "smob": {
       "src": "../../../../node_modules/smob/dist/index.mjs",
       "file": "smob.js",
-      "fileHash": "aaf00dbb",
+      "fileHash": "9a853582",
       "needsInterop": false
     }
   },
@@ -53,6 +59,9 @@
     },
     "chunk-BJ3OZQ3N": {
       "file": "chunk-BJ3OZQ3N.js"
+    },
+    "chunk-BUSYA2B4": {
+      "file": "chunk-BUSYA2B4.js"
     }
   }
 }
