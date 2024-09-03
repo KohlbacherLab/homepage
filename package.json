@@ -31,7 +31,7 @@
         "@vuecs/link": "^1.0.0",
         "@vuecs/preset-font-awesome": "^1.0.0",
         "eslint": "^8.57.0",
-        "rimraf": "^5.0.7",
+        "rimraf": "^6.0.1",
         "typescript": "^5.5.4"
     },
     "dependencies": {
