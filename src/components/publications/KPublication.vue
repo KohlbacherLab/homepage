@@ -3,9 +3,10 @@ import type { Entry } from '@retorquere/bibtex-parser';
 import type { PropType } from 'vue';
 import { defineComponent } from 'vue';
 import KPublicationInfoText from './KPublicationInfoText.vue';
+import KPublicationTitle from './KPublicationTitle.vue';
 
 export default defineComponent({
-    components: { KPublicationInfoText },
+    components: { KPublicationTitle, KPublicationInfoText },
     props: {
         entity: {
             type: Object as PropType<Entry>,
@@ -18,9 +19,7 @@ export default defineComponent({
     <div class="entity-card">
         <div class="d-flex flex-row algin-items-center">
             <div>
-                <h5 class="text-dark">
-                    <i class="fa fa-bar-chart" /> {{ entity.fields.title }}
-                </h5>
+                <KPublicationTitle :entity="entity" />
             </div>
         </div>
         <hr>
