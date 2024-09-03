@@ -88,3 +88,13 @@
     --bs-alert-border-color: var(--bs-dark-border-subtle);
     --bs-alert-link-color: var(--bs-dark-text-emphasis);
 }
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    list-style: none !important;
+}
+
+.pagination li {
+    margin-top: 0px !important;
+}
