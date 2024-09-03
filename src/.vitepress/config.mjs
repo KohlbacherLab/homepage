@@ -60,9 +60,6 @@ export default defineConfig({
             ],
             '/research': [
                 { text: 'Introduction', link: '/research/' }
-            ],
-            '/publications': [
-                { text: 'Introduction', link: '/publications/' }
             ]
         }
     }
