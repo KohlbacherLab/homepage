@@ -57,6 +57,16 @@ export default defineComponent({
                 </template>
             </VPTeamPageTitle>
         </h1>
+        <div class="d-flex">
+            <div class="ms-auto me-auto">
+                <VCPagination
+                    :total="total"
+                    :offset="offset"
+                    :limit="limit"
+                    @load="load"
+                />
+            </div>
+        </div>
         <div class="d-flex flex-column">
             <template
                 v-for="(entity, key) in items"
