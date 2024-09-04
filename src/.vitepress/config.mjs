@@ -46,11 +46,19 @@ export default defineConfig({
             },
             {
                 text: 'Projects',
-                link: '/research'
+                items: [
+                    { text: 'de.NBI', link: '/projects/denbi' },
+                    { text: 'DIFUTURE', link: '/projects/difuture' },
+                    { text: 'EPIC-XS', link: '/projects/epic-xs' },
+                    { text: 'PersOns', link: '/projects/pers-ons' },
+                    { text: 'A4B', link: '/projects/a4b' },
+                    { text: 'Food Profiling', link: '/projects/food-profiling' },
+                ]
             },
             {
                 text: 'Software',
-                link: '/software'
+                link: '/software',
+                activeMatch: '/software/',
             },
             {
                 text: 'Contact',
@@ -74,7 +82,28 @@ export default defineConfig({
                         }
                     })
                 }
-            ]
+            ],
+            '/software': [
+                {
+                    text: 'Packages',
+                    items: [
+                        {text: 'OpenMS', link: '/software/open-ms'},
+                        {text: 'BALL', link: '/software/ball'},
+                        {text: 'Fred2', link: '/software/fred-2'},
+                        {text: 'XLEC', link: '/software/xlec'},
+                    ]
+                },
+                {
+                    text: 'Webserver',
+                    items: [
+                        {text: 'EpiToolKit', link: '/software/epi-tool-kit'},
+                        {text: 'NRPSpredictor2', link: '/software/nrp-spredictor-2'},
+                        {text: 'MultiLoc2', link: '/software/multi-loc-2'},
+                        {text: 'SherLoc2', link: '/software/sher-loc-2'},
+                        {text: 'YLoc', link: '/software/y-loc'},
+                    ]
+                }
+            ],
         }
     }
 });
