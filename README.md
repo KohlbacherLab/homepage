@@ -16,9 +16,8 @@ on [GitHub Pages](https://KohlbacherLab.github.io/homepage/)
 git clone https://github.com/KohlbacherLab/homepage
 ```
 2. Install Node.js
-```shell
-https://nodejs.org/en/download/package-manager
-```
+
+[https://nodejs.org/en/download/package-manager](https://nodejs.org/en/download/package-manager)
 
 3. Install dependencies
 
