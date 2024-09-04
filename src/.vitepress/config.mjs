@@ -54,13 +54,36 @@ export default defineConfig({
             },
             {
                 text: 'Software',
-                link: '/software'
+                link: '/software',
+                activeMatch: '/software/',
             },
             {
                 text: 'Contact',
                 link: '/contact'
             },
         ],
-        sidebar: {}
+        sidebar: {
+            '/software': [
+                {
+                    text: 'Packages',
+                    items: [
+                        {text: 'OpenMS', link: '/software/open-ms'},
+                        {text: 'BALL', link: '/software/ball'},
+                        {text: 'Fred2', link: '/software/fred-2'},
+                        {text: 'XLEC', link: '/software/xlec'},
+                    ]
+                },
+                {
+                    text: 'Webserver',
+                    items: [
+                        {text: 'EpiToolKit', link: '/software/epi-tool-kit'},
+                        {text: 'NRPSpredictor2', link: '/software/nrp-spredictor-2'},
+                        {text: 'MultiLoc2', link: '/software/multi-loc-2'},
+                        {text: 'SherLoc2', link: '/software/sher-loc-2'},
+                        {text: 'YLoc', link: '/software/y-loc'},
+                    ]
+                }
+            ],
+        }
     }
 });
