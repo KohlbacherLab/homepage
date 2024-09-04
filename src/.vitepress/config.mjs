@@ -43,7 +43,14 @@ export default defineConfig({
             },
             {
                 text: 'Projects',
-                link: '/research'
+                items: [
+                    { text: 'de.NBI', link: '/projects/denbi' },
+                    { text: 'DIFUTURE', link: '/projects/difuture' },
+                    { text: 'EPIC-XS', link: '/projects/epic-xs' },
+                    { text: 'PersOns', link: '/projects/pers-ons' },
+                    { text: 'A4B', link: '/projects/a4b' },
+                    { text: 'Food Profiling', link: '/projects/food-profiling' },
+                ]
             },
             {
                 text: 'Software',
@@ -54,10 +61,6 @@ export default defineConfig({
                 link: '/contact'
             },
         ],
-        sidebar: {
-            '/projects': [
-                { text: 'Introduction', link: '/research/' }
-            ]
-        }
+        sidebar: {}
     }
 });
