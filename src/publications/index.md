@@ -2,7 +2,7 @@
 layout: page
 ---
 <script setup>
-import Publications from '../components/publications/KPublications.vue';
+import Publications from '../.vitepress/components/publications/KPublications.vue';
 </script>
 
 <Publications />

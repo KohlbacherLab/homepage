@@ -6,10 +6,10 @@ import { distinctArray } from 'smob';
 import {
     computed, defineComponent, ref,
 } from 'vue';
-import { ABI_TEAM_MEMBERS } from './abi';
+import { ABI_TEAM_MEMBERS } from './groups/abi';
 import { TeamGroup } from './constants';
 import KTeamSwitch from './KTeamSwitch.vue';
-import { TBI_TEAM_MEMBERS } from './tbi';
+import { TBI_TEAM_MEMBERS } from './groups/tbi';
 
 export default defineComponent({
     components: {

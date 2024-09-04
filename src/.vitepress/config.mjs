@@ -9,7 +9,7 @@ export default defineConfig({
         },
         logo: '/images/logo.png',
         socialLinks: [
-            { icon: 'github', link: 'https://github.com/KohlbacherLab/homepage' }
+             // { icon: 'github', link: 'https://github.com/KohlbacherLab/homepage' }
         ],
         footer: {
             copyright: 'Copyright © 2024-present KohlbacherLab'
@@ -21,44 +21,41 @@ export default defineConfig({
         siteTitle: false,
         nav: [
             {
-                text: 'Getting Started',
-                link: '/getting-started/',
-                activeMatch: '/getting-started/'
+                text: 'Home',
+                link: '/home/',
+                activeMatch: '/home/'
             },
             {
-                text: 'Teaching',
-                link: '/teaching'
+                text: 'Team',
+                link: '/team'
             },
             {
                 text: 'Research',
                 link: '/research'
             },
             {
+                text: 'Teaching',
+                link: '/teaching'
+            },
+            {
                 text: 'Publications',
                 link: '/publications'
             },
             {
-                text: 'About',
-                activeMatch: '/about/',
-                items: [
-                    { text: 'Contact', link: '/about/contact' },
-                    { text: 'Team', link: '/about/team' },
-                ]
-            }
+                text: 'Projects',
+                link: '/research'
+            },
+            {
+                text: 'Software',
+                link: '/software'
+            },
+            {
+                text: 'Contact',
+                link: '/contact'
+            },
         ],
         sidebar: {
-            '/getting-started': [
-                {
-                    text: 'Overview',
-                    items: [
-                        { text: 'Introduction', link: '/getting-started/' }
-                    ]
-                }
-            ],
-            '/teaching': [
-                { text: 'Introduction', link: '/teaching/' }
-            ],
-            '/research': [
+            '/projects': [
                 { text: 'Introduction', link: '/research/' }
             ]
         }

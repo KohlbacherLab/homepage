@@ -7,5 +7,5 @@ hero:
   actions:
     - theme: brand
       text: Getting Started
-      link: /getting-started/index
+      link: /home/index
 ---
