@@ -1,7 +1,7 @@
 <script lang="ts">
 import type { PropType } from 'vue';
 import { defineComponent } from 'vue';
-import { TeamGroup } from './constants';
+import { TeamGroup } from '../../domains/team/constants';
 
 export default defineComponent({
     props: {

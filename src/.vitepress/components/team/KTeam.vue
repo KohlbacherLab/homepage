@@ -6,10 +6,10 @@ import { distinctArray } from 'smob';
 import {
     computed, defineComponent, ref,
 } from 'vue';
-import { ABI_TEAM_MEMBERS } from './groups/abi';
-import { TeamGroup } from './constants';
+import {TeamMember} from "../../domains/team";
+import { TeamGroup } from '../../domains/team/constants';
 import KTeamSwitch from './KTeamSwitch.vue';
-import { TBI_TEAM_MEMBERS } from './groups/tbi';
+import {data} from "./team.data";
 
 export default defineComponent({
     components: {
@@ -25,19 +25,20 @@ export default defineComponent({
             group.value = value;
         };
 
+        const members : [string, TeamMember][] = data;
+
         const items = computed(() => {
-            if (group.value === TeamGroup.ABI) {
-                return ABI_TEAM_MEMBERS;
-            }
+            return members
+                .filter(([, member]) => {
+                    if(group.value === TeamGroup.ALL) {
+                        return true;
+                    }
 
-            if (group.value === TeamGroup.TBI) {
-                return TBI_TEAM_MEMBERS;
-            }
+                    const teams = Array.isArray(member.team) ? member.team : [member.team];
 
-            return distinctArray([
-                ...ABI_TEAM_MEMBERS,
-                ...TBI_TEAM_MEMBERS,
-            ]);
+                    return teams.indexOf(group.value) !== -1;
+                })
+                .map(([, member]) => member);
         });
 
         return {

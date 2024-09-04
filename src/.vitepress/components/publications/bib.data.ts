@@ -5,6 +5,6 @@ export { data };
 
 export default {
     async load() {
-        return fs.promises.readFile('writable/pub.bib', { encoding: 'utf8' });
+        return fs.promises.readFile('src/.vitepress/data/publications/pub.bib', { encoding: 'utf8' });
     },
 };
