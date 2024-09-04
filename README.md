@@ -15,14 +15,18 @@ on [GitHub Pages](https://KohlbacherLab.github.io/homepage/)
 ```shell
 git clone https://github.com/KohlbacherLab/homepage
 ```
+2. Install Node.js
+```shell
+https://nodejs.org/en/download/package-manager
+```
 
-2. Install dependencies
+3. Install dependencies
 
 ```shell
 npm i
 ```
 
-3. Run docs generation with Hot Module Replacement (HMR):
+4. Run docs generation with Hot Module Replacement (HMR):
 
 ```shell
 npm run dev
