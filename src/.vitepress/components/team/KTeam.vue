@@ -32,7 +32,7 @@ export default defineComponent({
             group.value = value;
         };
 
-        const members : [string, Person][] = data;
+        const members = data;
 
         const items = computed(() => {
             return members
