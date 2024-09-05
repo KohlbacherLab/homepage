@@ -1,11 +1,11 @@
-import {TeamGroup} from "../../domains/team/constants";
-import {defineTeamMember} from "../../domains/team/define";
+import {TeamID} from "../../domains/team/constants";
+import {definePerson} from "../../domains/person/define";
 
-export default defineTeamMember({
-    avatar: '/images/team/kohlbacher-oliver.png',
+export default definePerson({
+    avatar: '/images/persons/kohlbacher-oliver.png',
     name: 'Oliver Kohlbacher',
     title: 'Professor & Lead',
-    team: [TeamGroup.ABI, TeamGroup.TBI],
+    team: [TeamID.ABI, TeamID.TBI],
     links: [
         { icon: 'github', link: 'https://github.com/okohlbacher' },
     ],

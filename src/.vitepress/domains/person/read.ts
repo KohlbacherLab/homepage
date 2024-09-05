@@ -8,15 +8,15 @@
 import fs from "fs";
 import { load } from "locter";
 import path from "node:path";
-import {TEAM_DIRECTORY} from "../../constants";
-import { TeamMember } from "./types";
+import {PERSON_DIRECTORY} from "../../constants";
+import { Person } from "./types";
 
-export async function readTeamMembers() : Promise<[string, TeamMember][]> {
-    const files = await fs.promises.readdir(TEAM_DIRECTORY);
-    const members : [string, TeamMember][] =  [];
+export async function readPersons() : Promise<[string, Person][]> {
+    const files = await fs.promises.readdir(PERSON_DIRECTORY);
+    const members : [string, Person][] =  [];
     for(let i=0; i<files.length; i++) {
         const slug = files[i].replace(/\.[^/.]+$/, "");
-        let member = await readTeamMember(slug);
+        let member = await readPerson(slug);
 
         members.push([slug, member]);
     }
@@ -24,8 +24,8 @@ export async function readTeamMembers() : Promise<[string, TeamMember][]> {
     return members;
 }
 
-export async function readTeamMember(slug: string) : Promise<TeamMember> {
-    const filePath = path.join(TEAM_DIRECTORY, slug + '.mjs');
+export async function readPerson(slug: string) : Promise<Person> {
+    const filePath = path.join(PERSON_DIRECTORY, slug + '.mjs');
     let member = await load(filePath);
     if(member.default) {
         member = member.default;

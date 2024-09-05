@@ -6,4 +6,3 @@
  */
 
 export { default as KTeam } from './KTeam.vue';
-export { default as KTeamMember } from './KTeamMember.vue';

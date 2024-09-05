@@ -8,7 +8,7 @@
 import {DefaultTheme} from 'vitepress/types/default-theme';
 import {HistoryEntry} from "../history";
 
-export interface TeamMember extends DefaultTheme.TeamMember {
+export interface Person extends DefaultTheme.TeamMember {
     // Team (ABI, TBI, ...)
     team: string | string[],
 

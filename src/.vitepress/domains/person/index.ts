@@ -5,8 +5,6 @@
  * view the LICENSE file that was distributed with this source code.
  */
 
-import {TeamMember} from "./types";
-
-export function defineTeamMember(input: TeamMember) : TeamMember {
-    return input;
-}
+export * from './define';
+export * from './read';
+export * from './types';

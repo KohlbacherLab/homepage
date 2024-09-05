@@ -1,8 +1,8 @@
-import { readTeamMembers } from '../.vitepress/domains/team';
+import { readPersons } from '../.vitepress/domains';
 
 export default {
     async paths() {
-        const items = await readTeamMembers();
+        const items = await readPersons();
 
         const paths = [];
 

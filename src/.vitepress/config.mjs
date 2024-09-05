@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress';
-import {readTeamMembers} from "./domains";
+import {readPersons} from "./domains";
 
-const teamMembers = await readTeamMembers();
+const teamMembers = await readPersons();
 
 export default defineConfig({
     title: 'Kohlbacherlab',

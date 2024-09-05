@@ -6,5 +6,6 @@
  */
 
 export * from './history';
-export * from './publications';
+export * from './person';
+export * from './publication';
 export * from './team';

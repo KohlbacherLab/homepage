@@ -1,5 +1,5 @@
 <!--
-  - Copyright (c) 2024.
+  - Copyright (c) 2024-2024.
   - Author Peter Placzek (tada5hi)
   - For the full copyright and license information,
   - view the LICENSE file that was distributed with this source code.
@@ -7,10 +7,10 @@
 
 <script lang="ts">
 import {computed, defineComponent} from "vue";
-import {TeamMember} from "../../domains/team";
+import {Person} from "../../domains/person";
 import {KHistoryEntries} from "../history";
 
-import { data } from './team.data';
+import { data } from '../team/team.data';
 
 export default defineComponent({
     components: {KHistoryEntries},
@@ -20,8 +20,8 @@ export default defineComponent({
         }
     },
     setup(props) {
-        const members : [string, TeamMember][] = data;
-        const member = computed<TeamMember>(() => {
+        const members : [string, Person][] = data;
+        const member = computed<Person>(() => {
             const index = members.findIndex((member) => member[0] === props.slug);
             return members[index][1];
         });

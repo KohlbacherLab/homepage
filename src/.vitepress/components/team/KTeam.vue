@@ -13,8 +13,8 @@ import { distinctArray } from 'smob';
 import {
     computed, defineComponent, ref,
 } from 'vue';
-import {TeamMember} from "../../domains/team";
-import { TeamGroup } from '../../domains/team/constants';
+import {Person} from "../../domains/person";
+import { TeamID } from '../../domains/team/constants';
 import KTeamSwitch from './KTeamSwitch.vue';
 import {data} from "./team.data";
 
@@ -27,17 +27,17 @@ export default defineComponent({
         VPTeamPageSection,
     },
     setup() {
-        const group = ref(TeamGroup.ALL);
-        const handlePicked = (value: TeamGroup) => {
+        const group = ref(TeamID.ALL);
+        const handlePicked = (value: TeamID) => {
             group.value = value;
         };
 
-        const members : [string, TeamMember][] = data;
+        const members : [string, Person][] = data;
 
         const items = computed(() => {
             return members
                 .filter(([, member]) => {
-                    if(group.value === TeamGroup.ALL) {
+                    if(group.value === TeamID.ALL) {
                         return true;
                     }
 

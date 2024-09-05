@@ -5,6 +5,8 @@
  * view the LICENSE file that was distributed with this source code.
  */
 
-export * from './history';
-export * from './person';
-export * from './team';
+import {Person} from "./types";
+
+export function definePerson(input: Person) : Person {
+    return input;
+}

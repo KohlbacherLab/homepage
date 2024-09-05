@@ -8,25 +8,25 @@
 <script lang="ts">
 import type { PropType } from 'vue';
 import { defineComponent } from 'vue';
-import { TeamGroup } from '../../domains/team/constants';
+import { TeamID } from '../../domains/team/constants';
 
 export default defineComponent({
     props: {
         group: {
-            type: String as PropType<`${TeamGroup}`>,
+            type: String as PropType<`${TeamID}`>,
             required: true,
-            default: `${TeamGroup.ALL}`,
+            default: `${TeamID.ALL}`,
         },
     },
     emits: ['picked'],
     setup(props, { emit }) {
         const items = [
-            { id: TeamGroup.ALL, value: 'All' },
-            { id: TeamGroup.ABI, value: 'ABI' },
-            { id: TeamGroup.TBI, value: 'TBI' },
+            { id: TeamID.ALL, value: 'All' },
+            { id: TeamID.ABI, value: 'ABI' },
+            { id: TeamID.TBI, value: 'TBI' },
         ];
 
-        const pick = (value: TeamGroup) => {
+        const pick = (value: TeamID) => {
             emit('picked', value);
         };
 
