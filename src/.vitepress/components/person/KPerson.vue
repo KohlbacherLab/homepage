@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import {computed, defineComponent} from "vue";
-import {Person} from "../../domains/person";
+import {Person} from '../../domains';
 import {KHistoryEntries} from "../history";
 
 import { data } from '../team/team.data';
@@ -20,20 +20,20 @@ export default defineComponent({
         }
     },
     setup(props) {
-        const members : [string, Person][] = data;
-        const member = computed<Person>(() => {
-            const index = members.findIndex((member) => member[0] === props.slug);
-            return members[index][1];
+        const persons : [string, Person][] = data;
+        const entity = computed<Person>(() => {
+            const index = persons.findIndex((member) => member[0] === props.slug);
+            return persons[index][1];
         });
 
         const teams = computed(() => {
-            const items = Array.isArray(member.value.team) ?
-                member.value.team :
-                [member.value.team];
+            const items = Array.isArray(entity.value.team) ?
+                entity.value.team :
+                [entity.value.team];
         })
 
         return {
-            member,
+            entity,
             teams
         }
     }
@@ -43,25 +43,25 @@ export default defineComponent({
     <div class="d-flex flex-column gap-2">
         <div class="d-flex flex-row gap-3">
             <div>
-                <img class="avatar" :src="member.avatar" :alt="member.name" />
+                <img class="avatar" :src="entity.avatar" :alt="entity.name" />
             </div>
             <div>
-                <h1>{{ member.name }}</h1>
+                <h1>{{ entity.name }}</h1>
 
-                <strong>{{ member.title }}</strong>
+                <strong>{{ entity.title }}</strong>
             </div>
         </div>
-        <div v-if="member.education">
+        <div v-if="entity.education">
             <h3><i class="fas fa-graduation-cap"></i> Education</h3>
-            <KHistoryEntries :items="member.education" />
+            <KHistoryEntries :items="entity.education" />
         </div>
-        <div v-if="member.biography">
+        <div v-if="entity.biography">
             <h3><i class="fas fa-book"></i> Biography</h3>
-            <KHistoryEntries :items="member.biography" />
+            <KHistoryEntries :items="entity.biography" />
         </div>
-        <div v-if="member.awards">
+        <div v-if="entity.awards">
             <h3><i class="fas fa-trophy"></i> Awards</h3>
-            <KHistoryEntries :items="member.awards" />
+            <KHistoryEntries :items="entity.awards" />
         </div>
     </div>
 </template>
