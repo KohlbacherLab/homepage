@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress';
-import {readTeamMembers} from "./domains/team";
+import {readTeamMembers} from "./domains";
 
 const teamMembers = await readTeamMembers();
 

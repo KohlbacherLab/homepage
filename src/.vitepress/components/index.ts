@@ -5,13 +5,6 @@
  * view the LICENSE file that was distributed with this source code.
  */
 
-import { readTeamMembers } from "../../domains/team";
-
-declare const data: string;
-export { data };
-
-export default {
-    async load() {
-        return readTeamMembers();
-    },
-};
+export * from './history';
+export * from './publications';
+export * from './team';

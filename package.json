@@ -18,7 +18,9 @@
     "scripts": {
         "dev": "vitepress dev src --temp .temp",
         "build": "vitepress build src --temp .temp",
-        "help": "vitepress --help"
+        "help": "vitepress --help",
+        "lint": "eslint",
+        "lint:fix": "npm run lint -- --fix"
     },
     "keywords": [
         "docs"

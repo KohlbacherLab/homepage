@@ -5,7 +5,7 @@ doc
 node_modules
 .vscode
 .nyc_output
-writable/coverage
+src/.vitepress/data/coverage
 *.log
 npm-debug.log*
 .idea

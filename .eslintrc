@@ -21,10 +21,7 @@
         "@typescript-eslint/no-this-alias": "off"
     },
     "ignorePatterns": [
-        "**/dist/*",
-        "**/*.d.ts",
-        "**/writable/**",
-        "**/packages/frontend/ui/components/svg/**"
+        "**/dist/*"
     ],
     "globals": {
         "NodeJS": true
