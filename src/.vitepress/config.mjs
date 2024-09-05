@@ -1,4 +1,7 @@
 import { defineConfig } from 'vitepress';
+import {readTeamMembers} from "./domains";
+
+const teamMembers = await readTeamMembers();
 
 export default defineConfig({
     title: 'Kohlbacherlab',
@@ -63,6 +66,23 @@ export default defineConfig({
             },
         ],
         sidebar: {
+            '/team': [
+                {
+                    text: 'Overview',
+                    items: [
+                        { text: 'Active', link: '/team' },
+                    ]
+                },
+                {
+                    text: 'Members',
+                    items: teamMembers.map(([slug, member]) => {
+                        return {
+                            text: member.name,
+                            link: '/team/' + slug,
+                        }
+                    })
+                }
+            ],
             '/software': [
                 {
                     text: 'Packages',

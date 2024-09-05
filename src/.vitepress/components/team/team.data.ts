@@ -5,13 +5,13 @@
  * view the LICENSE file that was distributed with this source code.
  */
 
-import fs from 'fs';
+import { readTeamMembers } from "../../domains/team";
 
 declare const data: string;
 export { data };
 
 export default {
     async load() {
-        return fs.promises.readFile('src/.vitepress/data/publications/pub.bib', { encoding: 'utf8' });
+        return readTeamMembers();
     },
 };

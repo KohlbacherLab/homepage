@@ -6,7 +6,7 @@
         ],
         "module": "commonjs",
         "outDir": "dist",
-        "target": "ES2022",
+        "target": "ESNext",
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "strictPropertyInitialization": false
