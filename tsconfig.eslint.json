@@ -5,6 +5,6 @@
         "src/**/*.ts",
         "src/**/*.vue",
         "src/**/*.mjs",
-        "src/.vitepress/**/*.mjs"
+        "src/.vitepress/**/*.{ts,mjs,js}"
     ]
 }

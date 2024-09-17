@@ -1,5 +1,5 @@
-import {TeamID} from "../../domains/team/constants";
-import {definePerson} from "../../domains/person/define";
+import { TeamID } from "../../domains";
+import { definePerson } from "../../domains";
 
 export default definePerson({
     avatar: 'https://www.github.com/tada5hi.png',

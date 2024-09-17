@@ -32,6 +32,31 @@ npm run dev
 ```
 
 ## Recipes
+The following recipes are intended to help you create and manage certain content on the homepage.
+These recipes do not include concepts which are already covered in the [vitepress](https://vitepress.dev/) documentation.
 
 ### Person
+To create a new person, navigate to the `src/.vitepress/data/persons` folder using the console or the IDE.
+A file with the following schema should be created there: `<lastname>-<firstname>.mjs`.
+
+The content can be created in the same way as the existing persons.
+The content of such a file could look like this, for example:
+
+```ts
+import { TeamID } from "../../domains";
+import { definePerson } from "../../domains";
+
+export default definePerson({
+    avatar: 'https://www.github.com/tada5hi.png',
+    name: 'Peter Placzek',
+    team: TeamID.TBI,
+    title: 'Researcher',
+    links: [
+        { icon: 'github', link: 'https://github.com/tada5hi' },
+        { icon: 'twitter', link: 'https://twitter.com/tada5hi' },
+        { icon: 'linkedin', link: 'https://www.linkedin.com/in/peter-placzek-047a74210/' },
+    ],
+});
+```
+
 
