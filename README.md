@@ -59,4 +59,7 @@ export default definePerson({
 });
 ```
 
+Since the files are in the persons folder on build time and generally not included in the hot module replacement (hmr) process,
+the application must be restarted after changes have been made.
+
 
