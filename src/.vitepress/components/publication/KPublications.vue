@@ -74,13 +74,12 @@ export default defineComponent({
                 />
             </div>
         </div>
-        <div class="d-flex flex-column">
+        <div class="d-flex flex-column gap-3">
             <template
                 v-for="(entity, key) in items"
                 :key="key"
             >
                 <KPublication
-                    class="mb-3"
                     :entity="entity"
                 />
             </template>

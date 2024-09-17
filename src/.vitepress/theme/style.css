@@ -1,5 +1,5 @@
 .entity-card {
-    background-color: #ececec;
+    background-color: var(--vp-c-bg-soft);
     border: 1px solid #dedede;
     border-radius: 4px;
     box-shadow: 0 4px 25px 0 rgba(0, 0, 0, .1);
@@ -101,6 +101,7 @@
 
 .pagination .page-item .page-link {
     padding: 0.25rem 0.75rem;
+    background-color: var(--vp-c-bg-soft);
 }
 
 .pagination .page-item:first-child:not(:last-child) .page-link {
