@@ -46,15 +46,8 @@ export default defineConfig({
             },
             {
                 text: 'Projects',
-                items: [
-                    { text: 'de.NBI', link: '/projects/denbi' },
-                    { text: 'DIFUTURE', link: '/projects/difuture' },
-                    { text: 'EPIC-XS', link: '/projects/epic-xs' },
-                    { text: 'PersOns', link: '/projects/pers-ons' },
-                    { text: 'PrivateAIM', link: '/projects/privateaim' },
-                    { text: 'A4B', link: '/projects/a4b' },
-                    { text: 'Food Profiling', link: '/projects/food-profiling' },
-                ]
+                link: '/projects',
+                activeMatch: '/projects/'
             },
             {
                 text: 'Software',
@@ -105,6 +98,15 @@ export default defineConfig({
                     ]
                 }
             ],
+            '/projects': [
+                { text: 'de.NBI', link: '/projects/denbi' },
+                { text: 'DIFUTURE', link: '/projects/difuture' },
+                { text: 'EPIC-XS', link: '/projects/epic-xs' },
+                { text: 'PersOns', link: '/projects/pers-ons' },
+                { text: 'PrivateAIM', link: '/projects/privateaim' },
+                { text: 'A4B', link: '/projects/a4b' },
+                { text: 'Food Profiling', link: '/projects/food-profiling' },
+            ]
         }
     }
 });
