@@ -35,7 +35,7 @@
         "@types/node": "^22.0.2",
         "@vuecs/link": "^1.0.0",
         "@vuecs/preset-font-awesome": "^1.0.0",
-        "eslint": "^8.57.0",
+        "eslint": "^9.10.0",
         "rimraf": "^5.0.7",
         "typescript": "^5.5.4"
     },
