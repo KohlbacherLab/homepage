@@ -10,7 +10,10 @@ export default defineConfig({
         search: {
             provider: 'local'
         },
-        logo: '/images/logo.png',
+        logo: {
+            light: '/images/icon/logo_dark.png',
+            dark: '/images/icon/logo_light.png'
+        },
         socialLinks: [
              // { icon: 'github', link: 'https://github.com/KohlbacherLab/homepage' }
         ],
