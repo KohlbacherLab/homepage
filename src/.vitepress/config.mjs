@@ -10,7 +10,10 @@ export default defineConfig({
         search: {
             provider: 'local'
         },
-        logo: '/images/logo.png',
+        logo: {
+            light: '/images/icon/logo_dark.png',
+            dark: '/images/icon/logo_light.png'
+        },
         socialLinks: [
              // { icon: 'github', link: 'https://github.com/KohlbacherLab/homepage' }
         ],
@@ -103,6 +106,7 @@ export default defineConfig({
                 { text: 'DIFUTURE', link: '/projects/difuture' },
                 { text: 'EPIC-XS', link: '/projects/epic-xs' },
                 { text: 'PersOns', link: '/projects/pers-ons' },
+                { text: 'PrivateAIM', link: '/projects/privateaim' },
                 { text: 'A4B', link: '/projects/a4b' },
                 { text: 'Food Profiling', link: '/projects/food-profiling' },
             ]
