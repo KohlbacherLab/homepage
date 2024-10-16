@@ -10,9 +10,9 @@ export default definePerson({
     phone: "+49-7071-29-70457",
     avatar: '/images/persons/kohlbacher-oliver.png',
     name: 'Oliver Kohlbacher',
-    title: 'Professor & Lead',
+    role: 'Professor & Lead',
     team: [TeamID.ABI, TeamID.TBI],
-    links: [
+    socialLinks: [
         { icon: 'github', link: 'https://github.com/okohlbacher' },
     ],
     education: [

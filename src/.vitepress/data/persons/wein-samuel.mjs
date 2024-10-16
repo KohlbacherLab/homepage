@@ -5,6 +5,6 @@ export default definePerson({
     avatar: '/images/persons/wein-samuel.jpg',
     name: 'Samuel Wein',
     team: TeamID.ABI,
-    title: 'PostDoc',
-    links: [],
+    role: 'PostDoc',
+    socialLinks: [],
 });

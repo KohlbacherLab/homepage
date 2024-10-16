@@ -42,7 +42,7 @@ export default defineComponent({
             <div>
                 <h1>{{ entity.name }}</h1>
 
-                <strong>{{ entity.title }}</strong>
+                <strong>{{ entity.role }}</strong>
 
                 <KPersonContact :entity="entity" />
             </div>

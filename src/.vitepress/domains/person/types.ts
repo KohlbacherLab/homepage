@@ -5,10 +5,23 @@
  * view the LICENSE file that was distributed with this source code.
  */
 
-import {DefaultTheme} from 'vitepress/types/default-theme';
-import {HistoryEntry} from "../history";
+import { DefaultTheme } from 'vitepress/types/default-theme';
+import { HistoryEntry } from "../history";
 
-export interface Person extends DefaultTheme.TeamMember {
+export interface Person {
+    name: string,
+
+    /**
+     * e.g. Researcher, Professor, PhD, ...
+     */
+    role?: string,
+
+    avatar?: string,
+
+    description?: string,
+
+    socialLinks?: DefaultTheme.SocialLink[],
+
     address?: string | string[],
 
     email?: string,

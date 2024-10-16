@@ -5,6 +5,6 @@ export default definePerson({
     avatar: '/images/persons/default.png',
     name: 'Arslan Siraj',
     team: TeamID.ABI,
-    title: 'PhD Student',
-    links: [],
+    role: 'PhD Student',
+    socialLinks: [],
 });

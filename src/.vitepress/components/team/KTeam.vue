@@ -9,17 +9,17 @@
 import {
     VPTeamMembers, VPTeamPage, VPTeamPageSection, VPTeamPageTitle,
 } from 'vitepress/theme';
-import { distinctArray } from 'smob';
 import {
     computed, defineComponent, ref,
 } from 'vue';
-import {Person} from "../../domains/person";
 import { TeamID } from '../../domains/team/constants';
+import KTeamMembers from "./KTeamMembers.vue";
 import KTeamSwitch from './KTeamSwitch.vue';
 import {data} from "./team.data";
 
 export default defineComponent({
     components: {
+        KTeamMembers,
         KTeamSwitch,
         VPTeamPage,
         VPTeamPageTitle,
@@ -44,8 +44,7 @@ export default defineComponent({
                     const teams = Array.isArray(member.team) ? member.team : [member.team];
 
                     return teams.indexOf(group.value) !== -1;
-                })
-                .map(([, member]) => member);
+                });
         });
 
         return {
@@ -73,8 +72,7 @@ export default defineComponent({
         <VPTeamPage>
             <VPTeamPageSection>
                 <template #members>
-                    <VPTeamMembers
-                        size="small"
+                    <KTeamMembers
                         :members="items"
                     />
                 </template>

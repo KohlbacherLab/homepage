@@ -5,8 +5,8 @@ export default definePerson({
     avatar: 'https://www.github.com/lucienclin.png',
     name: 'Lucien Clin',
     team: TeamID.TBI,
-    title: 'Researcher',
-    links: [
+    role: 'Researcher',
+    socialLinks: [
         { icon: 'github', link: 'https://github.com/lucienclin' },
     ],
 });

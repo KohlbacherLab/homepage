@@ -4,7 +4,7 @@ import { definePerson } from "../..";
 export default definePerson({
     avatar: '/images/persons/jeong-kyowon.png',
     name: 'Kyowon Jeong',
-    title: 'Postdoc',
+    role: 'Postdoc',
     team: TeamID.ABI,
-    links: [],
+    socialLinks: [],
 });

@@ -5,5 +5,5 @@ export default definePerson({
     avatar: '/images/persons/dijkstra-tjeerd.png',
     name: 'Tjeerd Dijkstra',
     team: TeamID.ABI,
-    title: 'Postdoc',
+    role: 'Postdoc',
 });

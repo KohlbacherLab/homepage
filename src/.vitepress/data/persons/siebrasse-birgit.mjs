@@ -5,5 +5,5 @@ export default definePerson({
     avatar: '/images/persons/siebrasse-birgit.png',
     name: 'Siebrasse Birgit',
     team: TeamID.TBI,
-    title: 'Projektkoordinatorin BWHC & DNPM',
+    role: 'Projektkoordinatorin BWHC & DNPM',
 });

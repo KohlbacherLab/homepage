@@ -4,7 +4,7 @@ import { definePerson } from "../..";
 export default definePerson({
     avatar: '/images/persons/nagel-andreas.png',
     name: 'Andreas Nagel',
-    title: 'Systemadministrator',
+    role: 'Systemadministrator',
     team: TeamID.ABI,
-    links: [],
+    socialLinks: [],
 });

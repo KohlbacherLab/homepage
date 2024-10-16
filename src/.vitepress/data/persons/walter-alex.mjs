@@ -5,6 +5,6 @@ export default definePerson({
     avatar: '/images/persons/default.png',
     name: 'Alex Walter',
     team: TeamID.ABI,
-    title: 'Postdoc',
-    links: [],
+    role: 'Postdoc',
+    socialLinks: [],
 });
