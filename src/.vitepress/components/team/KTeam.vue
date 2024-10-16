@@ -57,12 +57,7 @@ export default defineComponent({
 });
 </script>
 <template>
-    <div class="container mb-3">
-        <VPTeamPageTitle>
-            <template #title>
-                Team
-            </template>
-        </VPTeamPageTitle>
+    <div class="VPDoc mb-3">
         <div class="mt-3 m-auto">
             <KTeamSwitch
                 :group="group"
