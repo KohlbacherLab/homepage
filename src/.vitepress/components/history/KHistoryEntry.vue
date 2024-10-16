@@ -40,14 +40,19 @@ export default defineComponent({
 })
 </script>
 <template>
-    <div class="d-flex flex-row gap-2">
-        <div>
+    <div class="d-flex flex-row gap-2 history-entry">
+        <div class="history-entry-year">
             <strong>
                 {{ startYear }} <template v-if="endYear">- {{ endYear }}</template>
             </strong>
         </div>
-        <div>
+        <div class="history-entry-text">
             {{ item.value }}
         </div>
     </div>
 </template>
+<style scoped>
+.history-entry-year {
+    min-width: 100px;
+}
+</style>

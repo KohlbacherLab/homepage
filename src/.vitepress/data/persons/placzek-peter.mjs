@@ -1,5 +1,5 @@
-import { TeamID } from "../../domains";
-import { definePerson } from "../../domains";
+import { TeamID } from "../..";
+import { definePerson } from "../..";
 
 export default definePerson({
     avatar: 'https://www.github.com/tada5hi.png',
@@ -10,6 +10,11 @@ export default definePerson({
         { icon: 'github', link: 'https://github.com/tada5hi' },
         { icon: 'twitter', link: 'https://twitter.com/tada5hi' },
         { icon: 'linkedin', link: 'https://www.linkedin.com/in/peter-placzek-047a74210/' },
+    ],
+    interests: [
+        'Personalized Medicine',
+        'Privacy',
+        'Security'
     ],
     education: [
         {

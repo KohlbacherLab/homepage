@@ -1,5 +1,5 @@
-import {TeamID} from "../../domains/team/constants";
-import {definePerson} from "../../domains/person/define";
+import { TeamID } from "../..";
+import { definePerson } from "../..";
 
 export default definePerson({
     avatar: '/images/persons/sueruen-bilge.png',

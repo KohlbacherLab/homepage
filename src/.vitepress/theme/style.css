@@ -111,3 +111,11 @@
 .pagination .page-item:last-child:not(:first-child) .page-link {
     border-radius: 0px 6px 6px 0px;
 }
+
+.person-item-list {
+    margin: 0 !important;
+}
+
+.person-item-list li {
+    margin-top: 0 !important;
+}

@@ -1,7 +1,13 @@
-import {TeamID} from "../../domains/team/constants";
-import {definePerson} from "../../domains/person/define";
+import { TeamID } from "../..";
+import { definePerson } from "../..";
 
 export default definePerson({
+    address: [
+        "Room C317",
+        "Sand 14, Tübingen, Germany 72076"
+    ],
+    email: "oliver.kohlbacher@uni-tuebingen.de",
+    phone: "+49-7071-29-70457",
     avatar: '/images/persons/kohlbacher-oliver.png',
     name: 'Oliver Kohlbacher',
     title: 'Professor & Lead',

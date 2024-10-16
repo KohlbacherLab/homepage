@@ -20,7 +20,7 @@ export default defineComponent({
 })
 </script>
 <template>
-    <div class="d-flex flex-column">
+    <div>
         <template v-for="(entity, key) in items" :key="key">
             <KHistoryEntry :item="entity" />
         </template>

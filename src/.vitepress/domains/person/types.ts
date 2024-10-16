@@ -9,12 +9,22 @@ import {DefaultTheme} from 'vitepress/types/default-theme';
 import {HistoryEntry} from "../history";
 
 export interface Person extends DefaultTheme.TeamMember {
-    // Team (ABI, TBI, ...)
+    address?: string | string[],
+
+    email?: string,
+
+    phone?: string | string[],
+
+    /**
+     * enum: TBI | ABI
+     */
     team: string | string[],
 
     education?: HistoryEntry[],
 
     awards?: HistoryEntry[],
 
-    biography?: HistoryEntry[]
+    biography?: HistoryEntry[],
+
+    interests?: string[]
 }

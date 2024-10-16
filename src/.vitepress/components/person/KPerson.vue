@@ -8,12 +8,13 @@
 <script lang="ts">
 import {computed, defineComponent} from "vue";
 import {Person} from '../../domains';
-import {KHistoryEntries} from "../history";
+import { KHistoryEntries } from "../history";
 
 import { data } from '../team/team.data';
+import KPersonContact from "./KPersonContact.vue";
 
 export default defineComponent({
-    components: {KHistoryEntries},
+    components: {KPersonContact, KHistoryEntries },
     props: {
         slug: {
             type: String,
@@ -26,21 +27,14 @@ export default defineComponent({
             return persons[index][1];
         });
 
-        const teams = computed(() => {
-            const items = Array.isArray(entity.value.team) ?
-                entity.value.team :
-                [entity.value.team];
-        })
-
         return {
-            entity,
-            teams
+            entity
         }
     }
 })
 </script>
 <template>
-    <div class="d-flex flex-column gap-2">
+    <div class="d-flex flex-column gap-2 profile-page">
         <div class="d-flex flex-row gap-3">
             <div>
                 <img class="avatar" :src="entity.avatar" :alt="entity.name" />
@@ -49,7 +43,20 @@ export default defineComponent({
                 <h1>{{ entity.name }}</h1>
 
                 <strong>{{ entity.title }}</strong>
+
+                <KPersonContact :entity="entity" />
             </div>
+        </div>
+
+
+        <div v-if="entity.interests">
+            <h3><i class="fa fa-lightbulb"></i> Interests</h3>
+
+            <ul class="list-unstyled person-item-list">
+                <li v-for="(item, key) in entity.interests">
+                    {{ item }}
+                </li>
+            </ul>
         </div>
         <div v-if="entity.education">
             <h3><i class="fas fa-graduation-cap"></i> Education</h3>
@@ -66,14 +73,15 @@ export default defineComponent({
     </div>
 </template>
 <style scoped>
-h3 {
-    margin: 1rem 0 0;
-}
-
-.avatar {
+.profile-page .avatar {
     border-radius: 50%;
     object-fit: cover;
-    height: 6em;
-    width: 6em;
+    height: 10em;
+    width: 10em;
+}
+
+.profile-page h3 {
+    margin-bottom: 0.5rem;
+    color: var(--vp-c-indigo-3);
 }
 </style>
