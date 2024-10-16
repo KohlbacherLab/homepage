@@ -2,9 +2,12 @@ import { TeamID } from "../..";
 import { definePerson } from "../..";
 
 export default definePerson({
-    avatar: 'https://www.github.com/tada5hi.png',
     name: 'Peter Placzek',
-    team: TeamID.TBI,
+    avatar: 'https://www.github.com/tada5hi.png',
+    email: 'peter.placzek@medizin.uni-tuebingen.de',
+    phone: '+49 7071 29 84309',
+    address: 'Schaffhausenstraße 77,Raum 2.105,Tübingen,72072',
+    team: 'tbi',
     role: 'Researcher',
     socialLinks: [
         { icon: 'github', link: 'https://github.com/tada5hi' },
@@ -34,4 +37,22 @@ export default definePerson({
             value: 'Eberhard Karls University Tübingen'
         },
     ],
+    biography: [
+        {
+            year: [2015, 2016],
+            value: '"Bundesfreiwilligendienst (BFD)" at IT-Schulungszentrum (SZ), University Hospital (UKT)'
+        },
+        {
+            year: [2016, 2024],
+            value: 'IT-Administrator at IT-Schulungszentrum (SZ), University Hospital (UKT)',
+        },
+        {
+            year: [2019, 2021],
+            value: 'Tutor Software-Engineering Project at the University (UNI)',
+        },
+        {
+            year: 2020,
+            value: 'Researcher at the Institute for Translational Bioinformatics (TBI) at the University of Tübingen'
+        }
+    ]
 });

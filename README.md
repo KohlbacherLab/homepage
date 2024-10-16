@@ -40,26 +40,141 @@ To create a new person, navigate to the `src/.vitepress/data/persons` folder usi
 A file with the following schema should be created there: `<lastname>-<firstname>.mjs`.
 
 The content can be created in the same way as the existing persons.
-The content of such a file could look like this, for example:
+
+The content of such a file must follow a specific [structure](#structure) and 
+could look like this, for example:
 
 ```ts
-import { TeamID } from "../../domains";
-import { definePerson } from "../../domains";
+import { definePerson } from "../..";
 
 export default definePerson({
-    avatar: 'https://www.github.com/tada5hi.png',
     name: 'Peter Placzek',
-    team: TeamID.TBI,
-    title: 'Researcher',
-    links: [
+    avatar: 'https://www.github.com/tada5hi.png',
+    email: 'peter.placzek@medizin.uni-tuebingen.de',
+    phone: '+49 7071 29 84309',
+    address: 'Schaffhausenstraße 77,Raum 2.105,Tübingen,72072',
+    team: 'tbi',
+    role: 'Researcher',
+    socialLinks: [
         { icon: 'github', link: 'https://github.com/tada5hi' },
         { icon: 'twitter', link: 'https://twitter.com/tada5hi' },
         { icon: 'linkedin', link: 'https://www.linkedin.com/in/peter-placzek-047a74210/' },
     ],
+    interests: [
+        'Personalized Medicine',
+        'Privacy',
+        'Security'
+    ],
+    education: [
+        {
+            year: [2002, 2006],
+            value: 'Grundschule Pliezhausen'
+        },
+        // ...
+    ]
 });
 ```
 
 Since the files are in the persons folder on build time and generally not included in the hot module replacement (hmr) process,
 the application must be restarted after changes have been made.
 
+#### Structure
 
+**Person**
+
+```ts
+
+export interface Person {
+    /**
+     * The full name of the person.
+     * e.g., Oliver Kohlbacher
+     */
+    name: string,
+
+    /**
+     * The professional role of the person.
+     * e.g., Researcher, Professor, PhD, etc.
+     */
+    role?: string,
+
+    /**
+     * URL to the person's avatar image. 
+     * Can be absolute or relative.
+     */
+    avatar?: string,
+
+    /**
+     * A short description or bio of the person.
+     */
+    description?: string,
+
+    /**
+     * A list of the person's social media links.
+     */
+    socialLinks?: DefaultTheme.SocialLink[],
+
+    /**
+     * The person's address.
+     * Can be a string or an array of strings for multiple addresses.
+     */
+    address?: string | string[],
+
+    /**
+     * The person's email address.
+     */
+    email?: string,
+
+    /**
+     * The person's phone number.
+     * Can be a string or an array for multiple phone numbers.
+     */
+    phone?: string | string[],
+
+    /**
+     * The team or teams the person is part of.
+     * e.g., "tbi" or "abi"
+     */
+    team: string | string[],
+
+    /**
+     * The person's educational background, 
+     * represented as an array of history entries.
+     */
+    education?: HistoryEntry[],
+
+    /**
+     * Awards or recognitions the person has received, 
+     * represented as an array of history entries.
+     */
+    awards?: HistoryEntry[],
+
+    /**
+     * A detailed biography of the person,
+     * represented as an array of history entries.
+     */
+    biography?: HistoryEntry[],
+
+    /**
+     * A list of the person's professional
+     * or personal interests.
+     */
+    interests?: string[]
+}
+```
+
+**HistoryEntry**
+```ts
+type HistoryEntry = {
+    year: number | [number, number],
+    value: string
+}
+```
+
+**SocialLink**
+```ts
+ type SocialLink = {
+    icon: string,
+    link: string,
+    ariaLabel?: strin
+}
+```
