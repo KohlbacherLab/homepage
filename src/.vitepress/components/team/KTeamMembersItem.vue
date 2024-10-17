@@ -39,11 +39,13 @@ export default defineComponent({
     >
         <div class="profile">
             <div>
-                <img
-                    class="avatar"
-                    :src="member.avatar"
-                    :alt="member.name"
-                >
+                <VPLink :href="'/team/' + slug">
+                    <img
+                        class="avatar"
+                        :src="member.avatar"
+                        :alt="member.name"
+                    >
+                </VPLink>
             </div>
             <div class="data">
                 <h1 class="name">
