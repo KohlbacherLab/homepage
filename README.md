@@ -2,15 +2,27 @@
 
 [![Deploy](https://github.com/KohlbacherLab/homepage/actions/workflows/main.yml/badge.svg)](https://github.com/KohlbacherLab/homepage/actions/workflows/main.yml)
 
+**Table of Contents**
+
+- [Getting Started](#getting-started)
+- [Recipes](#recipes)
+- [Contributing](#contributing)
+- [License](#license)
+
 This repository contains a homepage based on [vitepress](https://vitepress.dev/) and customized
 with [Vue.js](https://vuejs.org/).
 
 The homepage is hosted
 on [GitHub Pages](https://KohlbacherLab.github.io/homepage/)
 
-## Contributing
+## Getting Started
 
-1. Clone Repository
+> 📝 **Notice**
+> 
+> Please read the [Contributing](#contributing) section and the associated instructions
+> before you start making changes to the source code.
+
+1. Fork/Clone the Repository
 
 ```shell
 git clone https://github.com/KohlbacherLab/homepage
@@ -36,8 +48,9 @@ The following recipes are intended to help you create and manage certain content
 These recipes do not include concepts which are already covered in the [vitepress](https://vitepress.dev/) documentation.
 
 ### Person
-To create a new person, navigate to the `src/.vitepress/data/persons` folder using the console or the IDE.
-A file with the following schema should be created there: `<lastname>-<firstname>.mjs`.
+To create a new person, navigate to the `src/.vitepress/data/persons` folder using the console or 
+the IDE (e.g. WebStorm or VSCode).
+A file with the following pattern should be created there: `<lastname>-<firstname>.mjs`.
 
 The content can be created in the same way as the existing persons.
 
@@ -49,12 +62,12 @@ import { definePerson } from "../..";
 
 export default definePerson({
     name: 'Peter Placzek',
+    role: 'Researcher',
     avatar: 'https://www.github.com/tada5hi.png',
     email: 'peter.placzek@medizin.uni-tuebingen.de',
     phone: '+49 7071 29 84309',
-    address: 'Schaffhausenstraße 77,Raum 2.105,Tübingen,72072',
+    address: 'Schaffhausenstraße 77, Raum 2.105, Tübingen, 72072',
     team: 'tbi',
-    role: 'Researcher',
     socialLinks: [
         { icon: 'github', link: 'https://github.com/tada5hi' },
         { icon: 'twitter', link: 'https://twitter.com/tada5hi' },
@@ -71,6 +84,18 @@ export default definePerson({
             value: 'Grundschule Pliezhausen'
         },
         // ...
+    ],
+    awards: [
+        {
+            year: 2020,
+            value: 'xxx'
+        }
+    ],
+    biography: [
+        { 
+            year: [2000, 2005],
+            value: 'xxx'
+        }
     ]
 });
 ```
@@ -178,3 +203,15 @@ type HistoryEntry = {
     ariaLabel?: strin
 }
 ```
+
+## Contributing
+
+Before starting to work on a pull request, it is important to review the guidelines for
+[contributing](./CONTRIBUTING.md) and the [code of conduct](./CODE_OF_CONDUCT.md).
+These guidelines will help to ensure that contributions are made effectively and are accepted.
+
+## License
+
+Made with 💚
+
+Published under [MIT](./LICENSE).
