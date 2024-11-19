@@ -1,3 +1,8 @@
+body {
+    background: inherit;
+    color: inherit;
+}
+
 a {
     color: inherit;
     text-decoration: none;
@@ -37,7 +42,7 @@ p {
 
 .entity-card {
     background-color: var(--vp-c-bg-soft);
-    border: 1px solid #dedede;
+    border: 1px solid var(--vp-c-bg-soft);
     border-radius: 4px;
     box-shadow: 0 4px 25px 0 rgba(0, 0, 0, .1);
     padding: .5rem 1rem;
@@ -47,8 +52,13 @@ p {
 }
 
 .entity-card.active {
-    background-color: #413d3d !important;
+    background-color: #413d3d;
     color: #eee;
+}
+
+.dark .entity-card.active {
+    background-color: var(--vp-c-brand-1);
+    border-color: var(--vp-c-brand-2);
 }
 
 .alert {

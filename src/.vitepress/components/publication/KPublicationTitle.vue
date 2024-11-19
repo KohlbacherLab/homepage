@@ -39,7 +39,7 @@ export default defineComponent({
 });
 </script>
 <template>
-    <h5 class="text-dark">
+    <h5>
         <i class="fa-solid fa-book me-2" />
         <template v-if="pmID">
             <VCLink
