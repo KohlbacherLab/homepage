@@ -1,6 +1,5 @@
 import { defineConfig } from 'vitepress';
 import { readPersons } from "./domains";
-import {fileURLToPath} from "node:url";
 
 const teamMembers = await readPersons();
 

@@ -1,17 +1,17 @@
 <!--
-  - Copyright (c) 2024.
+  - Copyright (c) 2024-2024.
   - Author Peter Placzek (tada5hi)
   - For the full copyright and license information,
   - view the LICENSE file that was distributed with this source code.
   -->
 <script lang="ts">
-import { Person } from "../../domains";
 import {computed, defineComponent, PropType} from "vue";
+import {ContactDetails} from "./types";
 
 export default defineComponent({
     props: {
         entity: {
-            type: Object as PropType<Person>,
+            type: Object as PropType<ContactDetails>,
             required: true
         }
     },
@@ -42,12 +42,20 @@ export default defineComponent({
         <div v-if="entity.phone">
             <i class="fa fa-phone pe-1"></i> {{ entity.phone}}
         </div>
+        <div v-if="entity.fax">
+            <i class="fa fa-fax pe-1"></i> {{ entity.fax}}
+        </div>
         <div v-if="addresses && addresses.length > 0">
-            <i class="fa fa-map-marker-alt pe-2"></i>
-
-            <template v-for="item in addresses">
-                {{ item }}
-            </template>
+            <div class="d-flex flex-row gap-1">
+                <div>
+                    <i class="fa fa-map-marker-alt pe-2"></i>
+                </div>
+                <div>
+                    <template v-for="item in addresses">
+                        {{ item }}<br />
+                    </template>
+                </div>
+            </div>
         </div>
     </div>
 </template>
