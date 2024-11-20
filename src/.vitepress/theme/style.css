@@ -1,6 +1,48 @@
+body {
+    background: inherit;
+    color: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+p {
+    margin-bottom: inherit;
+}
+
+.page-title {
+    padding: 48px 32px;
+    text-align: center;
+}
+@media (min-width: 768px) {
+    .page-title {
+        padding: 64px 48px 48px;
+    }
+}
+@media (min-width: 960px) {
+    .page-title {
+        padding: 80px 64px 48px;
+    }
+}
+.page-title .page-title-text {
+    letter-spacing: 0;
+    line-height: 44px;
+    font-size: 36px;
+    font-weight: 500;
+}
+@media (min-width: 768px) {
+    .page-title .page-title-text {
+        letter-spacing: -0.5px;
+        line-height: 56px;
+        font-size: 48px;
+    }
+}
+
 .entity-card {
     background-color: var(--vp-c-bg-soft);
-    border: 1px solid #dedede;
+    border: 1px solid var(--vp-c-bg-soft);
     border-radius: 4px;
     box-shadow: 0 4px 25px 0 rgba(0, 0, 0, .1);
     padding: .5rem 1rem;
@@ -10,8 +52,13 @@
 }
 
 .entity-card.active {
-    background-color: #413d3d !important;
+    background-color: #413d3d;
     color: #eee;
+}
+
+.dark .entity-card.active {
+    background-color: var(--vp-c-brand-1);
+    border-color: var(--vp-c-brand-2);
 }
 
 .alert {

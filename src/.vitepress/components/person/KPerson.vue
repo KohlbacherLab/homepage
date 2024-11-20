@@ -11,7 +11,7 @@ import {Person} from '../../domains';
 import { KHistoryEntries } from "../history";
 
 import { data } from '../team/team.data';
-import KPersonContact from "./KPersonContact.vue";
+import KPersonContact from "../utilities/contact/KContactDetails.vue";
 
 export default defineComponent({
     components: {KPersonContact, KHistoryEntries },

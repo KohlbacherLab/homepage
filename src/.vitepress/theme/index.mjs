@@ -1,5 +1,6 @@
 import DefaultTheme from 'vitepress/theme'
 import '../../../node_modules/bootstrap/dist/css/bootstrap-grid.css';
+import '../../../node_modules/bootstrap/dist/css/bootstrap-reboot.css';
 import '../../../node_modules/bootstrap/dist/css/bootstrap-utilities.css';
 import '../../../node_modules/@fortawesome/fontawesome-free/css/all.css';
 import '../../../node_modules/@vuecs/pagination/dist/index.css';
