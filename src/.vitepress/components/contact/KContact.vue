@@ -116,7 +116,7 @@ export default defineComponent({
 
                         <h4>How To Find Us</h4>
                         <div class="row">
-                            <div class="col-md-8 col-4">
+                            <div class="col-md-8 col-12">
                                 <p class="mb-1">
                                     The Applied Bioinformatics Group is located on the 2nd floor (3rd floor for Americans)
                                     of the orange building at Sand 14.
