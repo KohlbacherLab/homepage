@@ -10,7 +10,7 @@ import { VCPagination } from '@vuecs/pagination';
 import { parse } from '@retorquere/bibtex-parser';
 import { computed, defineComponent, ref } from 'vue';
 import { VPTeamPageTitle } from 'vitepress/theme';
-import { data } from './bib.data';
+import { data } from '../../data/bib.data';
 import KPublication from './KPublication.vue';
 
 export default defineComponent({

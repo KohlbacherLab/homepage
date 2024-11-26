@@ -15,7 +15,7 @@ import {
 import { TeamID } from '../../domains/team/constants';
 import KTeamMembers from "./KTeamMembers.vue";
 import KTeamSwitch from './KTeamSwitch.vue';
-import {data} from "./team.data";
+import {data} from "../../data/team.data";
 
 export default defineComponent({
     components: {

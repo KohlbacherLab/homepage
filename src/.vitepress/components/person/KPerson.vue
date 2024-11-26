@@ -6,11 +6,11 @@
   -->
 
 <script lang="ts">
-import {computed, defineComponent} from "vue";
-import {Person} from '../../domains';
+import { computed, defineComponent } from "vue";
+import { Person } from '../../domains';
 import { KHistoryEntries } from "../history";
 
-import { data } from '../team/team.data';
+import { data } from '../../data/team.data';
 import KPersonContact from "../utilities/contact/KContactDetails.vue";
 
 export default defineComponent({
@@ -21,10 +21,9 @@ export default defineComponent({
         }
     },
     setup(props) {
-        const persons : [string, Person][] = data;
         const entity = computed<Person>(() => {
-            const index = persons.findIndex((member) => member[0] === props.slug);
-            return persons[index][1];
+            const index = data.findIndex((member) => member[0] === props.slug);
+            return data[index][1];
         });
 
         return {

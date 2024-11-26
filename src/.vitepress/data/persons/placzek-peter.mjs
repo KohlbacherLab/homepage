@@ -21,7 +21,7 @@ export default definePerson({
     ],
     education: [
         {
-            year: [2002, 2006],
+            year: [2002, 2008],
             value: 'Grundschule Pliezhausen'
         },
         {
