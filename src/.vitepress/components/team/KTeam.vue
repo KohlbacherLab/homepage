@@ -53,27 +53,23 @@ export default defineComponent({
 });
 </script>
 <template>
-    <div class="mb-3">
+    <div class="container">
         <div class="page-title">
             <h1 class="page-title-text">
                 <i class="fas fa-user-friends" /> Team
             </h1>
         </div>
-        <div class="mt-3 m-auto">
-            <KTeamSwitch
-                :group="group"
-                @picked="handlePicked"
+        <div class="d-flex flex-column gap-2">
+            <div>
+                <KTeamSwitch
+                    :group="group"
+                    @picked="handlePicked"
+                />
+            </div>
+            <KTeamMembers
+                :members="items"
             />
         </div>
-        <VPTeamPage>
-            <VPTeamPageSection>
-                <template #members>
-                    <KTeamMembers
-                        :members="items"
-                    />
-                </template>
-            </VPTeamPageSection>
-        </VPTeamPage>
     </div>
 </template>
 <style scoped>

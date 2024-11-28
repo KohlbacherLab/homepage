@@ -39,7 +39,7 @@ export default defineComponent({
     >
         <div class="profile">
             <div>
-                <VPLink :href="'/team/' + slug">
+                <VPLink :href="'/persons/' + slug">
                     <img
                         class="avatar"
                         :src="member.avatar"
@@ -49,7 +49,7 @@ export default defineComponent({
             </div>
             <div class="data">
                 <h1 class="name">
-                    <VPLink :href="'/team/' + slug">
+                    <VPLink :href="'/persons/' + slug">
                         {{ member.name }}
                     </VPLink>
                 </h1>

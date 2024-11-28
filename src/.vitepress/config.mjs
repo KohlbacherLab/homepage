@@ -1,5 +1,12 @@
+/*
+ * Copyright (c) 2024.
+ * Author Peter Placzek (tada5hi)
+ * For the full copyright and license information,
+ * view the LICENSE file that was distributed with this source code.
+ */
+
 import { defineConfig } from 'vitepress';
-import { readPersons } from './domains';
+import {readPersons} from "./domains";
 
 const teamMembers = await readPersons();
 
@@ -28,12 +35,12 @@ export default defineConfig({
         nav: [
             {
                 text: 'Home',
-                link: '/home/',
-                activeMatch: '/home/',
+                link: '/'
             },
             {
                 text: 'Team',
                 link: '/team',
+                activeMatch: '/team'
             },
             {
                 text: 'Research',
@@ -63,21 +70,10 @@ export default defineConfig({
             },
         ],
         sidebar: {
-            '/team': [
-                {
-                    text: 'Overview',
-                    items: [
-                        { text: 'Active', link: '/team' },
-                    ],
-                },
-                {
-                    text: 'Members',
-                    items: teamMembers.map(([slug, member]) => ({
+            '/persons': teamMembers.map(([slug, member]) => ({
                         text: member.name,
-                        link: `/team/${slug}`,
+                        link: `/persons/${slug}`,
                     })),
-                },
-            ],
             '/software': [
                 {
                     text: 'Packages',
