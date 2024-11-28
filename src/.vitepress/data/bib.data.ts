@@ -6,7 +6,7 @@
  */
 
 import fs from 'fs';
-import path from "node:path";
+import path from 'node:path';
 
 declare const data: string;
 export { data };
@@ -15,7 +15,7 @@ export default {
     async load() {
         return fs.promises.readFile(
             path.join(import.meta.dirname, './publications/pub.bib'),
-            { encoding: 'utf8' }
+            { encoding: 'utf8' },
         );
     },
 };

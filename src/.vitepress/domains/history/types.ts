@@ -8,4 +8,4 @@
 export type HistoryEntry = {
     year: number | [number, number],
     value: string
-}
+};

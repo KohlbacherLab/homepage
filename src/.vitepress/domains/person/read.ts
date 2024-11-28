@@ -5,11 +5,21 @@
  * view the LICENSE file that was distributed with this source code.
  */
 
-import fs from "fs";
-import { load } from "locter";
-import path from "node:path";
-import {PERSON_DIRECTORY} from "../../constants";
-import { Person } from "./types";
+import fs from 'fs';
+import { load } from 'locter';
+import path from 'node:path';
+import { PERSON_DIRECTORY } from '../../constants';
+import type { Person } from './types';
+
+export async function readPerson(slug: string) : Promise<Person> {
+    const filePath = path.join(PERSON_DIRECTORY, `${slug}.mjs`);
+    let member = await load(filePath);
+    if (member.default) {
+        member = member.default;
+    }
+
+    return member;
+}
 
 export async function readPersons(input?: string[]) : Promise<[string, Person][]> {
     let files: string[] = [];
@@ -19,23 +29,13 @@ export async function readPersons(input?: string[]) : Promise<[string, Person][]
         files = await fs.promises.readdir(PERSON_DIRECTORY);
     }
 
-    const members : [string, Person][] =  [];
-    for(let i=0; i<files.length; i++) {
-        const slug = files[i].replace(/\.[^/.]+$/, "");
-        let member = await readPerson(slug);
+    const members : [string, Person][] = [];
+    for (let i = 0; i < files.length; i++) {
+        const slug = files[i].replace(/\.[^/.]+$/, '');
+        const member = await readPerson(slug);
 
         members.push([slug, member]);
     }
 
     return members;
-}
-
-export async function readPerson(slug: string) : Promise<Person> {
-    const filePath = path.join(PERSON_DIRECTORY, slug + '.mjs');
-    let member = await load(filePath);
-    if(member.default) {
-        member = member.default;
-    }
-
-    return member;
 }

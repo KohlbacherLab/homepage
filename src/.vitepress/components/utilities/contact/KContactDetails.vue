@@ -5,54 +5,58 @@
   - view the LICENSE file that was distributed with this source code.
   -->
 <script lang="ts">
-import {computed, defineComponent, PropType} from "vue";
-import {ContactDetails} from "./types";
+import type { PropType } from 'vue';
+import { computed, defineComponent } from 'vue';
+import type { ContactDetails } from './types';
 
 export default defineComponent({
     props: {
         entity: {
             type: Object as PropType<ContactDetails>,
-            required: true
-        }
+            required: true,
+        },
     },
     setup(props) {
         const addresses = computed(() => {
-            if(!props.entity.address) {
+            if (!props.entity.address) {
                 return [];
             }
 
-            if(typeof props.entity.address === 'string') {
-                return [props.entity.address]
+            if (typeof props.entity.address === 'string') {
+                return [props.entity.address];
             }
 
             return props.entity.address;
-        })
+        });
 
         return {
-            addresses
-        }
-    }
-})
+            addresses,
+        };
+    },
+});
 </script>
 <template>
     <div class="d-flex flex-column">
         <div v-if="entity.email">
-            <i class="fa fa-envelope pe-1"></i> {{ entity.email }}
+            <i class="fa fa-envelope pe-1" /> {{ entity.email }}
         </div>
         <div v-if="entity.phone">
-            <i class="fa fa-phone pe-1"></i> {{ entity.phone}}
+            <i class="fa fa-phone pe-1" /> {{ entity.phone }}
         </div>
         <div v-if="entity.fax">
-            <i class="fa fa-fax pe-1"></i> {{ entity.fax}}
+            <i class="fa fa-fax pe-1" /> {{ entity.fax }}
         </div>
         <div v-if="addresses && addresses.length > 0">
             <div class="d-flex flex-row gap-1">
                 <div>
-                    <i class="fa fa-map-marker-alt pe-2"></i>
+                    <i class="fa fa-map-marker-alt pe-2" />
                 </div>
                 <div>
-                    <template v-for="item in addresses">
-                        {{ item }}<br />
+                    <template
+                        v-for="(item, index) in addresses"
+                        :key="index"
+                    >
+                        {{ item }}<br>
                     </template>
                 </div>
             </div>

@@ -53,5 +53,7 @@ export default defineComponent({
 });
 </script>
 <template>
-    {{ data }}
+    <span>
+        {{ data }}
+    </span>
 </template>

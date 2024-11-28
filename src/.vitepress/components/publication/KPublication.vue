@@ -35,11 +35,14 @@ export default defineComponent({
                 <h6>Author(s)</h6>
 
                 <div class="d-flex flex-row flex-wrap gap-1">
-                    <template v-for="(author, authorIndex) in entity.fields.author">
+                    <template
+                        v-for="(author, authorIndex) in entity.fields.author"
+                        :key="authorIndex"
+                    >
                         <div>
                             {{ author.firstName }}.
                             {{ author.lastName }}
-                            <template v-if="authorIndex < entity.fields.author.length">
+                            <template v-if="authorIndex < (entity.fields?.author?.length ?? 0)">
                                 -
                             </template>
                         </div>

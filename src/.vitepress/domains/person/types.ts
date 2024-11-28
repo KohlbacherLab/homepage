@@ -5,13 +5,13 @@
  * view the LICENSE file that was distributed with this source code.
  */
 
-import type { HistoryEntry } from "../history";
+import type { HistoryEntry } from '../history';
 
 export type SocialLink = {
     icon: string,
     link: string,
-    ariaLabel?: strin
-}
+    ariaLabel?: string
+};
 
 export interface Person {
     /**

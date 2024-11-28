@@ -9,4 +9,4 @@ export type SwitchElement = {
     id: string,
     value: string,
     [key: string]: any
-}
+};

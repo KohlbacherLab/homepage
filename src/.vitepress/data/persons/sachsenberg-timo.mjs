@@ -1,13 +1,12 @@
-import { TeamID } from "../..";
-import { definePerson } from "../..";
+import { TeamID, definePerson } from '../..';
 
 export default definePerson({
     address: [
-        "Room C322",
-        "Sand 14, Tübingen, Germany 72076"
+        'Room C322',
+        'Sand 14, Tübingen, Germany 72076',
     ],
-    email: "timo.sachsenberg@uni-tuebingen.de",
-    phone: "+49-7071-29-70461",
+    email: 'timo.sachsenberg@uni-tuebingen.de',
+    phone: '+49-7071-29-70461',
     avatar: '/images/persons/sachsenberg-timo.png',
     name: 'Timo Sachsenberg',
     team: TeamID.ABI,

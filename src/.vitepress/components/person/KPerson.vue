@@ -6,19 +6,19 @@
   -->
 
 <script lang="ts">
-import { computed, defineComponent } from "vue";
-import { Person } from '../../domains';
-import { KHistoryEntries } from "../history";
+import { computed, defineComponent } from 'vue';
+import type { Person } from '../../domains';
+import { KHistoryEntries } from '../history';
 
 import { data } from '../../data/team.data';
-import KPersonContact from "../utilities/contact/KContactDetails.vue";
+import KPersonContact from '../utilities/contact/KContactDetails.vue';
 
 export default defineComponent({
-    components: {KPersonContact, KHistoryEntries },
+    components: { KPersonContact, KHistoryEntries },
     props: {
         slug: {
             type: String,
-        }
+        },
     },
     setup(props) {
         const entity = computed<Person>(() => {
@@ -27,16 +27,20 @@ export default defineComponent({
         });
 
         return {
-            entity
-        }
-    }
-})
+            entity,
+        };
+    },
+});
 </script>
 <template>
     <div class="d-flex flex-column gap-2 profile-page">
         <div class="d-flex flex-row gap-3">
             <div>
-                <img class="avatar" :src="entity.avatar" :alt="entity.name" />
+                <img
+                    class="avatar"
+                    :src="entity.avatar"
+                    :alt="entity.name"
+                >
             </div>
             <div>
                 <h1>{{ entity.name }}</h1>
@@ -47,26 +51,28 @@ export default defineComponent({
             </div>
         </div>
 
-
         <div v-if="entity.interests">
-            <h3><i class="fa fa-lightbulb"></i> Interests</h3>
+            <h3><i class="fa fa-lightbulb" /> Interests</h3>
 
             <ul class="list-unstyled person-item-list">
-                <li v-for="(item, key) in entity.interests">
+                <li
+                    v-for="(item, key) in entity.interests"
+                    :key="key"
+                >
                     {{ item }}
                 </li>
             </ul>
         </div>
         <div v-if="entity.education">
-            <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+            <h3><i class="fas fa-graduation-cap" /> Education</h3>
             <KHistoryEntries :items="entity.education" />
         </div>
         <div v-if="entity.biography">
-            <h3><i class="fas fa-book"></i> Biography</h3>
+            <h3><i class="fas fa-book" /> Biography</h3>
             <KHistoryEntries :items="entity.biography" />
         </div>
         <div v-if="entity.awards">
-            <h3><i class="fas fa-trophy"></i> Awards</h3>
+            <h3><i class="fas fa-trophy" /> Awards</h3>
             <KHistoryEntries :items="entity.awards" />
         </div>
     </div>
