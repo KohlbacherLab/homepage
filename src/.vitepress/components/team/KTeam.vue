@@ -7,9 +7,6 @@
 
 <script lang="ts">
 import {
-    VPTeamPage, VPTeamPageSection,
-} from 'vitepress/theme';
-import {
     computed, defineComponent, ref,
 } from 'vue';
 import { TeamID } from '../../domains/team/constants';
@@ -21,8 +18,6 @@ export default defineComponent({
     components: {
         KTeamMembers,
         KTeamSwitch,
-        VPTeamPage,
-        VPTeamPageSection,
     },
     setup() {
         const group = ref(TeamID.ALL);

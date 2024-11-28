@@ -6,7 +6,7 @@
  */
 
 import { defineConfig } from 'vitepress';
-import {readPersons} from "./domains";
+import { readPersons } from './domains';
 
 const teamMembers = await readPersons();
 
@@ -35,12 +35,12 @@ export default defineConfig({
         nav: [
             {
                 text: 'Home',
-                link: '/'
+                link: '/',
             },
             {
                 text: 'Team',
                 link: '/team',
-                activeMatch: '/team'
+                activeMatch: '/team',
             },
             {
                 text: 'Research',
@@ -71,9 +71,9 @@ export default defineConfig({
         ],
         sidebar: {
             '/persons': teamMembers.map(([slug, member]) => ({
-                        text: member.name,
-                        link: `/persons/${slug}`,
-                    })),
+                text: member.name,
+                link: `/persons/${slug}`,
+            })),
             '/software': [
                 {
                     text: 'Packages',

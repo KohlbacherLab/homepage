@@ -53,6 +53,6 @@
         "vitepress": "^1.5.0"
     },
     "lint-staged": {
-        "*.{mjs,ts,.vue}": "npm run lint:fix"
+        "*.{mjs,ts,.vue}": "eslint --fix --ext .ts,.mjs,.vue"
     }
 }

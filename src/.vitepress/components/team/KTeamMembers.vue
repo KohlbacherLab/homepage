@@ -5,21 +5,35 @@
   - view the LICENSE file that was distributed with this source code.
   -->
 
-<script setup lang="ts">
-import { computed } from 'vue';
+<script lang="ts">
+import type { PropType } from 'vue';
+import { computed, defineComponent } from 'vue';
 import type { Person } from '../../domains';
 import VPTeamMembersItem from './KTeamMembersItem.vue';
 
-interface Props {
-    size?: 'small' | 'medium'
-    members: [string, Person][]
-}
+export default defineComponent({
+    components: {
+        VPTeamMembersItem,
+    },
+    props: {
+        size: {
+            type: String as PropType<'small' | 'medium'>,
+            default: 'medium',
+        },
+        members: {
+            type: Array as PropType<[string, Person][]>,
+            required: true,
+        },
+    },
+    setup(props) {
+        const classes = computed(() => [props.size, `count-${props.members.length}`]);
 
-const props = withDefaults(defineProps<Props>(), {
-    size: 'medium',
+        return {
+            classes,
+        };
+    },
 });
 
-const classes = computed(() => [props.size, `count-${props.members.length}`]);
 </script>
 
 <template>
