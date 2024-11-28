@@ -6,9 +6,9 @@
   -->
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import {Person} from "../../domains";
-import VPTeamMembersItem from './KTeamMembersItem.vue'
+import { computed } from 'vue';
+import type { Person } from '../../domains';
+import VPTeamMembersItem from './KTeamMembersItem.vue';
 
 interface Props {
     size?: 'small' | 'medium'
@@ -16,17 +16,28 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-    size: 'medium'
-})
+    size: 'medium',
+});
 
-const classes = computed(() => [props.size, `count-${props.members.length}`])
+const classes = computed(() => [props.size, `count-${props.members.length}`]);
 </script>
 
 <template>
-    <div class="VPTeamMembers" :class="classes">
+    <div
+        class="VPTeamMembers"
+        :class="classes"
+    >
         <div class="container">
-            <div v-for="[slug, member] in members" :key="member.name" class="item">
-                <VPTeamMembersItem :size="size" :member="member" :slug="slug" />
+            <div
+                v-for="[slug, member] in members"
+                :key="member.name"
+                class="item"
+            >
+                <VPTeamMembersItem
+                    :size="size"
+                    :member="member"
+                    :slug="slug"
+                />
             </div>
         </div>
     </div>

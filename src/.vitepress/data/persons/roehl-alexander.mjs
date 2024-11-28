@@ -1,5 +1,4 @@
-import { TeamID } from "../..";
-import { definePerson } from "../..";
+import { TeamID, definePerson } from '../..';
 
 export default definePerson({
     name: 'Alexander Röhl',
@@ -12,25 +11,25 @@ export default definePerson({
     socialLinks: [
         {
             icon: 'github',
-            link: 'https://github.com/Nightknight3000'
+            link: 'https://github.com/Nightknight3000',
         },
     ],
     interests: [
         'Data Privacy and Security',
         'Medical Data Analytics',
         'Machine Learning',
-        'Structural Bioinformatics'
+        'Structural Bioinformatics',
     ],
     education: [
         {
             year: 0,
-            value: 'tba'
-        }
+            value: 'tba',
+        },
     ],
-    publications : [
+    publications: [
         {
             year: 2024,
-            value: 'Röhl, A., Netz, E., Kohlbacher, O., & Elhabashy, H. (2024). CLAUDIO: automated structural analysis of cross-linking data. Bioinformatics, 40(4), btae146.'
-        }
-    ]
+            value: 'Röhl, A., Netz, E., Kohlbacher, O., & Elhabashy, H. (2024). CLAUDIO: automated structural analysis of cross-linking data. Bioinformatics, 40(4), btae146.',
+        },
+    ],
 });

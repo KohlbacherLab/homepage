@@ -1,12 +1,10 @@
-import { TeamID } from "../..";
-import { definePerson } from "../..";
+import { TeamID, definePerson } from '../..';
 
 export default definePerson({
     avatar: '/images/persons/wein-samuel.jpg',
     name: 'Samuel Wein',
     team: TeamID.ABI,
     role: 'PostDoc',
-    socialLinks: [],
     email: 'samuel[dot]wein[at]uni-tuebingen.de',
     socialLinks: [
         { icon: 'github', link: 'https://github.com/poshul' },
@@ -17,18 +15,18 @@ export default definePerson({
     education: [
         {
             year: [2006, 2010],
-            value: 'Earlham College: BA (Biology/Computer Science) '
+            value: 'Earlham College: BA (Biology/Computer Science) ',
         },
         {
             year: [2012, 2019],
-            value: 'University of Pennsylvania:  PhD (Biochemistry and Molecular Biophysics) '
-        }
+            value: 'University of Pennsylvania:  PhD (Biochemistry and Molecular Biophysics) ',
+        },
     ],
     interests: [
         'Open science',
         'Open source software',
         'Oligonucleotide mass spectrometry',
         'Backpacking',
-        'Photography'
-    ]
+        'Photography',
+    ],
 });

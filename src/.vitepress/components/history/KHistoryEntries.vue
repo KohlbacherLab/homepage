@@ -5,9 +5,10 @@
   - view the LICENSE file that was distributed with this source code.
   -->
 <script lang="ts">
-import {defineComponent, PropType} from "vue";
-import {HistoryEntry} from "../../domains";
-import KHistoryEntry from "./KHistoryEntry.vue";
+import type { PropType } from 'vue';
+import { defineComponent } from 'vue';
+import type { HistoryEntry } from '../../domains';
+import KHistoryEntry from './KHistoryEntry.vue';
 
 export default defineComponent({
     components: { KHistoryEntry },
@@ -15,13 +16,16 @@ export default defineComponent({
         items: {
             type: Array as PropType<HistoryEntry[]>,
             required: true,
-        }
-    }
-})
+        },
+    },
+});
 </script>
 <template>
     <div>
-        <template v-for="(entity, key) in items" :key="key">
+        <template
+            v-for="(entity, key) in items"
+            :key="key"
+        >
             <KHistoryEntry :item="entity" />
         </template>
     </div>

@@ -1,5 +1,4 @@
-import { TeamID } from "../..";
-import { definePerson } from "../..";
+import { TeamID, definePerson } from '../..';
 
 export default definePerson({
     name: 'Peter Placzek',
@@ -7,7 +6,7 @@ export default definePerson({
     email: 'peter.placzek@medizin.uni-tuebingen.de',
     phone: '+49 7071 29 84309',
     address: 'Schaffhausenstraße 77,Raum 2.105,Tübingen,72072',
-    team: 'tbi',
+    team: TeamID.TBI,
     role: 'Researcher',
     socialLinks: [
         { icon: 'github', link: 'https://github.com/tada5hi' },
@@ -17,30 +16,30 @@ export default definePerson({
     interests: [
         'Personalized Medicine',
         'Privacy',
-        'Security'
+        'Security',
     ],
     education: [
         {
-            year: [2002, 2008],
-            value: 'Grundschule Pliezhausen'
+            year: [2002, 2006],
+            value: 'Grundschule Pliezhausen',
         },
         {
             year: [2007, 2015],
-            value: 'Gymansium Bildungszentrum Reutlingen-Nord'
+            value: 'Gymansium Bildungszentrum Reutlingen-Nord',
         },
         {
             year: [2016, 2020],
-            value: 'Eberhard Karls University Tübingen'
+            value: 'Eberhard Karls University Tübingen',
         },
         {
             year: [2020, 2024],
-            value: 'Eberhard Karls University Tübingen'
+            value: 'Eberhard Karls University Tübingen',
         },
     ],
     biography: [
         {
             year: [2015, 2016],
-            value: '"Bundesfreiwilligendienst (BFD)" at IT-Schulungszentrum (SZ), University Hospital (UKT)'
+            value: '"Bundesfreiwilligendienst (BFD)" at IT-Schulungszentrum (SZ), University Hospital (UKT)',
         },
         {
             year: [2016, 2024],
@@ -52,7 +51,7 @@ export default definePerson({
         },
         {
             year: 2020,
-            value: 'Researcher at the Institute for Translational Bioinformatics (TBI) at the University of Tübingen'
-        }
-    ]
+            value: 'Researcher at the Institute for Translational Bioinformatics (TBI) at the University of Tübingen',
+        },
+    ],
 });

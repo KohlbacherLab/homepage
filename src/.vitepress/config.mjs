@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress';
-import { readPersons } from "./domains";
+import { readPersons } from './domains';
 
 const teamMembers = await readPersons();
 
@@ -8,49 +8,49 @@ export default defineConfig({
     base: '/',
     themeConfig: {
         search: {
-            provider: 'local'
+            provider: 'local',
         },
         logo: {
             light: '/images/icon/logo_dark.png',
-            dark: '/images/icon/logo_light.png'
+            dark: '/images/icon/logo_light.png',
         },
         socialLinks: [
-             // { icon: 'github', link: 'https://github.com/KohlbacherLab/homepage' }
+            // { icon: 'github', link: 'https://github.com/KohlbacherLab/homepage' }
         ],
         footer: {
-            copyright: 'Copyright © 2024-present KohlbacherLab'
+            copyright: 'Copyright © 2024-present KohlbacherLab',
         },
         editLink: {
             pattern: 'https://github.com/KohlbacherLab/homepage/edit/master/src/:path',
-            text: 'Edit this page on GitHub'
+            text: 'Edit this page on GitHub',
         },
         siteTitle: false,
         nav: [
             {
                 text: 'Home',
                 link: '/home/',
-                activeMatch: '/home/'
+                activeMatch: '/home/',
             },
             {
                 text: 'Team',
-                link: '/team'
+                link: '/team',
             },
             {
                 text: 'Research',
-                link: '/research'
+                link: '/research',
             },
             {
                 text: 'Teaching',
-                link: '/teaching'
+                link: '/teaching',
             },
             {
                 text: 'Publications',
-                link: '/publications'
+                link: '/publications',
             },
             {
                 text: 'Projects',
                 link: '/projects',
-                activeMatch: '/projects/'
+                activeMatch: '/projects/',
             },
             {
                 text: 'Software',
@@ -59,7 +59,7 @@ export default defineConfig({
             },
             {
                 text: 'Contact',
-                link: '/contact'
+                link: '/contact',
             },
         ],
         sidebar: {
@@ -68,38 +68,36 @@ export default defineConfig({
                     text: 'Overview',
                     items: [
                         { text: 'Active', link: '/team' },
-                    ]
+                    ],
                 },
                 {
                     text: 'Members',
-                    items: teamMembers.map(([slug, member]) => {
-                        return {
-                            text: member.name,
-                            link: '/team/' + slug,
-                        }
-                    })
-                }
+                    items: teamMembers.map(([slug, member]) => ({
+                        text: member.name,
+                        link: `/team/${slug}`,
+                    })),
+                },
             ],
             '/software': [
                 {
                     text: 'Packages',
                     items: [
-                        {text: 'OpenMS', link: '/software/open-ms'},
-                        {text: 'BALL', link: '/software/ball'},
-                        {text: 'Fred2', link: '/software/fred-2'},
-                        {text: 'XLEC', link: '/software/xlec'},
-                    ]
+                        { text: 'OpenMS', link: '/software/open-ms' },
+                        { text: 'BALL', link: '/software/ball' },
+                        { text: 'Fred2', link: '/software/fred-2' },
+                        { text: 'XLEC', link: '/software/xlec' },
+                    ],
                 },
                 {
                     text: 'Webserver',
                     items: [
-                        {text: 'EpiToolKit', link: '/software/epi-tool-kit'},
-                        {text: 'NRPSpredictor2', link: '/software/nrp-spredictor-2'},
-                        {text: 'MultiLoc2', link: '/software/multi-loc-2'},
-                        {text: 'SherLoc2', link: '/software/sher-loc-2'},
-                        {text: 'YLoc', link: '/software/y-loc'},
-                    ]
-                }
+                        { text: 'EpiToolKit', link: '/software/epi-tool-kit' },
+                        { text: 'NRPSpredictor2', link: '/software/nrp-spredictor-2' },
+                        { text: 'MultiLoc2', link: '/software/multi-loc-2' },
+                        { text: 'SherLoc2', link: '/software/sher-loc-2' },
+                        { text: 'YLoc', link: '/software/y-loc' },
+                    ],
+                },
             ],
             '/projects': [
                 { text: 'de.NBI', link: '/projects/denbi' },
@@ -109,7 +107,7 @@ export default defineConfig({
                 { text: 'PrivateAIM', link: '/projects/privateaim' },
                 { text: 'A4B', link: '/projects/a4b' },
                 { text: 'Food Profiling', link: '/projects/food-profiling' },
-            ]
-        }
-    }
+            ],
+        },
+    },
 });

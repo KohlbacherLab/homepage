@@ -5,19 +5,20 @@
   - view the LICENSE file that was distributed with this source code.
   -->
 <script lang="ts">
-import {computed, defineComponent, PropType} from "vue";
-import {HistoryEntry} from "../../domains";
+import type { PropType } from 'vue';
+import { computed, defineComponent } from 'vue';
+import type { HistoryEntry } from '../../domains';
 
 export default defineComponent({
     props: {
         item: {
             type: Object as PropType<HistoryEntry>,
             required: true,
-        }
+        },
     },
     setup(props) {
         const startYear = computed(() => {
-            if(typeof props.item.year === 'number') {
+            if (typeof props.item.year === 'number') {
                 return props.item.year;
             }
 
@@ -25,8 +26,8 @@ export default defineComponent({
         });
 
         const endYear = computed(() => {
-            if(typeof props.item.year === 'number') {
-                return undefined
+            if (typeof props.item.year === 'number') {
+                return undefined;
             }
 
             return props.item.year[1];
@@ -34,10 +35,10 @@ export default defineComponent({
 
         return {
             startYear,
-            endYear
-        }
-    }
-})
+            endYear,
+        };
+    },
+});
 </script>
 <template>
     <div class="d-flex flex-row gap-2 history-entry">
