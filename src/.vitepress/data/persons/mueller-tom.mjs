@@ -34,11 +34,11 @@ export default definePerson({
     publications: [
         {
             year: 2024,
-            value: 'Weinhold, H., Peterson, L., Müller, T. D., Wekenborg, K., Grünewald, M., & Rarey, J. (2024). Improving the Accuracy of Activity Coefficient Estimation in Specialty Chemistry Using Local Estimators. Industrial & Engineering Chemistry Research, 63(17), 7902–7914. https://doi.org/10.1021/acs.iecr.4c00372'
+            value: 'Weinhold, H., Peterson, L., Müller, T. D., Wekenborg, K., Grünewald, M., & Rarey, J. (2024). Improving the Accuracy of Activity Coefficient Estimation in Specialty Chemistry Using Local Estimators. Industrial & Engineering Chemistry Research, 63(17), 7902–7914. https://doi.org/10.1021/acs.iecr.4c00372',
         },
         {
             year: 2023,
-            value: 'Kunzmann, P., Müller, T. D., Greil, M., Krumbach, J. H., Anter, J. M., Bauer, D., Islam, F., & Hamacher, K. (2023). Biotite: New tools for a versatile Python bioinformatics library. BMC Bioinformatics, 24(1), 236. https://doi.org/10.1186/s12859-023-05345-6'
+            value: 'Kunzmann, P., Müller, T. D., Greil, M., Krumbach, J. H., Anter, J. M., Bauer, D., Islam, F., & Hamacher, K. (2023). Biotite: New tools for a versatile Python bioinformatics library. BMC Bioinformatics, 24(1), 236. https://doi.org/10.1186/s12859-023-05345-6',
         },
     ],
 
