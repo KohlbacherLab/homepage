@@ -22,7 +22,7 @@
         "dev": "vitepress dev src --temp .temp",
         "build": "vitepress build src --temp .temp",
         "help": "vitepress --help",
-        "lint": "eslint --ext .ts,.mjs,.vue ./src/.vitepress",
+        "lint": "eslint --ext .ts,.mjs,.vue .",
         "lint:fix": "npm run lint -- --fix",
         "prepare": "husky"
     },
@@ -53,6 +53,6 @@
         "vitepress": "^1.5.0"
     },
     "lint-staged": {
-        "*.{mjs,ts,.vue}": "eslint --fix --ext .ts,.mjs,.vue"
+        "*.{mjs,ts,vue}": "eslint --fix"
     }
 }
