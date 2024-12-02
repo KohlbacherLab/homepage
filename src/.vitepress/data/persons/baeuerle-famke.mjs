@@ -19,7 +19,7 @@ export default definePerson({
         'Nextflow and nf-core',
         'Reproducible Research',
         'Cancer Genomics',
-        'Personalized Medicine'
+        'Personalized Medicine',
     ],
 
     education: [
