@@ -18,8 +18,8 @@ export default definePerson({
         'Free and Open Source Software',
         'Nextflow and nf-core',
         'Reproducible Research',
-        'Cancer genomics',
-        'Personalized medicine'
+        'Cancer Genomics',
+        'Personalized Medicine'
     ],
 
     education: [
