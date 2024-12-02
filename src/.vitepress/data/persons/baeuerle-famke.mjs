@@ -11,7 +11,7 @@ export default definePerson({
     socialLinks: [
         { icon: 'github', link: 'https://github.com/famosab' },
         { icon: 'linkedin', link: 'https://www.linkedin.com/in/famke-b%C3%A4uerle-b2123a198/' },
-        { icon: 'orchid', link: 'https://orcid.org/0000-0003-1387-0251' },
+        { icon: 'orcid', link: 'https://orcid.org/0000-0003-1387-0251' },
     ],
 
     interests: [
