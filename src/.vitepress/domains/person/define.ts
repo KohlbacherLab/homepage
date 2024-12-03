@@ -5,7 +5,7 @@
  * view the LICENSE file that was distributed with this source code.
  */
 
-import {Person} from "./types";
+import type { Person } from './types';
 
 export function definePerson(input: Person) : Person {
     return input;

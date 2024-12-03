@@ -1,5 +1,4 @@
-import { TeamID } from "../..";
-import { definePerson } from "../..";
+import { TeamID, definePerson } from '../..';
 
 export default definePerson({
     avatar: '/images/persons/default.png',

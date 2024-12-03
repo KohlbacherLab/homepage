@@ -9,13 +9,11 @@
 import { VCPagination } from '@vuecs/pagination';
 import { parse } from '@retorquere/bibtex-parser';
 import { computed, defineComponent, ref } from 'vue';
-import { VPTeamPageTitle } from 'vitepress/theme';
-import { data } from './bib.data';
+import { data } from '../../data/bib.data';
 import KPublication from './KPublication.vue';
 
 export default defineComponent({
     components: {
-        VPTeamPageTitle,
         KPublication,
         VCPagination,
     },
@@ -39,7 +37,7 @@ export default defineComponent({
             return entries.slice(startIndex, endIndex);
         });
 
-        const load = (pagination) => {
+        const load = (pagination: { limit: number, offset: number}) => {
             limit.value = pagination.limit;
             offset.value = pagination.offset;
         };
@@ -58,7 +56,9 @@ export default defineComponent({
 <template>
     <div class="container">
         <div class="page-title">
-            <h1 class="page-title-text"><i class="fas fa-book"></i> Publications</h1>
+            <h1 class="page-title-text">
+                <i class="fas fa-book" /> Publications
+            </h1>
         </div>
         <div class="d-flex flex-column gap-2">
             <div class="d-flex">

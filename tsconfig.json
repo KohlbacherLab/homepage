@@ -2,17 +2,17 @@
     "extends": "@tada5hi/tsconfig",
     "compilerOptions": {
         "lib": [
+            "DOM",
             "ESNext"
         ],
-        "module": "commonjs",
+        "module": "ESNext",
         "outDir": "dist",
         "target": "ESNext",
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "strictPropertyInitialization": false
+        "baseUrl": "."
     },
     "include": [
-        "src/**/*.ts"
+        "src/**/*",
+        "src/.vitepress/**/*"
     ],
     "exclude": [
         "node_modules/**/*"

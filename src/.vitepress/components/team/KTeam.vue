@@ -7,24 +7,17 @@
 
 <script lang="ts">
 import {
-    VPTeamMembers, VPTeamPage, VPTeamPageSection, VPTeamPageTitle,
-} from 'vitepress/theme';
-import {
     computed, defineComponent, ref,
 } from 'vue';
 import { TeamID } from '../../domains/team/constants';
-import KTeamMembers from "./KTeamMembers.vue";
+import KTeamMembers from './KTeamMembers.vue';
 import KTeamSwitch from './KTeamSwitch.vue';
-import {data} from "./team.data";
+import { data } from '../../data/team.data';
 
 export default defineComponent({
     components: {
         KTeamMembers,
         KTeamSwitch,
-        VPTeamPage,
-        VPTeamPageTitle,
-        VPTeamMembers,
-        VPTeamPageSection,
     },
     setup() {
         const group = ref(TeamID.ALL);
@@ -34,18 +27,16 @@ export default defineComponent({
 
         const members = data;
 
-        const items = computed(() => {
-            return members
-                .filter(([, member]) => {
-                    if(group.value === TeamID.ALL) {
-                        return true;
-                    }
+        const items = computed(() => members
+            .filter(([, member]) => {
+                if (group.value === TeamID.ALL) {
+                    return true;
+                }
 
-                    const teams = Array.isArray(member.team) ? member.team : [member.team];
+                const teams = Array.isArray(member.team) ? member.team : [member.team];
 
-                    return teams.indexOf(group.value) !== -1;
-                });
-        });
+                return teams.indexOf(group.value) !== -1;
+            }));
 
         return {
             group,
@@ -57,25 +48,23 @@ export default defineComponent({
 });
 </script>
 <template>
-    <div class="mb-3">
+    <div class="container">
         <div class="page-title">
-            <h1 class="page-title-text"><i class="fas fa-user-friends"></i> Team</h1>
+            <h1 class="page-title-text">
+                <i class="fas fa-user-friends" /> Team
+            </h1>
         </div>
-        <div class="mt-3 m-auto">
-            <KTeamSwitch
-                :group="group"
-                @picked="handlePicked"
+        <div class="d-flex flex-column gap-2">
+            <div>
+                <KTeamSwitch
+                    :group="group"
+                    @picked="handlePicked"
+                />
+            </div>
+            <KTeamMembers
+                :members="items"
             />
         </div>
-        <VPTeamPage>
-            <VPTeamPageSection>
-                <template #members>
-                    <KTeamMembers
-                        :members="items"
-                    />
-                </template>
-            </VPTeamPageSection>
-        </VPTeamPage>
     </div>
 </template>
 <style scoped>

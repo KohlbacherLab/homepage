@@ -5,10 +5,10 @@
   - view the LICENSE file that was distributed with this source code.
   -->
 <script lang="ts">
-import { defineComponent, PropType} from 'vue';
-import { VPLink } from 'vitepress/theme'
-import { VPSocialLinks } from 'vitepress/theme';
-import type { Person } from "../../domains";
+import type { PropType } from 'vue';
+import { defineComponent } from 'vue';
+import { VPLink, VPSocialLinks } from 'vitepress/theme';
+import type { Person } from '../../domains';
 
 export default defineComponent({
     components: {
@@ -18,18 +18,18 @@ export default defineComponent({
     props: {
         size: {
             type: String as PropType<'small' | 'medium'>,
-            default: 'medium'
+            default: 'medium',
         },
         member: {
             type: Object as PropType<Person>,
-            required: true
+            required: true,
         },
         slug: {
             type: String,
-            required: true
-        }
-    }
-})
+            required: true,
+        },
+    },
+});
 </script>
 
 <template>
@@ -39,7 +39,7 @@ export default defineComponent({
     >
         <div class="profile">
             <div>
-                <VPLink :href="'/team/' + slug">
+                <VPLink :href="'/persons/' + slug">
                     <img
                         class="avatar"
                         :src="member.avatar"
@@ -49,7 +49,7 @@ export default defineComponent({
             </div>
             <div class="data">
                 <h1 class="name">
-                    <VPLink :href="'/team/' + slug">
+                    <VPLink :href="'/persons/' + slug">
                         {{ member.name }}
                     </VPLink>
                 </h1>

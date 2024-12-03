@@ -25,4 +25,4 @@ export type ContactDetails = {
      * The fax number. Can be a string or an array for multiple phone numbers.
      */
     fax?: string | string[]
-}
+};

@@ -6,24 +6,25 @@
   -->
 
 <script lang="ts">
-import {defineComponent, PropType, ref} from 'vue';
-import {SwitchElement} from "./types";
+import type { PropType } from 'vue';
+import { defineComponent, ref } from 'vue';
+import type { SwitchElement } from './types';
 
 export default defineComponent({
     props: {
         items: {
             type: Array as PropType<SwitchElement[]>,
-            required: true
+            required: true,
         },
         current: {
-            type: String
-        }
+            type: String,
+        },
     },
     emits: ['picked'],
     setup(props, { emit }) {
         const id = ref<string | null>(null);
 
-        if(props.current) {
+        if (props.current) {
             id.value = props.current;
         }
 
@@ -58,7 +59,7 @@ export default defineComponent({
             </div>
         </div>
         <div v-if="id">
-            <slot :name="id"></slot>
+            <slot :name="id" />
         </div>
     </div>
 </template>

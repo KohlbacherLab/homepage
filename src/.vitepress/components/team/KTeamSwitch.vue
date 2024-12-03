@@ -38,7 +38,7 @@ export default defineComponent({
 });
 </script>
 <template>
-    <div class="d-flex flex-row gap-2">
+    <div class="d-flex flex-row gap-2 w-100">
         <div
             v-for="(item, key) in items"
             :key="key"
