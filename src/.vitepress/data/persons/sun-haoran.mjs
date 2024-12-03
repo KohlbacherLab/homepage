@@ -1,5 +1,4 @@
-import { TeamID } from "../..";
-import { definePerson } from "../..";
+import { TeamID, definePerson } from '../..';
 
 export default definePerson({
     avatar: 'https://media.licdn.com/dms/image/v2/D5603AQGiydA4HwU-wQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1729112879980?e=1738800000&v=beta&t=NKKO-wUZ6LhnffwYaf8ioXizfUX1OROjzjE-Cmv-kYY',
@@ -15,24 +14,24 @@ export default definePerson({
     ],
     interests: [
         'Protein-Protein Interaction',
-        'Protein Structure Prediction'
+        'Protein Structure Prediction',
     ],
     education: [
         {
             year: [2014, 2018],
-            value: 'Shenyang Pharmaceutical University'
+            value: 'Shenyang Pharmaceutical University',
         },
         {
             year: [2018, 2021],
-            value: 'Peking Union Medical College'
+            value: 'Peking Union Medical College',
         },
         {
             year: [2018, 2021],
-            value: 'Tsinghua University'
+            value: 'Tsinghua University',
         },
         {
             year: 2024,
-            value: 'Eberhard Karls University Tübingen'
+            value: 'Eberhard Karls University Tübingen',
         },
-    ]
+    ],
 });
