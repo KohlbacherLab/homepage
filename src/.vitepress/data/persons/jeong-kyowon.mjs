@@ -8,19 +8,18 @@ export default definePerson({
     team: TeamID.ABI,
     socialLinks: [
         { icon: 'github', link: 'https://github.com/kyowonjeong' },
-        { icon: 'twitter', link: 'https://twitter.com//eongKyowon' },
+        { icon: 'twitter', link: 'https://twitter.com/JeongKyowon' },
         { icon: 'linkedin', link: 'https://www.linkedin.com/in/kyowon-jeong-35a7b3173/' },
     ],
     interests: [
         'Top-down proteomics',
         'FLASH * software',
-        'Proteoform resolved research'
+        'Proteoform resolved research',
     ],
     education: [
         {
             year: [2008, 2013],
-            value: 'UCSD'
+            value: 'UCSD',
         },
-        // ...
     ],
 });
