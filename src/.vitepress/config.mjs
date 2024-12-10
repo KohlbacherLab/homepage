@@ -11,7 +11,7 @@ import { readPersons } from './domains';
 const teamMembers = await readPersons();
 
 export default defineConfig({
-    title: 'Kohlbacherlab',
+    title: 'KohlbacherLab',
     base: '/',
     themeConfig: {
         search: {
@@ -48,7 +48,7 @@ export default defineConfig({
             },
             {
                 text: 'Teaching',
-                link: '/teaching',
+                link: 'https://alma.uni-tuebingen.de/alma/pages/startFlow.xhtml?_flowId=searchCourseNonStaff-flow',
             },
             {
                 text: 'Publications',

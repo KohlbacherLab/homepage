@@ -40,7 +40,7 @@ export default defineComponent({
         const abiContact : ContactDetails = {
             address: [
                 'University of Tübingen',
-                'FBI/IBMI - Applied Bioinformatics',
+                'Applied Bioinformatics',
                 'Sand 14',
                 '72076 Tübingen',
             ],
