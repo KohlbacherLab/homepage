@@ -11,7 +11,7 @@ export default definePerson({
     socialLinks: [
         { icon: 'github', link: 'https://github.com/ElhabashyLab' },
         { icon: 'linkedin', link: 'linkedin.com/in/hadeer-elhabashy-88373254' }
-        { icon: 'linkedin', link: 'https://x.com/HadeerElhabashy' }
+        { icon: 'x', link: 'https://x.com/HadeerElhabashy' }
     ],
     education: [
         {year: 2023, value: 'Ph.D. in Bioinformatics, University of Tübingen/Max Planck Institute for Biology Tübingen',},
