@@ -47,7 +47,7 @@
         "@retorquere/bibtex-parser": "^9.0.17",
         "@vuecs/pagination": "^1.3.0",
         "bootstrap": "^5.3.3",
-        "locter": "^2.1.5",
+        "locter": "^2.1.6",
         "smob": "^1.5.0",
         "vite": "^6.0.11",
         "vitepress": "^1.6.3"
