@@ -1,7 +1,7 @@
 # Research
 The research areas of the Kohlbacher Lab are rather diverse and span from classical bioinformatics topics including sequence, structure, and systems bioinformatics to translational bioinformatics and personalized medicine. The following list gives an overview of our current research areas and provides links to more detailed information pages on our current projects.
 
-## <h1><img height="40" src="../static/immunology.png" width="40" style="display:inline"> Computational Immunomics</h1>
+<h2><img height="40" src="../static/immunology.png" width="40" style="display:inline"> Computational Immunomics</h2>
 Computational immunomics applies bioinformatics methods to gain a deeper understanding of the immune system. Furthermore it assists medical research by providing computational models which help to solve immunology-related problems. Our group develops various computational immunomics methods, primarily for mass spectrometry (MHC ligandomics) and NGS (HLA typing, neoepitope discovery) based analyses.
 
 ## Computational Mass Spectrometry
