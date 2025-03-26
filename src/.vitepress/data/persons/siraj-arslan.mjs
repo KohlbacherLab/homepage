@@ -12,4 +12,20 @@ export default definePerson({
         { icon: 'github', link: 'https://github.com/Arslan-Siraj' },
         { icon: 'linkedin', link: 'https://www.linkedin.com/in/arslan-siraj-507949155/' },
     ],
+    interests: [
+        'Protein-Nucleic-acid crosslink Mass Spectrometry',
+        'Machine Learning',
+        'Open Source Software',
+    ],
+    education: [
+        {
+            year: [2019, 2021],
+            value: 'Chonbuk National University, South Korea - Master Electronics and Information Engineering',
+        },
+        {
+            year: [2015, 2019],
+            value: 'Quaid-i-Azam university, Pakistan - Bachelor Information Technology',
+        },
+    ],
+   
 });
