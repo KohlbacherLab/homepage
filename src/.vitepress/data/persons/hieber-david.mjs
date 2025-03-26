@@ -9,11 +9,13 @@ export default definePerson({
         { icon: 'github', link: 'https://github.com/antidodo' },
     ],
     education: [
-        { year: '2018',
-         value: 'University of Tübingen - B. Sc. Informatics'
-    },
-     { year: '2021',
-         value: 'University of Tübingen - M. Sc. Informatics'
-    }
-    ]
+        {
+            year: 2018,
+            value: 'University of Tübingen - B. Sc. Informatics',
+        },
+        {
+            year: 2021,
+            value: 'University of Tübingen - M. Sc. Informatics',
+        },
+    ],
 });
