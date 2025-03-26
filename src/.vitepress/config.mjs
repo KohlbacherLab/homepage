@@ -11,7 +11,7 @@ import { readPersons } from './domains';
 const teamMembers = await readPersons();
 
 export default defineConfig({
-    title: 'Kohlbacherlab',
+    title: 'KohlbacherLab',
     base: '/',
     themeConfig: {
         search: {
@@ -48,7 +48,7 @@ export default defineConfig({
             },
             {
                 text: 'Teaching',
-                link: '/teaching',
+                link: 'https://alma.uni-tuebingen.de/alma/pages/startFlow.xhtml?_flowId=searchCourseNonStaff-flow',
             },
             {
                 text: 'Publications',
@@ -82,16 +82,6 @@ export default defineConfig({
                         { text: 'BALL', link: '/software/ball' },
                         { text: 'Fred2', link: '/software/fred-2' },
                         { text: 'XLEC', link: '/software/xlec' },
-                    ],
-                },
-                {
-                    text: 'Webserver',
-                    items: [
-                        { text: 'EpiToolKit', link: '/software/epi-tool-kit' },
-                        { text: 'NRPSpredictor2', link: '/software/nrp-spredictor-2' },
-                        { text: 'MultiLoc2', link: '/software/multi-loc-2' },
-                        { text: 'SherLoc2', link: '/software/sher-loc-2' },
-                        { text: 'YLoc', link: '/software/y-loc' },
                     ],
                 },
             ],
