@@ -84,16 +84,6 @@ export default defineConfig({
                         { text: 'XLEC', link: '/software/xlec' },
                     ],
                 },
-                {
-                    text: 'Webserver',
-                    items: [
-                        { text: 'EpiToolKit', link: '/software/epi-tool-kit' },
-                        { text: 'NRPSpredictor2', link: '/software/nrp-spredictor-2' },
-                        { text: 'MultiLoc2', link: '/software/multi-loc-2' },
-                        { text: 'SherLoc2', link: '/software/sher-loc-2' },
-                        { text: 'YLoc', link: '/software/y-loc' },
-                    ],
-                },
             ],
             '/projects': [
                 { text: 'de.NBI', link: '/projects/denbi' },
