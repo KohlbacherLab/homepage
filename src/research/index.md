@@ -11,7 +11,7 @@ We are one of the leading labs in computational mass spectrometry, developing in
 
 ## Personalized Medicine
 ![](/images/icon/precision-medicine.png){width=100px}
-In the domain of Personalized Medicine, we are primarily involved in data integration projects.
+In the domain of Personalized Medicine, we are primarily involved in data integration projects to support personalized clinical decision making and research.
 This includes the development of the Data Integration Platform (DIP) for the German Network of Personalized Medicine ([DNPM](https://dnpm.de/de)), which aims at integrating the Molecular Tumor Boards (MTBs) of 26 university hospitals in Germany.
 The DIP further acts as one of the clinical data nodes for the oncology and rare diseases use cases of the [Modellvorhaben Genomsequenzierung](https://www.bfarm.de/DE/Das-BfArM/Aufgaben/Modellvorhaben-Genomsequenzierung/_node.html).
 
