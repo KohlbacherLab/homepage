@@ -23,7 +23,7 @@ jobs:
         run: |
             cd ./src/.vitepress/dist/
             touch CNAME
-            echo "dev.kohlbacherlab.org" > CNAME
+            echo "kohlbacherlab.org" > CNAME
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
