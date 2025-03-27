@@ -30,11 +30,5 @@ export default definePerson({
             year: 2022,
             value: 'M.Sc. in Bioinformatics, University of Tübingen, Tübingen, Germany (Thesis: Method development in interaction prediction, structure elucidation, and modeling of protein-protein homo-oligomers)'
         }
-    ],
-    publications : [
-        {
-            year: 2024,
-            value: 'Röhl, A., Netz, E., Kohlbacher, O., & Elhabashy, H. (2024). CLAUDIO: automated structural analysis of cross-linking data. Bioinformatics, 40(4), btae146.'
-        }
     ]
 });
