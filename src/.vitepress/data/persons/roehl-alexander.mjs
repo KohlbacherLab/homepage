@@ -22,14 +22,12 @@ export default definePerson({
     ],
     education: [
         {
-            year: 0,
-            value: 'tba',
+            year: 2020,
+            value: 'B.Sc. in Bioinformatics, University of Tübingen, Tübingen, Germany (Thesis: Subtypenspezifisches Machine Learning für die HIV-Korezeptor Vorhersage)',
         },
-    ],
-    publications: [
         {
-            year: 2024,
-            value: 'Röhl, A., Netz, E., Kohlbacher, O., & Elhabashy, H. (2024). CLAUDIO: automated structural analysis of cross-linking data. Bioinformatics, 40(4), btae146.',
+            year: 2022,
+            value: 'M.Sc. in Bioinformatics, University of Tübingen, Tübingen, Germany (Thesis: Method development in interaction prediction, structure elucidation, and modeling of protein-protein homo-oligomers)',
         },
     ],
 });
