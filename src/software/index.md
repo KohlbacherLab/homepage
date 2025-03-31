@@ -14,8 +14,9 @@ Repository: https://github.com/FRED-2/Fred2
 ## Claudio
 ...
 
-## DNPM:DIP
-...
+## DNPM:DIP 
+The [Data Integration Platform](./dnpm-dip.md) for the German Network of Personalized Medicine (DNPM).
+
 
 ## Flame
 ...

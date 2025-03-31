@@ -82,6 +82,7 @@ export default defineConfig({
                         { text: 'BALL', link: '/software/ball' },
                         { text: 'Fred2', link: '/software/fred-2' },
                         { text: 'XLEC', link: '/software/xlec' },
+                        { text: 'DNPM:DIP', link: '/software/dnpm-dip' },
                     ],
                 },
             ],
