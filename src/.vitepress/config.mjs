@@ -80,6 +80,7 @@ export default defineConfig({
                     items: [
                         { text: 'OpenMS', link: '/software/open-ms' },
                         { text: 'BALL', link: '/software/ball' },
+                        { text: 'FLAME', link: '/software/flame' },
                         { text: 'Fred2', link: '/software/fred-2' },
                         { text: 'XLEC', link: '/software/xlec' },
                     ],
