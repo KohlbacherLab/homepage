@@ -10,3 +10,4 @@ npm-debug.log*
 .idea
 reports
 cache
+*.swp

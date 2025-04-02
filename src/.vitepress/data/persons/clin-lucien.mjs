@@ -1,7 +1,8 @@
 import { TeamID, definePerson } from '../..';
 
 export default definePerson({
-    avatar: 'https://www.github.com/lucienclin.png',
+    avatar: '/images/persons/clin-lucien.png',
+    //    avatar: 'https://www.github.com/lucienclin.png',
     name: 'Lucien Clin',
     email: 'lucien.clin@uni-tuebingen.de',
     phone: '+49 7071 29 84309',
