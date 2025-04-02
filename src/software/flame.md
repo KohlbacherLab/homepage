@@ -1,6 +1,6 @@
 # FLAME – A Privacy-Preserving Federated Learning Platform
 
-As part of the German national research initiative [PrivateAIM](https://kohlbacherlab.org/projects/privateaim.html), the open-source platform FLAME
+As part of the German national research initiative [PrivateAIM](../projects/privateaim), the open-source platform FLAME
 (**F**ederated **L**earning and **A**nalyses in **Me**dicine) is under development to address key challenges in privacy-preserving, collaborative data analysis
 in healthcare. Rather than transferring sensitive patient data between institutions, FLAME distributes analysis algorithms across participating sites,
 ensuring that data remains securely within each institution's Data Integration Center (DIC) - fully compliant with data protection and security standards.
