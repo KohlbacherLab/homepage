@@ -23,6 +23,7 @@ Structural Bioinformatics is one of the long established research fields in our 
 More on our current projects can be found here.
 
 ## Translational Bioinformatics
-Translational Bioinformatics is a field at the interface of bioinformatics and medical informatics. By integrating molecular data (bioinformatics) and healthcare data (medical informatics), it becomes possible to identify identify new pathomechanisms, suggest personalized therapies, or enable machine learning on medical data. Current projects include the development of infrastructures and methods to enable molecular tumor boards and new methods for distributed, privacy-preserving data analytics.
+![](/images/icon/bioinformatics.png){width=100px}
+Translational Bioinformatics bridges bioinformatics and medical informatics to enhance patient care through data-driven discoveries. By integrating molecular data (bioinformatics) with clinical healthcare information (medical informatics), this interdisciplinary field enables the identification of novel disease mechanisms, supports personalized therapeutic decisions, and facilitates advanced machine learning applications in medicine.
 
-More on our current projects can be found here.
+Our ongoing projects focus on developing robust infrastructures and innovative analytical methods. Notable examples include PrivateAIMs [FLAME](../software/flame), a platform dedicated to privacy-preserving, distributed data analytics, and development related [Molecular Tumor Boards](https://www.medizin.uni-tuebingen.de/de/das-klinikum/einrichtungen/zentren/zentrum-fuer-personalisierte-medizin-zpm/molekulare-boards/mtb), an interdisciplinary and multiprofessional virtual conference that discusses clinical and molecular data of cancer patients to determine optimal individualized therapy decisions.
