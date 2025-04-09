@@ -24,4 +24,8 @@ Structural Bioinformatics is one of the long established research fields in our 
 ![](/images/icon/bioinformatics.png){width=100px}
 Translational Bioinformatics bridges bioinformatics and medical informatics to enhance patient care through data-driven discoveries. By integrating molecular data (bioinformatics) with clinical healthcare information (medical informatics), this interdisciplinary field enables the identification of novel disease mechanisms, supports personalized therapeutic decisions, and facilitates advanced machine learning applications in medicine.
 
-Our ongoing projects focus on developing robust infrastructures and innovative analytical methods. Notable examples include PrivateAIMs [FLAME](../software/flame), a platform dedicated to privacy-preserving, distributed data analytics, and development related [Molecular Tumor Boards](https://www.medizin.uni-tuebingen.de/de/das-klinikum/einrichtungen/zentren/zentrum-fuer-personalisierte-medizin-zpm/molekulare-boards/mtb), an interdisciplinary and multiprofessional virtual conference that discusses clinical and molecular data of cancer patients to determine optimal individualized therapy decisions.
+Our ongoing projects focus on developing robust infrastructures and innovative analytical methods. 
+Notable examples include:
+- DNPMs [DIP](../software/dnpm-dip.md), a platform for Patient Discovery in the context of Molecular Tumor Boards (MTBs) and Rare Diseases (RD) to determine optimal individualized therapy decisions.
+- PrivateAIMs [FLAME](../software/flame.md), a platform dedicated to privacy-preserving, distributed data analytics.
+
