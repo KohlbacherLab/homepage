@@ -26,6 +26,6 @@ Translational Bioinformatics bridges bioinformatics and medical informatics to e
 
 Our ongoing projects focus on developing robust infrastructures and innovative analytical methods. 
 Notable examples include:
-- DNPMs [DIP](../software/dnpm-dip.md), a platform for Patient Discovery in the context of Molecular Tumor Boards (MTBs) and Rare Diseases (RD) to determine optimal individualized therapy decisions.
+- DNPMs [DIP](../software/dnpm-dip.md), a platform for patient discovery in the context of Molecular Tumor Boards (MTBs) and Rare Diseases (RD) to determine optimal individualized therapy decisions.
 - PrivateAIMs [FLAME](../software/flame.md), a platform dedicated to privacy-preserving, distributed data analytics.
 
