@@ -18,9 +18,7 @@ The DIP further acts as one of the clinical data nodes for the oncology and rare
 In addition, we focus on the development of analysis pipelines for molecular tumor table backends, mainly centered around high-throughput data extraction and integration, automated processing of incoming data, annotation of therapeutic options and visualisation of network-derived contexts and analysis results.
 
 ## Structural Bioinformatics
-Structural Bioinformatics is one of the long established research fields in our group and has strived various subfields comprising theoretical and applied computer-aided drug design (CADD), cheminformatics, molecular mechanics-based modelling, or the prediction of protein-protein complexes. Additionally, we spent a significant amount of our time in the development of high-quality software tools providing solutions to some of these challenges that we make publicly available. On this web page we briefly present selected topics of our current research.
-
-More on our current projects can be found here.
+Structural Bioinformatics is one of the long established research fields in our group and has strived various subfields comprising theoretical and applied computer-aided drug design (CADD), cheminformatics, molecular mechanics-based modelling, or the prediction of protein-protein complexes. Additionally, we spent a significant amount of our time in the development of high-quality software tools providing solutions to some of these challenges that we make publicly available.
 
 ## Translational Bioinformatics
 ![](/images/icon/bioinformatics.png){width=100px}
