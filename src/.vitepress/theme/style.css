@@ -166,3 +166,8 @@ p {
 .person-item-list li {
     margin-top: 0 !important;
 }
+
+.abstract {
+    margin: 1em 2em;
+    font-size: 0.9em;
+}

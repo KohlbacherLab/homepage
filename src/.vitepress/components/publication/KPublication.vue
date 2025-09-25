@@ -8,17 +8,73 @@
 <script lang="ts">
 import type { Entry } from '@retorquere/bibtex-parser';
 import type { PropType } from 'vue';
-import { defineComponent } from 'vue';
-import KPublicationInfoText from './KPublicationInfoText.vue';
+import { computed, defineComponent, toRef } from 'vue';
 import KPublicationTitle from './KPublicationTitle.vue';
 
 export default defineComponent({
-    components: { KPublicationTitle, KPublicationInfoText },
+    components: { KPublicationTitle },
     props: {
         entity: {
             type: Object as PropType<Entry>,
             required: true,
         },
+    },
+    setup(props) {
+        const entity = toRef(props, 'entity');
+
+        const publication = computed(() => {
+            const parts : string[] = [];
+            if (entity.value.fields.journal) {
+                parts.push(entity.value.fields.journal);
+            }
+
+            if (entity.value.fields.volume) {
+                let text = entity.value.fields.volume;
+                if (entity.value.fields.number) {
+                    text += ` (${entity.value.fields.number})`;
+                }
+
+                parts.push(text);
+            }
+
+            if (entity.value.fields.pages) {
+                parts.push(`pp. ${entity.value.fields.pages}`);
+            }
+
+            if (entity.value.fields.year) {
+                return `(${entity.value.fields.year}). ${parts.join(', ')}`;
+            }
+
+            return parts.join(', ');
+        });
+
+        const authors = computed(() => {
+            const names = entity.value.fields.author.map((author) => {
+                if (author.lastName && author.lastName !== 'others') {
+                    if (author.firstName && author.firstName.length > 0) {
+                        return `${author.lastName}, ${author.firstName.at(0)}.`;
+                    }
+
+                    return author.lastName;
+                }
+
+                return undefined; // Make linter hapy.
+            }).filter((name) => name !== undefined);
+
+            const suffix = names.pop();
+            const prefix = names.join(', ');
+
+            if (suffix) {
+                return `${prefix} & ${suffix}`;
+            }
+
+            return prefix;
+        });
+
+        return {
+            publication,
+            authors,
+        };
     },
 });
 </script>
@@ -32,39 +88,22 @@ export default defineComponent({
         <hr>
         <div class="d-flex flex-column gap-2">
             <div>
-                <h6>Author(s)</h6>
-
                 <div class="d-flex flex-row flex-wrap gap-1">
-                    <template
-                        v-for="(author, authorIndex) in entity.fields.author"
-                        :key="authorIndex"
-                    >
-                        <div>
-                            <template v-if="authorIndex > 0">
-                                -
-                            </template>
-                            {{ author.firstName }}.
-                            {{ author.lastName }}
-                        </div>
-                    </template>
+                    {{ authors }}
+                    {{ publication }}
                 </div>
             </div>
-            <div v-if="entity.fields.abstract">
-                <h6>Abstract</h6>
-                <p class="mt-0">
+            <details
+                v-if="entity.fields.abstract"
+                class="details custom-block"
+            >
+                <summary class="custom-block-title">
+                    Abstract
+                </summary>
+                <p class="mt-0 abstract">
                     {{ entity.fields.abstract }}
                 </p>
-            </div>
-            <div>
-                <KPublicationInfoText :entity="entity" />
-            </div>
-            <!--
-            <div class="highlight">
-                <code>
-                    {{ entity.input }}
-                </code>
-            </div>
-            -->
+            </details>
         </div>
     </div>
 </template>

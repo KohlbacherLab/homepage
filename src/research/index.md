@@ -16,11 +16,14 @@ The DIP further acts as one of the clinical data nodes for the oncology and rare
 In addition, we focus on the development of analysis pipelines for molecular tumor table backends, mainly centered around high-throughput data extraction and integration, automated processing of incoming data, annotation of therapeutic options and visualisation of network-derived contexts and analysis results.
 
 ## Structural Bioinformatics
-Structural Bioinformatics is one of the long established research fields in our group and has strived various subfields comprising theoretical and applied computer-aided drug design (CADD), cheminformatics, molecular mechanics-based modelling, or the prediction of protein-protein complexes. Additionally, we spent a significant amount of our time in the development of high-quality software tools providing solutions to some of these challenges that we make publicly available. On this web page we briefly present selected topics of our current research.
-
-More on our current projects can be found here.
+Structural Bioinformatics is one of the long established research fields in our group and has strived various subfields comprising theoretical and applied computer-aided drug design (CADD), cheminformatics, molecular mechanics-based modelling, or the prediction of protein-protein complexes. Additionally, we spent a significant amount of our time in the development of high-quality software tools providing solutions to some of these challenges that we make publicly available.
 
 ## Translational Bioinformatics
-Translational Bioinformatics is a field at the interface of bioinformatics and medical informatics. By integrating molecular data (bioinformatics) and healthcare data (medical informatics), it becomes possible to identify identify new pathomechanisms, suggest personalized therapies, or enable machine learning on medical data. Current projects include the development of infrastructures and methods to enable molecular tumor boards and new methods for distributed, privacy-preserving data analytics.
+![](/images/icon/bioinformatics.png){width=100px}
+Translational Bioinformatics bridges bioinformatics and medical informatics to enhance patient care through data-driven discoveries. By integrating molecular data (bioinformatics) with clinical healthcare information (medical informatics), this interdisciplinary field enables the identification of novel disease mechanisms, supports personalized therapeutic decisions, and facilitates advanced machine learning applications in medicine.
 
-More on our current projects can be found here.
+Our ongoing projects focus on developing robust infrastructures and innovative analytical methods. 
+Notable examples include:
+- DNPMs [DIP](../software/dnpm-dip.md), a platform for patient discovery in the context of Molecular Tumor Boards (MTBs) and Rare Diseases (RD) to determine optimal individualized therapy decisions.
+- PrivateAIMs [FLAME](../software/flame.md), a platform dedicated to privacy-preserving, distributed data analytics.
+
