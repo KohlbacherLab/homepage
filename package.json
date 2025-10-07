@@ -43,13 +43,13 @@
         "typescript": "^5.8.3"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "^6.7.2",
+        "@fortawesome/fontawesome-free": "^7.1.0",
         "@retorquere/bibtex-parser": "^9.0.17",
         "@vuecs/pagination": "^1.3.0",
         "bootstrap": "^5.3.5",
         "locter": "^2.1.6",
         "smob": "^1.5.0",
-        "vite": "^6.2.5",
+        "vite": "^7.1.9",
         "vitepress": "^1.6.3"
     },
     "lint-staged": {
