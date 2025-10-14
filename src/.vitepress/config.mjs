@@ -12,6 +12,7 @@ const teamMembers = await readPersons();
 
 export default defineConfig({
     title: 'KohlbacherLab',
+    description: 'Applied and Translational Bioinformatics',
     base: '/',
     themeConfig: {
         search: {
