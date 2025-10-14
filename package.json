@@ -36,7 +36,7 @@
         "@types/node": "^24.7.0",
         "@vuecs/link": "^1.0.0",
         "@vuecs/preset-font-awesome": "^1.1.0",
-        "eslint": "^8.57.0",
+        "eslint": "^9.37.0",
         "husky": "^9.1.7",
         "lint-staged": "^16.2.3",
         "rimraf": "^6.0.1",
