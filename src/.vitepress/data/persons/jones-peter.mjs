@@ -10,8 +10,9 @@ export default definePerson({
 
     socialLinks: [
         { icon: 'github', link: 'https://github.com/pjones' },
-        { icon: 'mastodon', link: 'https://fosstodon.org/@devalot' },
+        { icon: 'mastodon', link: 'https://hostux.social/@devalot' },
         { icon: 'linkedin', link: 'https://www.linkedin.com/in/devalot/' },
+        { icon: 'orcid', link: 'https://orcid.org/0009-0004-6644-4752' },
     ],
 
     interests: [
