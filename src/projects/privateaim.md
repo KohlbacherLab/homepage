@@ -7,7 +7,12 @@ const image = {
 </script>
 
 # PrivateAIM
-PrivateAIM (Privacy-preserving Analytics in Medicine) is a leading initiative within Germany’s Medical Informatics Initiative
+Privacy-preserving Analytics in Medicine - [PrivateAIM](https://privateaim.de/) 
+
+**Funding:** BMFTR (funding number: 01ZZ2316A)\
+**Project runtime:** 01.04.2023 - 31.03.2027
+
+PrivateAIM is a leading initiative within Germany’s Medical Informatics Initiative
 ([MII](https://www.medizininformatik-initiative.de/de/start)), dedicated to developing secure, scalable methods for analyzing
 healthcare data while safeguarding patient privacy. By focusing on decentralized data processing, the FLAME (Federated Learning
 and Analyses in MEdicine) platform ensures sensitive data remains protected, with only analysis algorithms and results exchanged.

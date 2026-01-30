@@ -1,1 +1,2 @@
 # Projects
+Mirroring the broad research fields and expertise of the Kohlbacher Lab, the projects cover a wide range, from proteomic and genomic data analysis and infrastructure to medical informatics and clinical applications. More information about the individual projects can be found in the respective sections on the left. 
