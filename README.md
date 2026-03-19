@@ -10,30 +10,26 @@
 - [Scripts](#scripts)
 - [Recipes](#recipes)
 - [Contributing](#contributing)
+  - [Fork Workflow](#fork-workflow)
+  - [Keeping Your Fork Up to Date](#keeping-your-fork-up-to-date)
 - [License](#license)
 
 ## Getting Started
 
 > **Note**
 >
-> Please read the [Contributing](#contributing) section before making changes.
+> This project uses a fork-based workflow. See the [Contributing](#contributing) section
+> for how to fork, clone, and submit changes.
 
 **Prerequisites:** [Node.js](https://nodejs.org/) >= 20.0.0
 
-1. Clone the repository
-
-```shell
-git clone https://github.com/KohlbacherLab/homepage
-cd homepage
-```
-
-2. Install dependencies
+1. Install dependencies
 
 ```shell
 npm ci
 ```
 
-3. Start the dev server (with hot module replacement)
+2. Start the dev server (with hot module replacement)
 
 ```shell
 npm run dev
@@ -194,9 +190,99 @@ type SocialLink = {
 
 ## Contributing
 
-Before starting to work on a pull request, it is important to review the guidelines for
+Before starting to work on a pull request, please review the guidelines for
 [contributing](./CONTRIBUTING.md) and the [code of conduct](./CODE_OF_CONDUCT.md).
-These guidelines will help to ensure that contributions are made effectively and are accepted.
+
+### Fork Workflow
+
+1. **Fork** the repository on GitHub (click the **Fork** button on the repo page).
+   This creates a personal copy under `https://github.com/<your-username>/homepage`.
+
+2. **Clone** your fork locally:
+
+```shell
+git clone https://github.com/<your-username>/homepage
+cd homepage
+```
+
+3. **Add the upstream remote.** This points to the original repository so you can
+   pull in new changes later. You only need to do this once:
+
+```shell
+git remote add upstream https://github.com/KohlbacherLab/homepage.git
+```
+
+You can verify the remotes are set up correctly:
+
+```shell
+git remote -v
+# origin    https://github.com/<your-username>/homepage.git (fetch)
+# origin    https://github.com/<your-username>/homepage.git (push)
+# upstream  https://github.com/KohlbacherLab/homepage.git (fetch)
+# upstream  https://github.com/KohlbacherLab/homepage.git (push)
+```
+
+- `origin` — your fork (you push here)
+- `upstream` — the original repository (you pull from here)
+
+4. **Install dependencies** and start developing:
+
+```shell
+npm ci
+npm run dev
+```
+
+5. **Create a feature branch** off master:
+
+```shell
+git checkout -b my-feature
+```
+
+6. Make your changes, then **commit**:
+
+```shell
+git add .
+git commit -m "feat: describe your change"
+```
+
+7. **Push** your branch to your fork:
+
+```shell
+git push -u origin my-feature
+```
+
+8. **Open a pull request** on GitHub from your fork's branch to `KohlbacherLab/homepage:master`.
+
+### Keeping Your Fork Up to Date
+
+Update your local master with the latest upstream changes:
+
+```shell
+git checkout master
+git fetch upstream
+git merge upstream/master
+git push origin master
+```
+
+Sync your feature branch with the updated master:
+
+```shell
+git checkout my-feature
+git rebase master
+```
+
+If there are conflicts, resolve them in the affected files, then:
+
+```shell
+git add .
+git rebase --continue
+```
+
+After rebasing, force-push your branch:
+
+```shell
+git push --force-with-lease
+```
 
 ## License
 
