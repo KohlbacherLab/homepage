@@ -1,0 +1,1 @@
+import{_ as a,o as t,c as i,ai as o}from"./chunks/framework.CCqJdmEn.js";const b=JSON.parse('{"title":"KohlbacherLab","description":"","frontmatter":{},"headers":[],"relativePath":"index.md","filePath":"index.md"}'),n={name:"index.md"};function r(l,e,s,h,c,d){return t(),i("div",null,[...e[0]||(e[0]=[o("",8)])])}const m=a(n,[["render",r]]);export{b as __pageData,m as default};
