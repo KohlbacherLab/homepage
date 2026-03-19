@@ -33,7 +33,7 @@
     "license": "MIT",
     "devDependencies": {
         "@tada5hi/eslint-config": "^2.0.1",
-        "@tada5hi/tsconfig": "^0.6.0",
+        "@tada5hi/tsconfig": "^0.7.1",
         "@types/node": "^24.7.0",
         "@vuecs/link": "^1.0.0",
         "@vuecs/preset-font-awesome": "^1.1.0",
