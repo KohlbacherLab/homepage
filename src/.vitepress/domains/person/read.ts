@@ -5,9 +5,9 @@
  * view the LICENSE file that was distributed with this source code.
  */
 
-import fs from 'fs';
-import { load } from 'locter';
+import fs from 'node:fs';
 import path from 'node:path';
+import { load } from 'locter';
 import { PERSON_DIRECTORY } from '../../constants';
 import type { Person } from './types';
 
@@ -30,8 +30,8 @@ export async function readPersons(input?: string[]) : Promise<[string, Person][]
     }
 
     const members : [string, Person][] = [];
-    for (let i = 0; i < files.length; i++) {
-        const slug = files[i].replace(/\.[^/.]+$/, '');
+    for (const file of files) {
+        const slug = file.replace(/\.[^/.]+$/, '');
         const member = await readPerson(slug);
 
         members.push([slug, member]);

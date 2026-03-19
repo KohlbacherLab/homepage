@@ -10,9 +10,9 @@ import {
     computed, defineComponent, ref,
 } from 'vue';
 import { TeamID } from '../../domains/team/constants';
+import { data } from '../../data/team.data';
 import KTeamMembers from './KTeamMembers.vue';
 import KTeamSwitch from './KTeamSwitch.vue';
-import { data } from '../../data/team.data';
 
 export default defineComponent({
     components: {
@@ -35,7 +35,7 @@ export default defineComponent({
 
                 const teams = Array.isArray(member.team) ? member.team : [member.team];
 
-                return teams.indexOf(group.value) !== -1;
+                return teams.includes(group.value);
             }));
 
         return {
