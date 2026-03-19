@@ -7,27 +7,51 @@
 
 import type { HistoryEntry } from '../history/index.ts';
 
+/**
+ * Represents a social media or external profile link.
+ */
 export type SocialLink = {
+    /**
+     * The icon identifier for the social platform.
+     *
+     * @example 'github'
+     * @example 'linkedin'
+     */
     icon: string,
+
+    /**
+     * The URL to the social profile.
+     */
     link: string,
+
+    /**
+     * Accessible label for screen readers.
+     */
     ariaLabel?: string
 };
 
+/**
+ * Represents a team member with their personal and professional information.
+ */
 export interface Person {
     /**
      * The full name of the person.
-     * e.g., Oliver Kohlbacher
+     *
+     * @example 'Oliver Kohlbacher'
      */
     name: string,
 
     /**
      * The professional role of the person.
-     * e.g., Researcher, Professor, PhD, etc.
+     *
+     * @example 'Researcher'
+     * @example 'Professor'
      */
     role?: string,
 
     /**
-     * URL to the person's avatar image. Can be absolute or relative.
+     * URL to the person's avatar image.
+     * Can be absolute or relative.
      */
     avatar?: string,
 
@@ -42,7 +66,8 @@ export interface Person {
     socialLinks?: SocialLink[],
 
     /**
-     * The person's address. Can be a string or an array of strings for multiple addresses.
+     * The person's address.
+     * Can be a string or an array of strings for multiple addresses.
      */
     address?: string | string[],
 
@@ -52,28 +77,31 @@ export interface Person {
     email?: string,
 
     /**
-     * The person's phone number. Can be a string or an array for multiple phone numbers.
+     * The person's phone number.
+     * Can be a string or an array for multiple phone numbers.
      */
     phone?: string | string[],
 
     /**
      * The team or teams the person is part of.
-     * e.g., "tbi" or "abi"
+     *
+     * @example 'tbi'
+     * @example ['tbi', 'abi']
      */
     team: string | string[],
 
     /**
-     * The person's educational background, represented as an array of history entries.
+     * The person's educational background.
      */
     education?: HistoryEntry[],
 
     /**
-     * Awards or recognitions the person has received, represented as an array of history entries.
+     * Awards or recognitions the person has received.
      */
     awards?: HistoryEntry[],
 
     /**
-     * A detailed biography of the person, represented as an array of history entries.
+     * A detailed biography of the person.
      */
     biography?: HistoryEntry[],
 
