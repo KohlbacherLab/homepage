@@ -23,7 +23,7 @@
         "dev": "vitepress dev src --temp .temp",
         "build": "vitepress build src --temp .temp",
         "help": "vitepress --help",
-        "lint": "eslint --ext .ts,.mjs,.vue .",
+        "lint": "eslint .",
         "lint:fix": "npm run lint -- --fix",
         "prepare": "husky"
     },
@@ -38,6 +38,7 @@
         "@vuecs/link": "^1.0.0",
         "@vuecs/preset-font-awesome": "^1.1.0",
         "eslint": "^10.0.3",
+        "eslint-import-resolver-node": "^0.3.9",
         "eslint-plugin-vue": "^10.8.0",
         "husky": "^9.1.7",
         "lint-staged": "^16.2.3",

@@ -10,9 +10,11 @@ export default eslintConfig(
             '@typescript-eslint/no-unused-vars': ['error', {
                 argsIgnorePattern: '^_',
             }],
+            'import-x/extensions': 'off',
+            'import-x/no-extraneous-dependencies': 'off',
         },
     },
     {
-        ignores: ['dist/**'],
+        ignores: ['src/.vitepress/cache/**', 'src/.vitepress/dist/**'],
     },
 );

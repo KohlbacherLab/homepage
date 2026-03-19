@@ -22,12 +22,9 @@ export async function readPerson(slug: string) : Promise<Person> {
 }
 
 export async function readPersons(input?: string[]) : Promise<[string, Person][]> {
-    let files: string[] = [];
-    if (input) {
-        files = input.map((el) => path.basename(el));
-    } else {
-        files = await fs.promises.readdir(PERSON_DIRECTORY);
-    }
+    const files = input ?
+        input.map((el) => path.basename(el)) :
+        await fs.promises.readdir(PERSON_DIRECTORY);
 
     const members : [string, Person][] = [];
     for (const file of files) {
