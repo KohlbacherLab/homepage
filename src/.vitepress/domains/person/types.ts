@@ -5,7 +5,7 @@
  * view the LICENSE file that was distributed with this source code.
  */
 
-import type { HistoryEntry } from '../history';
+import type { HistoryEntry } from '../history/index.ts';
 
 export type SocialLink = {
     icon: string,
@@ -80,5 +80,15 @@ export interface Person {
     /**
      * A list of the person's professional or personal interests.
      */
-    interests?: string[]
+    interests?: string[],
+
+    /**
+     * URL to the person's sponsor page.
+     */
+    sponsor?: string,
+
+    /**
+     * Custom text for the sponsor action button.
+     */
+    actionText?: string
 }

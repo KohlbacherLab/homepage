@@ -49,7 +49,7 @@ export default defineComponent({
         });
 
         const authors = computed(() => {
-            const names = entity.value.fields.author.map((author) => {
+            const names = (entity.value.fields.author ?? []).map((author) => {
                 if (author.lastName && author.lastName !== 'others') {
                     if (author.firstName && author.firstName.length > 0) {
                         return `${author.lastName}, ${author.firstName.at(0)}.`;

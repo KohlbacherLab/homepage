@@ -8,7 +8,7 @@
 import { VPImage } from 'vitepress/theme';
 import { defineComponent } from 'vue';
 import KContactDetails from '../utilities/contact/KContactDetails.vue';
-import type { ContactDetails } from '../utilities/contact/types';
+import type { ContactDetails } from '../utilities/contact/types.ts';
 
 export default defineComponent({
     components: { KContactDetails, VPImage },

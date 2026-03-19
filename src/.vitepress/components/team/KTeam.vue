@@ -9,7 +9,7 @@
 import {
     computed, defineComponent, ref,
 } from 'vue';
-import { TeamID } from '../../domains/team/constants';
+import { TeamID } from '../../domains/team/constants.ts';
 import { data } from '../../data/team.data';
 import KTeamMembers from './KTeamMembers.vue';
 import KTeamSwitch from './KTeamSwitch.vue';
