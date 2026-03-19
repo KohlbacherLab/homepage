@@ -6,8 +6,8 @@ export default definePerson({
     role: 'Technical Lead GHGA',
     team: TeamID.ABI,
     email: 'leon.kuchenbecker@uni-tuebingen.de',
-    phone: '+49 7071 2974612',
-    address: 'Sand 14, Room C123, 72076 Tübingen',
+    phone: '+49 7071 29 74612',
+    address: 'Maria-von-Linden-Straße 6, Room 20-8/A14, 72076 Tübingen',
     socialLinks: [
         { icon: 'github', link: 'https://github.com/lkuchenb' },
         { icon: 'linkedin', link: 'https://www.linkedin.com/in/kuchenbecker/' },

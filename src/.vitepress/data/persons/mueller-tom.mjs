@@ -4,7 +4,8 @@ export default definePerson({
     avatar: '/images/persons/mueller-tom.png',
     name: 'Tom D. Müller',
     email: 'tom.mueller@uni-tuebingen.de',
-    address: 'Sand 14, Room C313, 72076 Tübingen',
+    phone: '+49 7071 29 70461',
+    address: 'Maria-von-Linden-Straße 6, Room 20-5-A7, 72076 Tübingen',
     team: TeamID.ABI,
     role: 'PhD Student',
 

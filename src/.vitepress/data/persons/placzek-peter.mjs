@@ -4,8 +4,8 @@ export default definePerson({
     name: 'Peter Placzek',
     avatar: 'https://www.github.com/tada5hi.png',
     email: 'peter.placzek@medizin.uni-tuebingen.de',
-    phone: '+49 7071 29 84309',
-    address: 'Schaffhausenstraße 77,Raum 2.105,Tübingen,72072',
+    phone: '+49 7071 29 70458',
+    address: 'Maria-von-Linden-Straße 6, Room 20-30/A15, 72076 Tübingen',
     team: TeamID.TBI,
     role: 'Researcher',
     socialLinks: [

@@ -4,7 +4,7 @@ export default definePerson({
     avatar: '/images/persons/baeuerle-famke.jpg',
     name: 'Famke Bäuerle',
     email: 'famke.baeuerle@uni-tuebingen.de',
-    address: 'M3 Research Center, Otfried-Müller-Straße 37, 72076 Tübingen',
+    address: 'Maria-von-Linden-Straße 6, 72076 Tübingen',
     team: TeamID.TBI,
     role: 'PhD Student',
 
