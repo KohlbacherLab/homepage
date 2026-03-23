@@ -5,8 +5,7 @@ export default definePerson({
     role: 'PhD Student',
     avatar: '/images/persons/roehl-alexander.png',
     email: 'alexander.roehl@uni-tuebingen.de',
-    phone: '+49 7071 29 70462',
-    address: 'Sand 14, 2.OG Raum C323, 72076 Tübingen',
+    address: 'Maria-von-Linden-Straße 6, Room 20-28/A15, 72076 Tübingen',
     team: TeamID.ABI,
     socialLinks: [
         {

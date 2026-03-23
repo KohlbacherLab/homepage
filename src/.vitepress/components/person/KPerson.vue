@@ -7,8 +7,8 @@
 
 <script lang="ts">
 import { computed, defineComponent } from 'vue';
-import type { Person } from '../../domains';
-import { KHistoryEntries } from '../history';
+import type { Person } from '../../domains/index.ts';
+import { KHistoryEntries } from '../history/index.ts';
 
 import { data } from '../../data/team.data';
 import KPersonContact from '../utilities/contact/KContactDetails.vue';
@@ -22,8 +22,11 @@ export default defineComponent({
     },
     setup(props) {
         const entity = computed<Person>(() => {
-            const index = data.findIndex((member) => member[0] === props.slug);
-            return data[index][1];
+            const match = data.find((member) => member[0] === props.slug);
+            if (!match) {
+                throw new Error(`Person not found: ${props.slug}`);
+            }
+            return match[1];
         });
 
         return {

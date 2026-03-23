@@ -8,7 +8,7 @@
 import type { PropType } from 'vue';
 import { defineComponent } from 'vue';
 import { VPLink, VPSocialLinks } from 'vitepress/theme';
-import type { Person } from '../../domains';
+import type { Person } from '../../domains/index.ts';
 
 export default defineComponent({
     components: {

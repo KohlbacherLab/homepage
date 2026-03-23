@@ -5,11 +5,11 @@
  * view the LICENSE file that was distributed with this source code.
  */
 
-import fs from 'fs';
-import { load } from 'locter';
+import fs from 'node:fs';
 import path from 'node:path';
-import { PERSON_DIRECTORY } from '../../constants';
-import type { Person } from './types';
+import { load } from 'locter';
+import { PERSON_DIRECTORY } from '../../constants.ts';
+import type { Person } from './types.ts';
 
 export async function readPerson(slug: string) : Promise<Person> {
     const filePath = path.join(PERSON_DIRECTORY, `${slug}.mjs`);
@@ -22,16 +22,13 @@ export async function readPerson(slug: string) : Promise<Person> {
 }
 
 export async function readPersons(input?: string[]) : Promise<[string, Person][]> {
-    let files: string[] = [];
-    if (input) {
-        files = input.map((el) => path.basename(el));
-    } else {
-        files = await fs.promises.readdir(PERSON_DIRECTORY);
-    }
+    const files = input ?
+        input.map((el) => path.basename(el)) :
+        await fs.promises.readdir(PERSON_DIRECTORY);
 
     const members : [string, Person][] = [];
-    for (let i = 0; i < files.length; i++) {
-        const slug = files[i].replace(/\.[^/.]+$/, '');
+    for (const file of files) {
+        const slug = file.replace(/\.[^/.]+$/, '');
         const member = await readPerson(slug);
 
         members.push([slug, member]);

@@ -6,8 +6,8 @@ export default definePerson({
     email: 'haoran.sun@uni-tuebingen.de',
     team: TeamID.ABI,
     role: 'PhD Student',
-    phone: '+49 7071 29 70462',
-    address: 'Sand 14, Room C323, Tübingen, 72076',
+    phone: '+49 7071 29 70456',
+    address: 'Maria-von-Linden-Straße 6, Room 20-28/A18, 72076 Tübingen',
     socialLinks: [
         { icon: 'github', link: 'https://github.com/everburstSun' },
         { icon: 'linkedin', link: 'https://www.linkedin.com/in/haoran-sun-094b08282/' },

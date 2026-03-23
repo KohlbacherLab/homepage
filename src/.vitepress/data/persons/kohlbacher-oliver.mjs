@@ -1,12 +1,9 @@
 import { TeamID, definePerson } from '../..';
 
 export default definePerson({
-    address: [
-        'Room C317',
-        'Sand 14, Tübingen, Germany 72076',
-    ],
+    address: 'Maria-von-Linden-Straße 6, Room 20-5/A24, 72076 Tübingen',
     email: 'oliver.kohlbacher@uni-tuebingen.de',
-    phone: '+49-7071-29-70457',
+    phone: '+49 7071 29 70457',
     avatar: '/images/persons/kohlbacher-oliver.png',
     name: 'Oliver Kohlbacher',
     role: 'Professor & Lead',

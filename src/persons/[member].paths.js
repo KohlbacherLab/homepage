@@ -6,10 +6,10 @@ export default {
 
         const paths = [];
 
-        for (let i = 0; i < items.length; i++) {
+        for (const item of items) {
             paths.push({
                 params: {
-                    member: items[i][0],
+                    member: item[0],
                 },
             });
         }

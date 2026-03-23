@@ -9,10 +9,8 @@ export default definePerson({
         { icon: 'github', link: 'https://github.com/matteopilz' },
         { icon: 'linkedin', link: 'https://www.linkedin.com/in/matteo-pilz' },
     ],
-    address: [
-        'Room C322',
-        'Sand 14, Tübingen, Germany 72076',
-    ],
+    address: 'Maria-von-Linden-Straße 6, Room 20-5-A7, 72076 Tübingen',
+    phone: '+49 7071 29 70461',
     email: 'matteo.pilz@uni-tuebingen.de',
     education: [
         {

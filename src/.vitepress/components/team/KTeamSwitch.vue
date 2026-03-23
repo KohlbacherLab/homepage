@@ -8,7 +8,7 @@
 <script lang="ts">
 import type { PropType } from 'vue';
 import { defineComponent } from 'vue';
-import { TeamID } from '../../domains/team/constants';
+import { TeamID } from '../../domains/team/constants.ts';
 
 export default defineComponent({
     props: {
@@ -19,7 +19,7 @@ export default defineComponent({
         },
     },
     emits: ['picked'],
-    setup(props, { emit }) {
+    setup(_props, { emit }) {
         const items = [
             { id: TeamID.ALL, value: 'All' },
             { id: TeamID.ABI, value: 'ABI' },

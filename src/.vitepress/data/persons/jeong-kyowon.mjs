@@ -4,6 +4,8 @@ export default definePerson({
     avatar: '/images/persons/jeong-kyowon.png',
     name: 'Kyowon Jeong',
     email: 'kyowon.jeong@uni-tuebingen.de',
+    phone: '+49 7071 29 70462',
+    address: 'Maria-von-Linden-Straße 6, Room 20-7/A18, 72076 Tübingen',
     role: 'Postdoc',
     team: TeamID.ABI,
     socialLinks: [

@@ -4,6 +4,7 @@ export default definePerson({
     avatar: 'https://www.github.com/SirHerr.png',
     name: 'Marius Herr',
     role: 'Researcher',
+    address: 'Maria-von-Linden-Straße 6, Room 20-30/A15, 72076 Tübingen',
     team: TeamID.TBI,
     socialLinks: [
         { icon: 'github', link: 'https://github.com/SirHerr' },

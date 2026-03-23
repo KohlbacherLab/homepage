@@ -1,12 +1,9 @@
 import { TeamID, definePerson } from '../..';
 
 export default definePerson({
-    address: [
-        'Room 20-5/A19',
-        'Maria-von-Linden-Straße 6, Tübingen, Germany 72076',
-    ],
+    address: 'Maria-von-Linden-Straße 6, Room 20-5/A19, 72076 Tübingen',
     email: 'julia.leimeister@uni-tuebingen.de',
-    phone: '+49-7071-29-70460',
+    phone: '+49 7071 29 70460',
     avatar: '/images/persons/leimeister-julia.jpg',
     name: 'Julia Leimeister',
     role: 'Scientific Project Manager',

@@ -7,7 +7,7 @@
 <script lang="ts">
 import type { PropType } from 'vue';
 import { computed, defineComponent } from 'vue';
-import type { ContactDetails } from './types';
+import type { ContactDetails } from './types.ts';
 
 export default defineComponent({
     props: {
