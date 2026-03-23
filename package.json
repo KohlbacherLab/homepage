@@ -35,7 +35,7 @@
     "devDependencies": {
         "@tada5hi/eslint-config": "^2.0.2",
         "@tada5hi/tsconfig": "^0.7.2",
-        "@types/node": "^24.7.0",
+        "@types/node": "^25.5.0",
         "@vuecs/link": "^1.0.0",
         "@vuecs/preset-font-awesome": "^1.1.0",
         "eslint": "^10.0.3",
