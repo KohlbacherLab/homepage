@@ -91,6 +91,12 @@ export interface Person {
     team: string | string[],
 
     /**
+     * Whether the person has left the group.
+     * Inactive members are listed separately on the team overview.
+     */
+    inactive?: boolean,
+
+    /**
      * The person's educational background.
      */
     education?: HistoryEntry[],

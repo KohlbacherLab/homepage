@@ -9,7 +9,7 @@
 import {
     computed, defineComponent, ref,
 } from 'vue';
-import { TeamID } from '../../domains/team/constants.ts';
+import { TeamFilter } from '../../domains/team/constants.ts';
 import { data } from '../../data/team.data';
 import KTeamMembers from './KTeamMembers.vue';
 import KTeamSwitch from './KTeamSwitch.vue';
@@ -20,8 +20,8 @@ export default defineComponent({
         KTeamSwitch,
     },
     setup() {
-        const group = ref(TeamID.ALL);
-        const handlePicked = (value: TeamID) => {
+        const group = ref(TeamFilter.ACTIVE);
+        const handlePicked = (value: TeamFilter) => {
             group.value = value;
         };
 
@@ -29,13 +29,11 @@ export default defineComponent({
 
         const items = computed(() => members
             .filter(([, member]) => {
-                if (group.value === TeamID.ALL) {
-                    return true;
+                if (group.value === TeamFilter.INACTIVE) {
+                    return !!member.inactive;
                 }
 
-                const teams = Array.isArray(member.team) ? member.team : [member.team];
-
-                return teams.includes(group.value);
+                return !member.inactive;
             }));
 
         return {
@@ -62,8 +60,17 @@ export default defineComponent({
                 />
             </div>
             <KTeamMembers
+                v-if="items.length > 0"
                 :members="items"
             />
+            <div
+                v-else
+                class="empty-state text-center py-4"
+            >
+                {{ group === 'inactive'
+                    ? 'No inactive members.'
+                    : 'No active members.' }}
+            </div>
         </div>
     </div>
 </template>
@@ -76,5 +83,9 @@ export default defineComponent({
     letter-spacing: -0.5px;
     line-height: 56px;
     font-size: 48px;
+}
+
+.empty-state {
+    color: var(--vp-c-text-2);
 }
 </style>
