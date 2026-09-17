@@ -8,7 +8,7 @@ export default definePerson({
     team: TeamID.TBI,
     socialLinks: [
         { icon: 'github', link: 'https://github.com/SirHerr' },
-        { icon: 'linkedin', link: 'https://de.linkedin.com/in/marius-de-arruda-botelho-herr-60b89b18b' },
+        { icon: 'linkedin', link: 'https://linkedin.com/in/dr-marius-herr' },
     ],
     education: [
         {
