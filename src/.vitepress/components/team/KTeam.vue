@@ -7,7 +7,9 @@
 
 <script lang="ts">
 import {
-    computed, defineComponent, ref,
+    computed,
+    defineComponent,
+    ref,
 } from 'vue';
 import { TeamFilter } from '../../domains/team/constants.ts';
 import { data } from '../../data/team.data';

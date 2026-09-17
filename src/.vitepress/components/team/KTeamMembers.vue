@@ -12,9 +12,7 @@ import type { Person } from '../../domains/index.ts';
 import VPTeamMembersItem from './KTeamMembersItem.vue';
 
 export default defineComponent({
-    components: {
-        VPTeamMembersItem,
-    },
+    components: { VPTeamMembersItem },
     props: {
         size: {
             type: String as PropType<'small' | 'medium'>,
@@ -28,9 +26,7 @@ export default defineComponent({
     setup(props) {
         const classes = computed(() => [props.size, `count-${props.members.length}`]);
 
-        return {
-            classes,
-        };
+        return { classes };
     },
 });
 

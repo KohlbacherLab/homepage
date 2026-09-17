@@ -16,9 +16,7 @@ export default defineComponent({
             type: Array as PropType<SwitchElement[]>,
             required: true,
         },
-        current: {
-            type: String,
-        },
+        current: { type: String },
     },
     emits: ['picked'],
     setup(props, { emit }) {

@@ -15,7 +15,7 @@ export default defineComponent({
         group: {
             type: String as PropType<`${TeamFilter}`>,
             required: true,
-            default: `${TeamFilter.ACTIVE}`,
+            default: TeamFilter.ACTIVE,
         },
     },
     emits: ['picked'],

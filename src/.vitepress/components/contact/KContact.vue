@@ -24,9 +24,7 @@ export default defineComponent({
             email: 'oliver.kohlbacher@uni-tuebingen.de',
         };
 
-        return {
-            contact,
-        };
+        return { contact };
     },
 });
 </script>

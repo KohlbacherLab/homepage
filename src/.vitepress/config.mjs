@@ -15,9 +15,7 @@ export default defineConfig({
     description: 'Applied and Translational Bioinformatics',
     base: '/',
     themeConfig: {
-        search: {
-            provider: 'local',
-        },
+        search: { provider: 'local' },
         logo: {
             light: '/images/icon/logo_dark.png',
             dark: '/images/icon/logo_light.png',
@@ -25,9 +23,7 @@ export default defineConfig({
         socialLinks: [
             // { icon: 'github', link: 'https://github.com/KohlbacherLab/homepage' }
         ],
-        footer: {
-            copyright: 'Copyright © 2024-present KohlbacherLab',
-        },
+        footer: { copyright: 'Copyright © 2024-present KohlbacherLab' },
         editLink: {
             pattern: 'https://github.com/KohlbacherLab/homepage/edit/master/src/:path',
             text: 'Edit this page on GitHub',

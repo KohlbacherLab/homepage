@@ -7,11 +7,7 @@ export default {
         const paths = [];
 
         for (const item of items) {
-            paths.push({
-                params: {
-                    member: item[0],
-                },
-            });
+            paths.push({ params: { member: item[0] } });
         }
 
         return paths;

@@ -7,14 +7,10 @@ export default eslintConfig(
             'class-methods-use-this': 'off',
             'no-shadow': 'off',
             'no-use-before-define': 'off',
-            '@typescript-eslint/no-unused-vars': ['error', {
-                argsIgnorePattern: '^_',
-            }],
+            '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
             'import-x/extensions': 'off',
             'import-x/no-extraneous-dependencies': 'off',
         },
     },
-    {
-        ignores: ['src/.vitepress/cache/**', 'src/.vitepress/dist/**'],
-    },
+    { ignores: ['src/.vitepress/cache/**', 'src/.vitepress/dist/**'] },
 );
