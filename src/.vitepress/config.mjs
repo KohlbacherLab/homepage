@@ -5,7 +5,8 @@
  * view the LICENSE file that was distributed with this source code.
  */
 
-import { defineConfig } from 'vitepress';
+import tailwindcss from '@tailwindcss/vite';
+import { defineConfig, postcssIsolateStyles } from 'vitepress';
 import { readPersons } from './domains';
 
 const teamMembers = await readPersons();
@@ -14,6 +15,18 @@ export default defineConfig({
     title: 'KohlbacherLab',
     description: 'Applied and Translational Bioinformatics',
     base: '/',
+    vite: {
+        plugins: [tailwindcss()],
+        css: {
+            postcss: {
+                plugins: [
+                    // VitePress base + doc styles are unlayered and would override
+                    // Tailwind utilities, so exclude them inside `.vp-raw` wrappers.
+                    postcssIsolateStyles({ includeFiles: [/base\.css/, /vp-doc\.css/] }),
+                ],
+            },
+        },
+    },
     themeConfig: {
         search: { provider: 'local' },
         logo: {

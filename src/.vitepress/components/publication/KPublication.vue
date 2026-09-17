@@ -80,15 +80,15 @@ export default defineComponent({
 </script>
 <template>
     <div class="entity-card">
-        <div class="d-flex flex-row algin-items-center">
+        <div class="flex flex-row items-center">
             <div>
                 <KPublicationTitle :entity="entity" />
             </div>
         </div>
-        <hr>
-        <div class="d-flex flex-column gap-2">
+        <hr class="my-4 border-border">
+        <div class="flex flex-col gap-2">
             <div>
-                <div class="d-flex flex-row flex-wrap gap-1">
+                <div class="flex flex-row flex-wrap gap-1">
                     {{ authors }}
                     {{ publication }}
                 </div>
@@ -100,9 +100,9 @@ export default defineComponent({
                 <summary class="custom-block-title">
                     Abstract
                 </summary>
-                <p class="mt-0 abstract">
+                <div class="mb-2 text-[0.9em]">
                     {{ entity.fields.abstract }}
-                </p>
+                </div>
             </details>
         </div>
     </div>

@@ -30,22 +30,24 @@ export default defineComponent({
 });
 </script>
 <template>
-    <div class="d-flex flex-column gap-2 profile-page">
-        <div class="d-flex flex-row gap-3">
-            <div>
+    <div class="vp-raw flex flex-col gap-2">
+        <div class="flex flex-row gap-4">
+            <div class="shrink-0">
                 <img
-                    class="avatar"
+                    class="size-40 rounded-full object-cover"
                     :src="entity.avatar"
                     :alt="entity.name"
                 >
             </div>
-            <div>
-                <h1>{{ entity.name }}</h1>
+            <div class="min-w-0 wrap-break-word">
+                <h1 class="mb-0 text-[28px]/10 font-semibold tracking-[-0.02em] md:text-[32px]">
+                    {{ entity.name }}
+                </h1>
 
                 <strong
                     v-for="(item, index) in [entity.role].flat()"
                     :key="index"
-                    class="d-block"
+                    class="block"
                 >{{ item }}</strong>
 
                 <KPersonContact :entity="entity" />
@@ -54,13 +56,16 @@ export default defineComponent({
 
         <p
             v-if="entity.description"
+            class="my-4 leading-7 [&_a]:font-medium [&_a]:text-(--vp-c-brand-1) [&_a]:underline [&_a]:underline-offset-2"
             v-html="entity.description"
         />
 
         <div v-if="entity.interests">
-            <h3><i class="fa fa-lightbulb" /> Interests</h3>
+            <h3 class="mt-8 text-xl/7 font-semibold tracking-[-0.01em] text-(--vp-c-indigo-3)">
+                <i class="fa fa-lightbulb" /> Interests
+            </h3>
 
-            <ul class="list-unstyled person-item-list">
+            <ul class="list-disc ps-5">
                 <li
                     v-for="(item, key) in entity.interests"
                     :key="key"
@@ -70,29 +75,22 @@ export default defineComponent({
             </ul>
         </div>
         <div v-if="entity.education">
-            <h3><i class="fas fa-graduation-cap" /> Education</h3>
+            <h3 class="mt-8 text-xl/7 font-semibold tracking-[-0.01em] text-(--vp-c-indigo-3)">
+                <i class="fas fa-graduation-cap" /> Education
+            </h3>
             <KHistoryEntries :items="entity.education" />
         </div>
         <div v-if="entity.biography">
-            <h3><i class="fas fa-book" /> Biography</h3>
+            <h3 class="mt-8 text-xl/7 font-semibold tracking-[-0.01em] text-(--vp-c-indigo-3)">
+                <i class="fas fa-book" /> Biography
+            </h3>
             <KHistoryEntries :items="entity.biography" />
         </div>
         <div v-if="entity.awards">
-            <h3><i class="fas fa-trophy" /> Awards</h3>
+            <h3 class="mt-8 text-xl/7 font-semibold tracking-[-0.01em] text-(--vp-c-indigo-3)">
+                <i class="fas fa-trophy" /> Awards
+            </h3>
             <KHistoryEntries :items="entity.awards" />
         </div>
     </div>
 </template>
-<style scoped>
-.profile-page .avatar {
-    border-radius: 50%;
-    object-fit: cover;
-    height: 10em;
-    width: 10em;
-}
-
-.profile-page h3 {
-    margin-bottom: 0.5rem;
-    color: var(--vp-c-indigo-3);
-}
-</style>

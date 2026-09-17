@@ -37,7 +37,7 @@ export default defineComponent({
 });
 </script>
 <template>
-    <div class="d-flex flex-column contact-details gap-2">
+    <div class="flex flex-col gap-2">
         <div v-if="entity.email">
             <i class="fa fa-envelope pe-1" /> {{ entity.email }}
         </div>
@@ -46,15 +46,16 @@ export default defineComponent({
         </div>
         <div
             v-else-if="phones.length > 1"
-            class="d-flex flex-row gap-1"
+            class="flex flex-row gap-1"
         >
             <div>
                 <i class="fa fa-phone pe-2" />
             </div>
-            <ul class="contact-details-list">
+            <ul class="m-0 list-disc ps-5">
                 <li
                     v-for="(item, index) in phones"
                     :key="index"
+                    class="m-0 leading-[1.4]"
                 >
                     {{ item }}
                 </li>
@@ -65,15 +66,16 @@ export default defineComponent({
         </div>
         <div
             v-else-if="faxes.length > 1"
-            class="d-flex flex-row gap-1"
+            class="flex flex-row gap-1"
         >
             <div>
                 <i class="fa fa-fax pe-2" />
             </div>
-            <ul class="contact-details-list">
+            <ul class="m-0 list-disc ps-5">
                 <li
                     v-for="(item, index) in faxes"
                     :key="index"
+                    class="m-0 leading-[1.4]"
                 >
                     {{ item }}
                 </li>
@@ -84,15 +86,16 @@ export default defineComponent({
         </div>
         <div
             v-else-if="addresses.length > 1"
-            class="d-flex flex-row gap-1"
+            class="flex flex-row gap-1"
         >
             <div>
                 <i class="fa fa-map-marker-alt pe-2" />
             </div>
-            <ul class="contact-details-list">
+            <ul class="m-0 list-disc ps-5">
                 <li
                     v-for="(item, index) in addresses"
                     :key="index"
+                    class="m-0 leading-[1.4]"
                 >
                     {{ item }}
                 </li>
@@ -100,15 +103,3 @@ export default defineComponent({
         </div>
     </div>
 </template>
-<style scoped>
-.contact-details-list {
-    list-style: disc;
-    padding-left: 1.25rem;
-    margin: 0;
-}
-
-.contact-details-list li {
-    margin: 0;
-    line-height: 1.4;
-}
-</style>
