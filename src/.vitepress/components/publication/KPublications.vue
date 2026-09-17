@@ -9,11 +9,13 @@
 import { parse } from '@retorquere/bibtex-parser';
 import { computed, defineComponent, ref } from 'vue';
 import { data } from '../../data/bib.data';
+import KPageTitle from '../utilities/page-title/KPageTitle.vue';
 import KPagination from '../utilities/pagination/KPagination.vue';
 import KPublication from './KPublication.vue';
 
 export default defineComponent({
     components: {
+        KPageTitle,
         KPagination,
         KPublication,
     },
@@ -54,14 +56,12 @@ export default defineComponent({
 });
 </script>
 <template>
-    <div class="container">
-        <div class="page-title">
-            <h1 class="page-title-text">
-                <i class="fas fa-book" /> Publications
-            </h1>
-        </div>
-        <div class="d-flex flex-column gap-2">
-            <div class="d-flex">
+    <div class="vp-raw mx-auto w-full max-w-[1320px] px-3">
+        <KPageTitle icon="fas fa-book">
+            Publications
+        </KPageTitle>
+        <div class="flex flex-col gap-2">
+            <div class="flex">
                 <div class="ms-auto">
                     <KPagination
                         :total="total"
@@ -71,7 +71,7 @@ export default defineComponent({
                     />
                 </div>
             </div>
-            <div class="d-flex flex-column gap-3">
+            <div class="flex flex-col gap-4">
                 <template
                     v-for="(entity, key) in items"
                     :key="key"
@@ -81,7 +81,7 @@ export default defineComponent({
                     />
                 </template>
             </div>
-            <div class="d-flex">
+            <div class="flex">
                 <div class="ms-auto">
                     <KPagination
                         :total="total"
@@ -93,14 +93,17 @@ export default defineComponent({
             </div>
             <template v-if="errors && errors.length > 0">
                 <h2>Errors</h2>
-                <div class="mt-1 mb-1">
+                <div class="my-1">
                     <template
                         v-for="(error, key) in errors"
                         :key="key"
                     >
-                        <div class="alert alert-warning alert-sm">
+                        <div
+                            class="mb-4 rounded-md border border-warning-300 bg-warning-50 p-4 text-warning-900
+                                dark:border-warning-800 dark:bg-warning-950 dark:text-warning-200"
+                        >
                             {{ error.error.split(':').shift() }} could not be read.
-                            <div class="d-flex flex-column">
+                            <div class="flex flex-col">
                                 <div>
                                     <strong>Input</strong><br>
                                     {{ error.input }}

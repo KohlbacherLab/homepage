@@ -9,9 +9,14 @@ import { VPImage } from 'vitepress/theme';
 import { defineComponent } from 'vue';
 import KContactDetails from '../utilities/contact/KContactDetails.vue';
 import type { ContactDetails } from '../utilities/contact/types.ts';
+import KPageTitle from '../utilities/page-title/KPageTitle.vue';
 
 export default defineComponent({
-    components: { KContactDetails, VPImage },
+    components: {
+        KContactDetails,
+        KPageTitle,
+        VPImage,
+    },
     setup() {
         const contact : ContactDetails = {
             address: [
@@ -29,25 +34,23 @@ export default defineComponent({
 });
 </script>
 <template>
-    <div class="container">
-        <div class="page-title">
-            <h1 class="page-title-text">
-                <i class="fas fa-address-book" /> Contact
-            </h1>
-        </div>
+    <div class="vp-raw mx-auto w-full max-w-[1320px] px-3">
+        <KPageTitle icon="fas fa-address-book">
+            Contact
+        </KPageTitle>
         <div class="m-auto">
             <h3>KohlbacherLab</h3>
-            <div class="d-flex flex-column gap-3">
+            <div class="flex flex-col gap-4">
                 <div>
                     <KContactDetails :entity="contact" />
                 </div>
-                <hr>
+                <hr class="my-4 border-border">
 
                 <h4>How To Find Us</h4>
-                <div class="row">
-                    <div class="col-md-8 col-12">
+                <div class="grid grid-cols-12 gap-x-6">
+                    <div class="col-span-12 md:col-span-8">
                         <h6><i class="fa fa-car" /> By Car</h6>
-                        <ul class="contact-list">
+                        <ul class="mb-4 list-disc ps-8">
                             <li>Follow the B27 toward Tübingen from Stuttgart</li>
                             <li>Take the "Tübingen, Nordstadt, Kliniken" exit</li>
                             <li>At the 3rd traffic light, turn left onto Wilhelmstraße</li>
@@ -59,7 +62,7 @@ export default defineComponent({
                         </ul>
 
                         <h6><i class="fa fa-bus" /> By Bus</h6>
-                        <ul class="contact-list">
+                        <ul class="mb-4 list-disc ps-8">
                             <li>From Tübingen Hauptbahnhof, cross the street to the "Europaplatz" bus stops</li>
                             <li>Take Bus Line 3 toward "Waldhäuser Ost" (approx. 15 minutes)</li>
                             <li>Exit at "Sternwarte"</li>
@@ -68,22 +71,22 @@ export default defineComponent({
                         </ul>
 
                         <h6><i class="fa fa-train" /> By Train</h6>
-                        <ul class="contact-list">
+                        <ul class="mb-4 list-disc ps-8">
                             <li>Arrive at Tübingen Hauptbahnhof</li>
                             <li>The main bus station is directly across from the station exit</li>
                             <li>Take Bus Line 3 (see above)</li>
                         </ul>
 
                         <h6><i class="fa fa-plane" /> By Airplane</h6>
-                        <ul class="contact-list">
+                        <ul class="mb-4 list-disc ps-8">
                             <li>Arrive at Stuttgart Airport</li>
                             <li>Take Airport-Sprinter Bus Line 828 to Tübingen Hauptbahnhof (approx. 60 minutes)</li>
                             <li>Then follow the bus directions above</li>
                         </ul>
                     </div>
-                    <div class="col-md-4 col-12">
+                    <div class="col-span-12 md:col-span-4">
                         <VPImage
-                            class="contact-image"
+                            class="h-[280px] w-[480px] rounded-md object-cover object-bottom"
                             image="/images/contact/mvl6.jpg"
                         />
                     </div>
@@ -92,16 +95,3 @@ export default defineComponent({
         </div>
     </div>
 </template>
-<style>
-.contact-list {
-    list-style: inherit;
-}
-
-.contact-image {
-    width: 480px;
-    height: 280px;
-    object-fit: cover;
-    object-position: bottom;
-    border-radius: 6px;
-}
-</style>
