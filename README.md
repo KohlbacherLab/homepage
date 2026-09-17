@@ -1,64 +1,63 @@
-# Homepage 📖
+# Homepage
 
 [![Deploy](https://github.com/KohlbacherLab/homepage/actions/workflows/main.yml/badge.svg)](https://github.com/KohlbacherLab/homepage/actions/workflows/main.yml)
+
+[VitePress](https://vitepress.dev/)-powered academic website for the [KohlbacherLab](https://kohlbacherlab.org) group at the University of Tubingen. Built with [Vue.js](https://vuejs.org/) and deployed to [kohlbacherlab.org](https://kohlbacherlab.org) via GitHub Pages.
 
 **Table of Contents**
 
 - [Getting Started](#getting-started)
+- [Scripts](#scripts)
 - [Recipes](#recipes)
 - [Contributing](#contributing)
+  - [Fork Workflow](#fork-workflow)
+  - [Keeping Your Fork Up to Date](#keeping-your-fork-up-to-date)
 - [License](#license)
-
-This repository contains a homepage based on [vitepress](https://vitepress.dev/) and customized
-with [Vue.js](https://vuejs.org/).
-
-The homepage is hosted
-on [GitHub Pages](https://KohlbacherLab.github.io/homepage/)
 
 ## Getting Started
 
-> 📝 **Notice**
-> 
-> Please read the [Contributing](#contributing) section and the associated instructions
-> before you start making changes to the source code.
+> **Note**
+>
+> This project uses a fork-based workflow. See the [Contributing](#contributing) section
+> for how to fork, clone, and submit changes.
 
-1. Fork/Clone the Repository
+**Prerequisites:** [Node.js](https://nodejs.org/) >= 20.0.0
 
-```shell
-git clone https://github.com/KohlbacherLab/homepage
-```
-2. Install Node.js
-
-[https://nodejs.org/en/download/prebuilt-installer](https://nodejs.org/en/download/prebuilt-installer)
-
-3. Install dependencies
+1. Install dependencies
 
 ```shell
-npm i
+npm ci
 ```
 
-4. Run docs generation with Hot Module Replacement (HMR):
+2. Start the dev server (with hot module replacement)
 
 ```shell
 npm run dev
 ```
 
+## Scripts
+
+| Command              | Description                              |
+|----------------------|------------------------------------------|
+| `npm run dev`        | Start local dev server with HMR          |
+| `npm run build`      | Build the static site                    |
+| `npm run typecheck`  | Run type checking with `vue-tsc`         |
+| `npm run lint`       | Lint source files with ESLint            |
+| `npm run lint:fix`   | Lint and auto-fix source files           |
+
 ## Recipes
-The following recipes are intended to help you create and manage certain content on the homepage.
-These recipes do not include concepts which are already covered in the [vitepress](https://vitepress.dev/) documentation.
+
+The following recipes help you create and manage content on the homepage.
+For general page editing, refer to the [VitePress documentation](https://vitepress.dev/).
 
 ### Person
-To create a new person, navigate to the `src/.vitepress/data/persons` folder using the console or 
-the IDE (e.g. WebStorm or VSCode).
-A file with the following pattern should be created there: `<lastname>-<firstname>.mjs`.
 
-The content can be created in the same way as the existing persons.
+To add a new person, create a file in `src/.vitepress/data/persons/` following the naming pattern `<lastname>-<firstname>.mjs`.
 
-The content of such a file must follow a specific [structure](#structure) and 
-could look like this, for example:
+Use existing person files as reference. A minimal example:
 
 ```ts
-import { definePerson } from "../..";
+import { definePerson } from '../../index.ts';
 
 export default definePerson({
     name: 'Peter Placzek',
@@ -66,149 +65,224 @@ export default definePerson({
     avatar: 'https://www.github.com/tada5hi.png',
     email: 'peter.placzek@medizin.uni-tuebingen.de',
     phone: '+49 7071 29 84309',
-    address: 'Schaffhausenstraße 77, Raum 2.105, Tübingen, 72072',
+    address: 'Sand 14, Room A301, Tubingen, 72076',
     team: 'tbi',
     socialLinks: [
         { icon: 'github', link: 'https://github.com/tada5hi' },
-        { icon: 'twitter', link: 'https://twitter.com/tada5hi' },
         { icon: 'linkedin', link: 'https://www.linkedin.com/in/peter-placzek-047a74210/' },
     ],
     interests: [
         'Personalized Medicine',
         'Privacy',
-        'Security'
+        'Security',
     ],
     education: [
         {
             year: [2002, 2006],
-            value: 'Grundschule Pliezhausen'
+            value: 'Grundschule Pliezhausen',
         },
-        // ...
     ],
     awards: [
         {
             year: 2020,
-            value: 'xxx'
-        }
+            value: 'xxx',
+        },
     ],
     biography: [
-        { 
+        {
             year: [2000, 2005],
-            value: 'xxx'
-        }
-    ]
+            value: 'xxx',
+        },
+    ],
 });
 ```
 
-Since the files are in the persons folder on build time and generally not included in the hot module replacement (hmr) process,
-the application must be restarted after changes have been made.
+Since person data files are processed at build time, the dev server must be restarted after changes.
 
 #### Structure
 
 **Person**
 
 ```ts
+/**
+ * Represents a team member with their personal and professional information.
+ */
+interface Person {
+    /** The full name of the person. */
+    name: string;
 
-export interface Person {
-    /**
-     * The full name of the person.
-     * e.g., Oliver Kohlbacher
-     */
-    name: string,
+    /** The professional role (e.g., 'Researcher', 'Professor'). */
+    role?: string;
 
-    /**
-     * The professional role of the person.
-     * e.g., Researcher, Professor, PhD, etc.
-     */
-    role?: string,
+    /** URL to the person's avatar image. Can be absolute or relative. */
+    avatar?: string;
 
-    /**
-     * URL to the person's avatar image. 
-     * Can be absolute or relative.
-     */
-    avatar?: string,
+    /** A short description or bio of the person. */
+    description?: string;
 
-    /**
-     * A short description or bio of the person.
-     */
-    description?: string,
+    /** A list of the person's social media links. */
+    socialLinks?: SocialLink[];
 
-    /**
-     * A list of the person's social media links.
-     */
-    socialLinks?: DefaultTheme.SocialLink[],
+    /** The person's address. Can be a string or an array for multiple addresses. */
+    address?: string | string[];
 
-    /**
-     * The person's address.
-     * Can be a string or an array of strings for multiple addresses.
-     */
-    address?: string | string[],
+    /** The person's email address. */
+    email?: string;
 
-    /**
-     * The person's email address.
-     */
-    email?: string,
+    /** The person's phone number. Can be a string or an array for multiple numbers. */
+    phone?: string | string[];
 
-    /**
-     * The person's phone number.
-     * Can be a string or an array for multiple phone numbers.
-     */
-    phone?: string | string[],
+    /** The team or teams the person is part of (e.g., 'tbi', 'abi'). */
+    team: string | string[];
 
-    /**
-     * The team or teams the person is part of.
-     * e.g., "tbi" or "abi"
-     */
-    team: string | string[],
+    /** The person's educational background. */
+    education?: HistoryEntry[];
 
-    /**
-     * The person's educational background, 
-     * represented as an array of history entries.
-     */
-    education?: HistoryEntry[],
+    /** Awards or recognitions the person has received. */
+    awards?: HistoryEntry[];
 
-    /**
-     * Awards or recognitions the person has received, 
-     * represented as an array of history entries.
-     */
-    awards?: HistoryEntry[],
+    /** A detailed biography of the person. */
+    biography?: HistoryEntry[];
 
-    /**
-     * A detailed biography of the person,
-     * represented as an array of history entries.
-     */
-    biography?: HistoryEntry[],
+    /** A list of the person's professional or personal interests. */
+    interests?: string[];
 
-    /**
-     * A list of the person's professional
-     * or personal interests.
-     */
-    interests?: string[]
+    /** URL to the person's sponsor page. */
+    sponsor?: string;
+
+    /** Custom text for the sponsor action button. */
+    actionText?: string;
 }
 ```
 
 **HistoryEntry**
+
 ```ts
+/**
+ * Represents a chronological entry (e.g., education, award, biography item).
+ */
 type HistoryEntry = {
-    year: number | [number, number],
-    value: string
-}
+    /** The year or year range (e.g., 2020 or [2018, 2022]). */
+    year: number | [number, number];
+
+    /** A description of the entry. */
+    value: string;
+};
 ```
 
 **SocialLink**
+
 ```ts
- type SocialLink = {
-    icon: string,
-    link: string,
-    ariaLabel?: strin
-}
+/**
+ * Represents a social media or external profile link.
+ */
+type SocialLink = {
+    /** The icon identifier for the social platform (e.g., 'github', 'linkedin'). */
+    icon: string;
+
+    /** The URL to the social profile. */
+    link: string;
+
+    /** Accessible label for screen readers. */
+    ariaLabel?: string;
+};
 ```
 
 ## Contributing
 
-Before starting to work on a pull request, it is important to review the guidelines for
+Before starting to work on a pull request, please review the guidelines for
 [contributing](./CONTRIBUTING.md) and the [code of conduct](./CODE_OF_CONDUCT.md).
-These guidelines will help to ensure that contributions are made effectively and are accepted.
+
+### Fork Workflow
+
+1. **Fork** the repository on GitHub (click the **Fork** button on the repo page).
+   This creates a personal copy under `https://github.com/<your-username>/homepage`.
+
+2. **Clone** your fork locally:
+
+```shell
+git clone https://github.com/<your-username>/homepage
+cd homepage
+```
+
+3. **Add the upstream remote.** This points to the original repository so you can
+   pull in new changes later. You only need to do this once:
+
+```shell
+git remote add upstream https://github.com/KohlbacherLab/homepage.git
+```
+
+You can verify the remotes are set up correctly:
+
+```shell
+git remote -v
+# origin    https://github.com/<your-username>/homepage.git (fetch)
+# origin    https://github.com/<your-username>/homepage.git (push)
+# upstream  https://github.com/KohlbacherLab/homepage.git (fetch)
+# upstream  https://github.com/KohlbacherLab/homepage.git (push)
+```
+
+- `origin` — your fork (you push here)
+- `upstream` — the original repository (you pull from here)
+
+4. **Install dependencies** and start developing:
+
+```shell
+npm ci
+npm run dev
+```
+
+5. **Create a feature branch** off master:
+
+```shell
+git checkout -b my-feature
+```
+
+6. Make your changes, then **commit**:
+
+```shell
+git add .
+git commit -m "feat: describe your change"
+```
+
+7. **Push** your branch to your fork:
+
+```shell
+git push -u origin my-feature
+```
+
+8. **Open a pull request** on GitHub from your fork's branch to `KohlbacherLab/homepage:master`.
+
+### Keeping Your Fork Up to Date
+
+Update your local master with the latest upstream changes:
+
+```shell
+git checkout master
+git fetch upstream
+git merge upstream/master
+git push origin master
+```
+
+Sync your feature branch with the updated master:
+
+```shell
+git checkout my-feature
+git rebase master
+```
+
+If there are conflicts, resolve them in the affected files, then:
+
+```shell
+git add .
+git rebase --continue
+```
+
+After rebasing, force-push your branch:
+
+```shell
+git push --force-with-lease
+```
 
 ## License
 

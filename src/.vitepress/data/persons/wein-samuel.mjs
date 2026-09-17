@@ -3,6 +3,7 @@ import { TeamID, definePerson } from '../..';
 export default definePerson({
     avatar: '/images/persons/wein-samuel.jpg',
     name: 'Samuel Wein',
+    address: 'Maria-von-Linden-Straße 6, 72076 Tübingen',
     team: TeamID.ABI,
     role: 'PostDoc',
     email: 'samuel[dot]wein[at]uni-tuebingen.de',

@@ -8,7 +8,7 @@
 <script lang="ts">
 import type { PropType } from 'vue';
 import { defineComponent, ref } from 'vue';
-import type { SwitchElement } from './types';
+import type { SwitchElement } from './types.ts';
 
 export default defineComponent({
     props: {

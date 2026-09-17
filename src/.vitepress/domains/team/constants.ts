@@ -10,3 +10,8 @@ export enum TeamID {
     TBI = 'tbi',
     ABI = 'abi',
 }
+
+export enum TeamFilter {
+    ACTIVE = 'active',
+    INACTIVE = 'inactive',
+}

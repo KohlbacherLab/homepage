@@ -5,7 +5,7 @@
  * view the LICENSE file that was distributed with this source code.
  */
 
-import fs from 'fs';
+import fs from 'node:fs';
 import path from 'node:path';
 
 declare const data: string;

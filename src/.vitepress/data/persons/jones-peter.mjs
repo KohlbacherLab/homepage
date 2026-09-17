@@ -4,14 +4,16 @@ export default definePerson({
     avatar: 'https://avatars.githubusercontent.com/u/3737?v=4',
     name: 'Peter J. Jones',
     email: 'peter.jones@uni-tuebingen.de',
-    address: 'Sand 14, Room C321, 72076 Tübingen',
+    phone: '+49 7071 29 70462',
+    address: 'Maria-von-Linden-Straße 6, Room 20-7/A18, 72076 Tübingen',
     team: TeamID.ABI,
     role: 'PhD Student',
 
     socialLinks: [
         { icon: 'github', link: 'https://github.com/pjones' },
-        { icon: 'mastodon', link: 'https://fosstodon.org/@devalot' },
+        { icon: 'mastodon', link: 'https://hostux.social/@devalot' },
         { icon: 'linkedin', link: 'https://www.linkedin.com/in/devalot/' },
+        { icon: 'orcid', link: 'https://orcid.org/0009-0004-6644-4752' },
     ],
 
     interests: [

@@ -91,7 +91,7 @@ export default defineComponent({
                     />
                 </div>
             </div>
-            <template v-if="errors">
+            <template v-if="errors && errors.length > 0">
                 <h2>Errors</h2>
                 <div class="mt-1 mb-1">
                     <template

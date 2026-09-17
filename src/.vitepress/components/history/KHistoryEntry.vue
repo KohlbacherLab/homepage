@@ -7,7 +7,7 @@
 <script lang="ts">
 import type { PropType } from 'vue';
 import { computed, defineComponent } from 'vue';
-import type { HistoryEntry } from '../../domains';
+import type { HistoryEntry } from '../../domains/index.ts';
 
 export default defineComponent({
     props: {

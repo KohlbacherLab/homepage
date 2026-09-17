@@ -32,8 +32,17 @@ export default defineComponent({
             return null;
         });
 
+        const url = computed(() => {
+            if ('url' in props.entity.fields) {
+                return props.entity.fields.url;
+            }
+
+            return undefined; // Make the linter happy.
+        });
+
         return {
             pmID,
+            url,
         };
     },
 });
@@ -44,6 +53,14 @@ export default defineComponent({
         <template v-if="pmID">
             <VCLink
                 :href="'https://pubmed.ncbi.nlm.nih.gov/'+ pmID"
+                target="_blank"
+            >
+                {{ entity.fields.title }}
+            </VCLink>
+        </template>
+        <template v-else-if="url">
+            <VCLink
+                :href="url"
                 target="_blank"
             >
                 {{ entity.fields.title }}

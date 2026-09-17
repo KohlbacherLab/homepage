@@ -11,7 +11,8 @@ import { readPersons } from './domains';
 const teamMembers = await readPersons();
 
 export default defineConfig({
-    title: 'Kohlbacherlab',
+    title: 'KohlbacherLab',
+    description: 'Applied and Translational Bioinformatics',
     base: '/',
     themeConfig: {
         search: {
@@ -48,7 +49,7 @@ export default defineConfig({
             },
             {
                 text: 'Teaching',
-                link: '/teaching',
+                link: 'https://alma.uni-tuebingen.de/alma/pages/startFlow.xhtml?_flowId=searchCourseNonStaff-flow',
             },
             {
                 text: 'Publications',
@@ -78,31 +79,29 @@ export default defineConfig({
                 {
                     text: 'Packages',
                     items: [
-                        { text: 'OpenMS', link: '/software/open-ms' },
-                        { text: 'BALL', link: '/software/ball' },
+                        { text: 'Claudio', link: '/software/claudio' },
+                        { text: 'DNPM:DIP', link: '/software/dnpm-dip' },
+                        { text: 'FLAME', link: '/software/flame' },
                         { text: 'Fred2', link: '/software/fred-2' },
+                        { text: 'OpenMS', link: '/software/open-ms' },                       
                         { text: 'XLEC', link: '/software/xlec' },
-                    ],
-                },
-                {
-                    text: 'Webserver',
-                    items: [
-                        { text: 'EpiToolKit', link: '/software/epi-tool-kit' },
-                        { text: 'NRPSpredictor2', link: '/software/nrp-spredictor-2' },
-                        { text: 'MultiLoc2', link: '/software/multi-loc-2' },
-                        { text: 'SherLoc2', link: '/software/sher-loc-2' },
-                        { text: 'YLoc', link: '/software/y-loc' },
                     ],
                 },
             ],
             '/projects': [
+                { text: 'A4B', link: '/projects/a4b' },
+                { text: 'de.KCD', link: '/projects/dekcd' },
                 { text: 'de.NBI', link: '/projects/denbi' },
                 { text: 'DIFUTURE', link: '/projects/difuture' },
-                { text: 'EPIC-XS', link: '/projects/epic-xs' },
-                { text: 'PersOns', link: '/projects/pers-ons' },
+                { text: 'Epic-XS', link: '/projects/epic-xs' },
+                { text: 'EyeMatics', link: '/projects/eyematics' },
+                { text: 'GDI', link: '/projects/gdi' },
+                { text: 'GHGA', link: '/projects/ghga' },
+                { text: 'NUM-DIZ', link: '/projects/num-diz' },
+                { text: 'PCOR-MII', link: '/projects/pcor-mii' },
+                { text: 'PM4Onco', link: '/projects/pm4onco' },
                 { text: 'PrivateAIM', link: '/projects/privateaim' },
-                { text: 'A4B', link: '/projects/a4b' },
-                { text: 'Food Profiling', link: '/projects/food-profiling' },
+                
             ],
         },
     },

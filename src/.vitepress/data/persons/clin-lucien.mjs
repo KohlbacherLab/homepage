@@ -1,11 +1,11 @@
 import { TeamID, definePerson } from '../..';
 
 export default definePerson({
-    avatar: 'https://www.github.com/lucienclin.png',
+    avatar: '/images/persons/clin-lucien.png',
+    //    avatar: 'https://www.github.com/lucienclin.png',
     name: 'Lucien Clin',
     email: 'lucien.clin@uni-tuebingen.de',
-    phone: '+49 7071 29 84309',
-    address: 'Schaffhausenstraße 77, 72072 Tübingen',
+    address: 'Maria-von-Linden-Straße 6, Room 20-30/A15, 72076 Tübingen',
     team: TeamID.TBI,
     role: 'Researcher',
     socialLinks: [

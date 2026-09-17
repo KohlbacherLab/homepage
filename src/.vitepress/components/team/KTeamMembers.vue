@@ -8,7 +8,7 @@
 <script lang="ts">
 import type { PropType } from 'vue';
 import { computed, defineComponent } from 'vue';
-import type { Person } from '../../domains';
+import type { Person } from '../../domains/index.ts';
 import VPTeamMembersItem from './KTeamMembersItem.vue';
 
 export default defineComponent({

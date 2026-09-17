@@ -4,18 +4,20 @@ on:
   push:
     branches:
       - master
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Install
         run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
 
       - name: Build
         run: npm run build
@@ -24,7 +26,7 @@ jobs:
         run: |
             cd ./src/.vitepress/dist/
             touch CNAME
-            echo "dev.kohlbacherlab.org" > CNAME
+            echo "kohlbacherlab.org" > CNAME
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4

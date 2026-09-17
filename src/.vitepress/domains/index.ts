@@ -5,6 +5,6 @@
  * view the LICENSE file that was distributed with this source code.
  */
 
-export * from './history';
-export * from './person';
-export * from './team';
+export * from './history/index.ts';
+export * from './person/index.ts';
+export * from './team/index.ts';

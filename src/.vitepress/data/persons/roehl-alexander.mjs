@@ -5,8 +5,7 @@ export default definePerson({
     role: 'PhD Student',
     avatar: '/images/persons/roehl-alexander.png',
     email: 'alexander.roehl@uni-tuebingen.de',
-    phone: '+49 7071 29 70462',
-    address: 'Sand 14, 2.OG Raum C323, 72076 Tübingen',
+    address: 'Maria-von-Linden-Straße 6, Room 20-28/A15, 72076 Tübingen',
     team: TeamID.ABI,
     socialLinks: [
         {
@@ -22,14 +21,12 @@ export default definePerson({
     ],
     education: [
         {
-            year: 0,
-            value: 'tba',
+            year: 2020,
+            value: 'B.Sc. in Bioinformatics, University of Tübingen, Tübingen, Germany (Thesis: Subtypenspezifisches Machine Learning für die HIV-Korezeptor Vorhersage)',
         },
-    ],
-    publications: [
         {
-            year: 2024,
-            value: 'Röhl, A., Netz, E., Kohlbacher, O., & Elhabashy, H. (2024). CLAUDIO: automated structural analysis of cross-linking data. Bioinformatics, 40(4), btae146.',
+            year: 2022,
+            value: 'M.Sc. in Bioinformatics, University of Tübingen, Tübingen, Germany (Thesis: Method development in interaction prediction, structure elucidation, and modeling of protein-protein homo-oligomers)',
         },
     ],
 });

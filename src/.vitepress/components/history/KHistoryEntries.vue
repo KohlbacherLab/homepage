@@ -7,7 +7,7 @@
 <script lang="ts">
 import type { PropType } from 'vue';
 import { defineComponent } from 'vue';
-import type { HistoryEntry } from '../../domains';
+import type { HistoryEntry } from '../../domains/index.ts';
 import KHistoryEntry from './KHistoryEntry.vue';
 
 export default defineComponent({
