@@ -6,16 +6,16 @@
   -->
 
 <script lang="ts">
-import { VCPagination } from '@vuecs/pagination';
 import { parse } from '@retorquere/bibtex-parser';
 import { computed, defineComponent, ref } from 'vue';
 import { data } from '../../data/bib.data';
+import KPagination from '../utilities/pagination/KPagination.vue';
 import KPublication from './KPublication.vue';
 
 export default defineComponent({
     components: {
+        KPagination,
         KPublication,
-        VCPagination,
     },
     setup() {
         const { entries, errors } = parse(data);
@@ -37,7 +37,7 @@ export default defineComponent({
             return entries.slice(startIndex, endIndex);
         });
 
-        const load = (pagination: { limit: number, offset: number}) => {
+        const load = (pagination: { limit: number, offset: number }) => {
             limit.value = pagination.limit;
             offset.value = pagination.offset;
         };
@@ -63,7 +63,7 @@ export default defineComponent({
         <div class="d-flex flex-column gap-2">
             <div class="d-flex">
                 <div class="ms-auto">
-                    <VCPagination
+                    <KPagination
                         :total="total"
                         :offset="offset"
                         :limit="limit"
@@ -83,7 +83,7 @@ export default defineComponent({
             </div>
             <div class="d-flex">
                 <div class="ms-auto">
-                    <VCPagination
+                    <KPagination
                         :total="total"
                         :offset="offset"
                         :limit="limit"

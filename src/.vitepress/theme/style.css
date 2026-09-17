@@ -136,27 +136,20 @@ p {
     --bs-alert-link-color: var(--bs-dark-text-emphasis);
 }
 
-.pagination {
-    display: flex;
-    flex-direction: row;
-    list-style: none !important;
+.vc-pagination .vc-pagination-link {
+    padding: 5px 8px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    color: #333;
+    background-color: #eee;
 }
 
-.pagination .page-item {
-    margin-top: 0px !important;
-}
-
-.pagination .page-item .page-link {
-    padding: 0.25rem 0.75rem;
-    background-color: var(--vp-c-bg-soft);
-}
-
-.pagination .page-item:first-child:not(:last-child) .page-link {
-    border-radius: 6px 0px 0px 6px;
-}
-
-.pagination .page-item:last-child:not(:first-child) .page-link {
-    border-radius: 0px 6px 6px 0px;
+.vc-pagination .vc-pagination-link.active,
+.vc-pagination .vc-pagination-link:not(.vc-pagination-ellipsis):hover,
+.vc-pagination .vc-pagination-link:not(.vc-pagination-ellipsis):focus {
+    color: #fff;
+    background-color: #30373e;
 }
 
 .person-item-list {
