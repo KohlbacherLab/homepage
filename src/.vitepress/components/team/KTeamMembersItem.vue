@@ -57,8 +57,12 @@ export default defineComponent({
                     v-if="member.role"
                     class="affiliation"
                 >
-                    <span class="title">
-                        {{ member.role }}
+                    <span
+                        v-for="(item, index) in [member.role].flat()"
+                        :key="index"
+                        class="title d-block"
+                    >
+                        {{ item }}
                     </span>
                 </p>
                 <p

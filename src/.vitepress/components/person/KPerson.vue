@@ -48,7 +48,11 @@ export default defineComponent({
             <div>
                 <h1>{{ entity.name }}</h1>
 
-                <strong>{{ entity.role }}</strong>
+                <strong
+                    v-for="(item, index) in [entity.role].flat()"
+                    :key="index"
+                    class="d-block"
+                >{{ item }}</strong>
 
                 <KPersonContact :entity="entity" />
             </div>

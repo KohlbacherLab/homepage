@@ -43,11 +43,12 @@ export interface Person {
 
     /**
      * The professional role of the person.
+     * Can be a string or an array of strings for multiple roles.
      *
      * @example 'Researcher'
-     * @example 'Professor'
+     * @example ['Researcher', 'Technical Lead']
      */
-    role?: string,
+    role?: string | string[],
 
     /**
      * URL to the person's avatar image.
