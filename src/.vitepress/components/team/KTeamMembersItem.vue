@@ -58,7 +58,7 @@ export default defineComponent({
                     class="affiliation"
                 >
                     <span class="title">
-                        {{ member.role }}
+                        {{ [member.role].flat().join(', ') }}
                     </span>
                 </p>
                 <p
