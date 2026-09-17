@@ -15,11 +15,7 @@ import KPersonContact from '../utilities/contact/KContactDetails.vue';
 
 export default defineComponent({
     components: { KPersonContact, KHistoryEntries },
-    props: {
-        slug: {
-            type: String,
-        },
-    },
+    props: { slug: { type: String } },
     setup(props) {
         const entity = computed<Person>(() => {
             const match = data.find((member) => member[0] === props.slug);
@@ -29,9 +25,7 @@ export default defineComponent({
             return match[1];
         });
 
-        return {
-            entity,
-        };
+        return { entity };
     },
 });
 </script>
@@ -57,6 +51,11 @@ export default defineComponent({
                 <KPersonContact :entity="entity" />
             </div>
         </div>
+
+        <p
+            v-if="entity.description"
+            v-html="entity.description"
+        />
 
         <div v-if="entity.interests">
             <h3><i class="fa fa-lightbulb" /> Interests</h3>
