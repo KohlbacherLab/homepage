@@ -8,14 +8,14 @@
 <script lang="ts">
 import { VCLink } from '@vuecs/link';
 import {
-    type PropType, computed, defineComponent,
+    type PropType,
+    computed,
+    defineComponent,
 } from 'vue';
 import type { Entry } from '@retorquere/bibtex-parser';
 
 export default defineComponent({
-    components: {
-        VCLink,
-    },
+    components: { VCLink },
     props: {
         entity: {
             type: Object as PropType<Entry>,

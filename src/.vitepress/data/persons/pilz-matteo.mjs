@@ -1,7 +1,7 @@
 import { TeamID, definePerson } from '../..';
 
 export default definePerson({
-    avatar: '/images/persons/pilz-matteo.png',
+    avatar: '/images/persons/pilz-matteo.jpeg',
     name: 'Matteo Pilz',
     team: TeamID.ABI,
     role: 'PhD Student',

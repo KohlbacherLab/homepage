@@ -10,7 +10,7 @@ export default definePerson({
     ],
     address: [
         'Maria-von-Linden-Straße 6, Room 20-30/A21, 72076 Tübingen',
-        'Sand 14, Room C328, 7206 Tübingen'
+        'Sand 14, Room C328, 7206 Tübingen',
     ],
     team: TeamID.ABI,
     socialLinks: [],

@@ -21,7 +21,7 @@
 > This project uses a fork-based workflow. See the [Contributing](#contributing) section
 > for how to fork, clone, and submit changes.
 
-**Prerequisites:** [Node.js](https://nodejs.org/) >= 20.0.0
+**Prerequisites:** [Node.js](https://nodejs.org/) >= 22.0.0
 
 1. Install dependencies
 

@@ -9,28 +9,31 @@
 import type { PropType } from 'vue';
 import { computed, defineComponent } from 'vue';
 import type { Person } from '../../domains/index.ts';
-import VPTeamMembersItem from './KTeamMembersItem.vue';
+import KTeamMembersItem from './KTeamMembersItem.vue';
 
 export default defineComponent({
-    components: {
-        VPTeamMembersItem,
-    },
+    components: { KTeamMembersItem },
     props: {
-        size: {
-            type: String as PropType<'small' | 'medium'>,
-            default: 'medium',
-        },
         members: {
             type: Array as PropType<[string, Person][]>,
             required: true,
         },
     },
     setup(props) {
-        const classes = computed(() => [props.size, `count-${props.members.length}`]);
+        // Keep one or two cards from stretching over the full width.
+        const maxWidth = computed(() => {
+            if (props.members.length === 1) {
+                return 'max-w-[368px]';
+            }
 
-        return {
-            classes,
-        };
+            if (props.members.length === 2) {
+                return 'max-w-[760px]';
+            }
+
+            return undefined;
+        });
+
+        return { maxWidth };
     },
 });
 
@@ -38,60 +41,18 @@ export default defineComponent({
 
 <template>
     <div
-        class="VPTeamMembers"
-        :class="classes"
+        class="mx-auto grid w-full grid-cols-[repeat(auto-fit,minmax(256px,1fr))] gap-6
+            min-[375px]:grid-cols-[repeat(auto-fit,minmax(288px,1fr))]"
+        :class="maxWidth"
     >
-        <div class="TeamMembersContainer">
-            <div
-                v-for="[slug, member] in members"
-                :key="member.name"
-                class="item"
-            >
-                <VPTeamMembersItem
-                    :size="size"
-                    :member="member"
-                    :slug="slug"
-                />
-            </div>
+        <div
+            v-for="[slug, member] in members"
+            :key="member.name"
+        >
+            <KTeamMembersItem
+                :member="member"
+                :slug="slug"
+            />
         </div>
     </div>
 </template>
-
-<style scoped>
-.VPTeamMembers.small .TeamMembersContainer {
-    grid-template-columns: repeat(auto-fit, minmax(224px, 1fr));
-}
-
-.VPTeamMembers.small.count-1 .TeamMembersContainer {
-    max-width: 276px;
-}
-.VPTeamMembers.small.count-2 .TeamMembersContainer {
-    max-width: calc(276px * 2 + 24px);
-}
-.VPTeamMembers.small.count-3 .TeamMembersContainer {
-    max-width: calc(276px * 3 + 24px * 2);
-}
-
-.VPTeamMembers.medium .TeamMembersContainer {
-    grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
-}
-
-@media (min-width: 375px) {
-    .VPTeamMembers.medium .TeamMembersContainer {
-        grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
-    }
-}
-
-.VPTeamMembers.medium.count-1 .TeamMembersContainer {
-    max-width: 368px;
-}
-.VPTeamMembers.medium.count-2 .TeamMembersContainer {
-    max-width: calc(368px * 2 + 24px);
-}
-
-.TeamMembersContainer {
-    display: grid;
-    gap: 24px;
-    margin: 0 auto;
-}
-</style>
