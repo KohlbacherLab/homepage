@@ -8,12 +8,12 @@ export default definePerson({
     team: TeamID.TBI,
     role: 'Software Developer',
     socialLinks: [
-        { icon: 'github', link: 'https://github.com/apothecarius' }
+        { icon: 'github', link: 'https://github.com/apothecarius' },
     ],
     education: [
         {
             year: [2009, 2019],
-            value: "University of Tübingen, B.Sc. and M.Sc in Informatics"
+            value: 'University of Tübingen, B.Sc. and M.Sc in Informatics',
         },
     ],
 });
