@@ -8,10 +8,27 @@
 import { VPLink } from 'vitepress/theme';
 import { defineComponent } from 'vue';
 
+type FooterLink = {
+    text: string,
+    link: string,
+
+    /**
+     * `VPLink` already adds `target="_blank"`/`rel` for these (external URL),
+     * but the `↗` glyph (stripped inside `.vp-raw`, see `.k-footer` in
+     * `style.css`) has to be added by hand.
+     */
+    external?: boolean
+};
+
+type FooterColumn = {
+    title: string,
+    links: FooterLink[]
+};
+
 export default defineComponent({
     components: { VPLink },
     setup() {
-        const columns = [
+        const columns : FooterColumn[] = [
             {
                 title: 'Lab',
                 links: [
@@ -26,15 +43,31 @@ export default defineComponent({
                 links: [
                     { text: 'Projects', link: '/projects' },
                     { text: 'Software', link: '/software' },
-                    { text: 'Teaching', link: 'https://alma.uni-tuebingen.de/alma/pages/startFlow.xhtml?_flowId=searchCourseNonStaff-flow' },
+                    {
+                        text: 'Teaching',
+                        link: 'https://alma.uni-tuebingen.de/alma/pages/startFlow.xhtml?_flowId=searchCourseNonStaff-flow',
+                        external: true,
+                    },
                 ],
             },
             {
                 title: 'Links',
                 links: [
-                    { text: 'University of Tübingen', link: 'https://uni-tuebingen.de' },
-                    { text: 'University Hospital Tübingen', link: 'https://www.medizin.uni-tuebingen.de' },
-                    { text: 'GitHub', link: 'https://github.com/KohlbacherLab' },
+                    {
+                        text: 'University of Tübingen',
+                        link: 'https://uni-tuebingen.de',
+                        external: true,
+                    },
+                    {
+                        text: 'University Hospital Tübingen',
+                        link: 'https://www.medizin.uni-tuebingen.de',
+                        external: true,
+                    },
+                    {
+                        text: 'GitHub',
+                        link: 'https://github.com/KohlbacherLab',
+                        external: true,
+                    },
                 ],
             },
         ];
@@ -74,7 +107,10 @@ export default defineComponent({
                             class="transition-colors hover:text-night-fg"
                             :href="link.link"
                         >
-                            {{ link.text }}
+                            {{ link.text }}<span
+                                v-if="link.external"
+                                aria-hidden="true"
+                            > ↗</span>
                         </VPLink>
                     </li>
                 </ul>

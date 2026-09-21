@@ -90,7 +90,7 @@ export default defineComponent({
                 Showing {{ team.toUpperCase() }} members only.
                 <button
                     type="button"
-                    class="font-semibold text-primary-700 hover:underline dark:text-primary-300"
+                    class="k-link hover:underline"
                     @click="clearTeam"
                 >
                     Show all

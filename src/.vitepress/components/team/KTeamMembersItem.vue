@@ -6,9 +6,10 @@
   -->
 <script lang="ts">
 import type { PropType } from 'vue';
-import { defineComponent } from 'vue';
+import { computed, defineComponent } from 'vue';
 import { VPLink, VPSocialLinks } from 'vitepress/theme';
 import type { Person } from '../../domains/index.ts';
+import { getPersonAvatar } from '../../domains/person/avatar.ts';
 
 export default defineComponent({
     components: {
@@ -25,6 +26,11 @@ export default defineComponent({
             required: true,
         },
     },
+    setup(props) {
+        const avatar = computed(() => getPersonAvatar(props.member));
+
+        return { avatar };
+    },
 });
 </script>
 
@@ -35,7 +41,7 @@ export default defineComponent({
                 <VPLink :href="'/persons/' + slug">
                     <img
                         class="relative mx-auto size-24 shrink-0 rounded-full object-cover shadow-(--vp-shadow-3)"
-                        :src="member.avatar"
+                        :src="avatar"
                         :alt="member.name"
                     >
                 </VPLink>
