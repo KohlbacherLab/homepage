@@ -11,9 +11,9 @@ import { defineComponent } from 'vue';
 import { data } from '../../data/bib.data';
 import { formatAuthors } from '../../domains/publication/format.ts';
 import { getPublicationLink } from '../../domains/publication/link.ts';
+import { sortByYearDescending } from '../../domains/publication/order.ts';
 import KHomeSectionHeader from './KHomeSectionHeader.vue';
 
-// pub.bib lists the newest entries first.
 const LIMIT = 4;
 
 const VENUE_BADGE_CLASS = 'mt-2 inline-block rounded-full bg-primary-50 px-2 py-0.5 text-xs font-semibold text-primary-700 dark:bg-primary-500/15 dark:text-primary-300';
@@ -26,7 +26,7 @@ export default defineComponent({
     setup() {
         const { entries } = parse(data);
 
-        const items = entries.slice(0, LIMIT).map((entry) => ({
+        const items = sortByYearDescending(entries).slice(0, LIMIT).map((entry) => ({
             key: entry.key,
             title: entry.fields.title,
             year: entry.fields.year,
