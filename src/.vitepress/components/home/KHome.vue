@@ -6,19 +6,23 @@
   -->
 <script lang="ts">
 import { defineComponent } from 'vue';
+import KHomeContact from './KHomeContact.vue';
 import KHomeGroups from './KHomeGroups.vue';
 import KHomeHero from './KHomeHero.vue';
 import KHomeProjects from './KHomeProjects.vue';
 import KHomePublications from './KHomePublications.vue';
 import KHomeResearch from './KHomeResearch.vue';
+import KHomeTeam from './KHomeTeam.vue';
 
 export default defineComponent({
     components: {
+        KHomeContact,
         KHomeGroups,
         KHomeHero,
         KHomeProjects,
         KHomePublications,
         KHomeResearch,
+        KHomeTeam,
     },
 });
 </script>
@@ -29,5 +33,7 @@ export default defineComponent({
         <KHomeResearch />
         <KHomeProjects />
         <KHomePublications />
+        <KHomeTeam />
+        <KHomeContact />
     </div>
 </template>
