@@ -17,6 +17,10 @@ describe('slugify', () => {
         assert.equal(slugify('Café'), 'cafe');
         assert.equal(slugify('1st Area'), '_1st-area');
     });
+
+    it('handles Unicode curly quotes', () => {
+        assert.equal(slugify('A "smart" and ‘curly’ title'), 'a-smart-and-curly-title');
+    });
 });
 
 describe('buildResearchAreas', () => {

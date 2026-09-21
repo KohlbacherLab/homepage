@@ -8,7 +8,7 @@
 // Same algorithm VitePress uses for heading anchors (@mdit-vue/shared).
 // eslint-disable-next-line no-control-regex
 const CONTROL = /[\u0000-\u001F]/g;
-const SPECIAL = /[\s~`!@#$%^&*()\-_+=[\]{}|\\;:"'""''<>,.?/]+/g;
+const SPECIAL = /[\s~`!@#$%^&*()\-_+=[\]{}|\\;:"'“”‘’<>,.?/]+/g;
 const COMBINING = /[̀-ͯ]/g;
 
 export function slugify(value: string) : string {
