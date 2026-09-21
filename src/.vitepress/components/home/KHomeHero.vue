@@ -66,6 +66,10 @@ const ACCENTS : Record<number, string> = {
     37: 'bg-accent-sky',
 };
 
+const PRIMARY_BUTTON_CLASS = 'rounded-[10px] bg-primary-500 px-4.5 py-2.5 text-sm font-semibold text-white shadow-[0_8px_24px_-8px_rgb(99_102_241)] transition-colors hover:bg-primary-400';
+
+const SECONDARY_BUTTON_CLASS = 'rounded-[10px] border border-white/20 bg-white/5 px-4.5 py-2.5 text-sm text-night-fg transition-colors hover:border-white/40';
+
 export default defineComponent({
     components: { VPLink },
     setup() {
@@ -83,6 +87,8 @@ export default defineComponent({
             hero,
             lead,
             bars,
+            primaryButtonClass: PRIMARY_BUTTON_CLASS,
+            secondaryButtonClass: SECONDARY_BUTTON_CLASS,
         };
     },
 });
@@ -105,11 +111,7 @@ export default defineComponent({
                         v-for="(action, index) in hero.actions"
                         :key="action.link"
                         :href="action.link"
-                        :class="index === 0 ?
-                            `rounded-[10px] bg-primary-500 px-4.5 py-2.5 text-sm font-semibold text-white
-                                shadow-[0_8px_24px_-8px_rgb(99_102_241)] transition-colors hover:bg-primary-400` :
-                            `rounded-[10px] border border-white/20 bg-white/5 px-4.5 py-2.5 text-sm text-night-fg
-                                transition-colors hover:border-white/40`"
+                        :class="index === 0 ? primaryButtonClass : secondaryButtonClass"
                     >
                         {{ action.text }}<span
                             v-if="index > 0"

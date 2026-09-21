@@ -17,6 +17,10 @@ import type { HomeGroups } from './types.ts';
 
 const STACK_SIZE = 6;
 
+const MONOGRAM_CLASS = 'mb-5 inline-grid h-11 w-fit place-items-center rounded-[12px] bg-primary-50 px-3 text-[15px] font-extrabold tracking-wide text-primary-600 uppercase dark:bg-primary-500/15 dark:text-primary-300';
+
+const OVERFLOW_BADGE_CLASS = '-ml-2.5 grid size-9 place-items-center rounded-full border-2 border-bg-elevated bg-primary-50 text-xs font-bold text-primary-600 dark:bg-primary-900 dark:text-primary-300';
+
 export default defineComponent({
     components: {
         KHomeSectionHeader,
@@ -26,9 +30,11 @@ export default defineComponent({
         const { frontmatter } = useData();
         const lead = useHomeLead();
 
-        const intro = computed(() => (frontmatter.value.groups as HomeGroups).intro);
+        const homeGroups = computed(() => frontmatter.value.groups as HomeGroups);
 
-        const groups = computed(() => (frontmatter.value.groups as HomeGroups).items.map((group) => {
+        const intro = computed(() => homeGroups.value.intro);
+
+        const groups = computed(() => homeGroups.value.items.map((group) => {
             const members = selectTeamMembers(data, group.id, lead.value.person);
 
             return {
@@ -45,6 +51,8 @@ export default defineComponent({
         return {
             intro,
             groups,
+            monogramClass: MONOGRAM_CLASS,
+            overflowBadgeClass: OVERFLOW_BADGE_CLASS,
         };
     },
 });
@@ -66,10 +74,7 @@ export default defineComponent({
                     :key="group.id"
                     class="k-card flex flex-col p-6"
                 >
-                    <div
-                        class="mb-5 inline-grid h-11 w-fit place-items-center rounded-[12px] bg-primary-50 px-3 text-[15px]
-                            font-extrabold tracking-wide text-primary-600 uppercase dark:bg-primary-500/15 dark:text-primary-300"
-                    >
+                    <div :class="monogramClass">
                         {{ group.id }}
                     </div>
                     <h3 class="m-0 text-xl font-bold tracking-tight text-fg">
@@ -94,8 +99,7 @@ export default defineComponent({
                             >
                             <span
                                 v-if="group.rest > 0"
-                                class="-ml-2.5 grid size-9 place-items-center rounded-full border-2 border-bg-elevated bg-primary-50
-                                    text-xs font-bold text-primary-600 dark:bg-primary-900 dark:text-primary-300"
+                                :class="overflowBadgeClass"
                             >
                                 +{{ group.rest }}
                             </span>

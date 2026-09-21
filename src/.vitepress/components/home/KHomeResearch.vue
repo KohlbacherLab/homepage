@@ -10,13 +10,18 @@ import { defineComponent } from 'vue';
 import { data } from '../../data/research.data';
 import KHomeSectionHeader from './KHomeSectionHeader.vue';
 
+const ICON_TILE_CLASS = 'mb-4 grid size-[42px] place-items-center rounded-[11px] bg-primary-50 text-lg text-primary-600 dark:bg-primary-500/15 dark:text-primary-300';
+
 export default defineComponent({
     components: {
         KHomeSectionHeader,
         VPLink,
     },
     setup() {
-        return { areas: data };
+        return {
+            areas: data,
+            iconTileClass: ICON_TILE_CLASS,
+        };
     },
 });
 </script>
@@ -36,10 +41,7 @@ export default defineComponent({
                     :href="`/research#${area.anchor}`"
                     class="k-card k-card-interactive block p-6"
                 >
-                    <div
-                        class="mb-4 grid size-[42px] place-items-center rounded-[11px] bg-primary-50 text-lg text-primary-600
-                            dark:bg-primary-500/15 dark:text-primary-300"
-                    >
+                    <div :class="iconTileClass">
                         <i
                             :class="area.icon"
                             aria-hidden="true"
