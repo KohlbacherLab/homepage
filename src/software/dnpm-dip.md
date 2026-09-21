@@ -1,3 +1,11 @@
+---
+title: 'DNPM:DIP'
+summary: Data Integration Platform of the German Network for Personalized Medicine.
+website: https://docs.dnpm-dip.net/
+repository: https://github.com/dnpm-dip
+featured: true
+---
+
 # DNPM:DIP
 
 The Data Integration Platform (DIP) for the German Network of Personalized Medicine ([DNPM](https://dnpm.de/de)) allows to integrate the data from the Molecular Tumor Boards and Centers of Rare Diseases in order to perform queries on the federated data pool of all connected sites.

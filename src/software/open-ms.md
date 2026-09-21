@@ -1,3 +1,11 @@
+---
+title: OpenMS
+summary: Open-source software for mass spectrometry analysis.
+website: https://www.openms.de
+repository: https://github.com/OpenMS/OpenMS
+featured: true
+---
+
 <script setup>
 import { VPImage } from 'vitepress/theme';
 const image = {

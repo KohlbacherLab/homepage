@@ -1,3 +1,22 @@
+---
+areas:
+  - title: Computational Immunomics
+    summary: MHC ligandomics, HLA typing and neoepitope discovery from mass spectrometry and NGS data.
+    icon: fa-solid fa-shield-virus
+  - title: Computational Mass Spectrometry
+    summary: Algorithms and the OpenMS platform for high-throughput proteomics and metabolomics.
+    icon: fa-solid fa-chart-column
+  - title: Personalized Medicine
+    summary: Data integration for molecular tumor boards across 26 university hospitals (DNPM).
+    icon: fa-solid fa-heart-pulse
+  - title: Structural Bioinformatics
+    summary: Computer-aided drug design, cheminformatics and prediction of protein-protein complexes.
+    icon: fa-solid fa-cubes
+  - title: Translational Bioinformatics
+    summary: Bridging molecular and clinical data, e.g. federated, privacy-preserving analytics with FLAME.
+    icon: fa-solid fa-arrow-right-arrow-left
+---
+
 # Research
 The research areas of the Kohlbacher Lab are rather diverse and span from classical bioinformatics topics including sequence, structure, and systems bioinformatics to translational bioinformatics and personalized medicine. The following list gives an overview of our current research areas and provides links to more detailed information pages on our current projects.
 
