@@ -22,7 +22,7 @@ export default defineComponent({
         VPLink,
     },
     setup() {
-        const featuredProjects = selectFeaturedProjects(projects, new Date())
+        const featuredProjects = selectFeaturedProjects(projects.items, new Date(projects.generatedAt))
             .map((project) => ({
                 url: project.url,
                 title: project.title,
@@ -34,7 +34,7 @@ export default defineComponent({
         return {
             featuredProjects,
             featuredSoftware: selectFeaturedSoftware(software),
-            projectCount: projects.length,
+            projectCount: projects.items.length,
             projectTitleClass: PROJECT_TITLE_CLASS,
         };
     },

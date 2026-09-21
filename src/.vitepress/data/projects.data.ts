@@ -10,15 +10,20 @@ import { buildProject } from '../domains/project/build.ts';
 import { compareProjectsByStart } from '../domains/project/select.ts';
 import type { Project } from '../domains/project/types.ts';
 
-declare const data: Project[];
+declare const data: { generatedAt: string, items: Project[] };
 export { data };
 
 export default createContentLoader('projects/*.md', {
-    transform(raw) : Project[] {
-        return raw
-            // The section index (`/projects/`) has no project frontmatter.
-            .filter((page) => !page.url.endsWith('/'))
-            .map((page) => buildProject(page.url, page.frontmatter))
-            .sort(compareProjectsByStart);
+    transform(raw) : { generatedAt: string, items: Project[] } {
+        return {
+            // Stamped once at build time so components derive "featured" the
+            // same way during SSR and client hydration.
+            generatedAt: new Date().toISOString(),
+            items: raw
+                // The section index (`/projects/`) has no project frontmatter.
+                .filter((page) => !page.url.endsWith('/'))
+                .map((page) => buildProject(page.url, page.frontmatter))
+                .sort(compareProjectsByStart),
+        };
     },
 });
