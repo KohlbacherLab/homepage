@@ -177,6 +177,48 @@
         color: transparent;
     }
 
+    .k-hero {
+        padding-top: 4rem;
+    }
+
+    /* Spectrum bars in the hero: gentle, staggered height changes. */
+    .k-spectrum-bar {
+        transform-origin: bottom;
+        animation: k-breathe 3.2s ease-in-out infinite;
+    }
+
+    .k-spectrum-bar:nth-child(3n) {
+        animation-duration: 2.6s;
+        animation-delay: -0.8s;
+    }
+
+    .k-spectrum-bar:nth-child(4n + 1) {
+        animation-duration: 3.8s;
+        animation-delay: -1.9s;
+    }
+
+    .k-spectrum-bar:nth-child(5n + 2) {
+        animation-duration: 2.2s;
+        animation-delay: -1.1s;
+    }
+
+    @keyframes k-breathe {
+        0%,
+        100% {
+            transform: scaleY(1);
+        }
+
+        50% {
+            transform: scaleY(0.55);
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .k-spectrum-bar {
+            animation: none;
+        }
+    }
+
     /* Keep the footer clear of the fixed sidebar, mirroring VPContent.has-sidebar. */
     @media (min-width: 960px) {
         .k-footer.has-sidebar {
@@ -210,4 +252,59 @@
     --vp-c-brand-2: var(--vc-color-primary-400);
     --vp-c-brand-3: var(--vc-color-primary-500);
     --vp-c-brand-soft: color-mix(in srgb, var(--vc-color-primary-400) 16%, transparent);
+}
+
+/*
+ * Start page (`pageClass: k-home`): the nav sits transparently on the dark
+ * hero while scrolled to the top (`.VPNavBar.top`), and the hero extends
+ * under the fixed nav (≥ 960px, the VitePress breakpoint).
+ */
+@media (min-width: 960px) {
+    .Layout.k-home .VPContent {
+        padding-top: 0;
+    }
+
+    .Layout.k-home .k-hero {
+        padding-top: calc(var(--vp-nav-height) + 5rem);
+    }
+}
+
+/* Below 960px the nav is not fixed and sits above the hero. */
+@media (max-width: 959px) {
+    .Layout.k-home .VPNav {
+        background-color: var(--k-dark-bg);
+    }
+}
+
+.Layout.k-home .VPNavBar.top:not(.screen-open) {
+    --vp-nav-bg-color: transparent;
+    --vp-c-gutter: transparent;
+}
+
+/* Scoped to the bar's own items so flyout menus keep their normal colors. */
+.Layout.k-home .VPNavBar.top:not(.screen-open) :is(
+    .VPNavBarTitle,
+    .VPNavBarMenu,
+    .VPNavBarSearch,
+    .VPNavBarAppearance,
+    .VPNavBarSocialLinks,
+    .VPNavBarHamburger
+),
+.Layout.k-home .VPNavBar.top:not(.screen-open) .VPNavBarExtra > .button {
+    --vp-c-text-1: var(--k-dark-fg);
+    --vp-c-text-2: var(--k-dark-fg-muted);
+    --vp-c-brand-1: var(--vc-color-primary-300);
+    --vp-c-divider: var(--k-dark-border);
+    --vp-c-bg-alt: rgb(255 255 255 / 0.06);
+    --vp-input-border-color: var(--k-dark-border);
+    --vp-input-switch-bg-color: rgb(255 255 255 / 0.08);
+}
+
+/* Light logo variant on the dark hero, in both color modes. */
+.Layout.k-home .VPNavBar.top:not(.screen-open) .VPNavBarTitle .VPImage.light {
+    display: none;
+}
+
+html:not(.dark) .Layout.k-home .VPNavBar.top:not(.screen-open) .VPNavBarTitle .VPImage.dark {
+    display: inline;
 }

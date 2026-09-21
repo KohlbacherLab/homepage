@@ -1,17 +1,41 @@
-# KohlbacherLab
+---
+layout: page
+pageClass: k-home
+title: KohlbacherLab
+titleTemplate: Applied and Translational Bioinformatics
 
-Founded in 2000, the Kohlbacher lab is made up of two groups:
-- **Applied Bioinformatics (ABI)** at the University Tübingen
-- **Translational Bioinformatics (TBI)** at the University Hospital Tübingen
+lead:
+  person: kohlbacher-oliver
+  name: Prof. Dr. Oliver Kohlbacher
+  role: Head of the lab
+  summary: Director, Institute for Translational Bioinformatics, University Medical Center Tübingen. ISCB Fellow.
 
-## ABI
-The ABI at the [University](https://www.uni-tuebingen.de/) of Tübingen specializes in the analysis of
-omics data (genomics, proteomics, metabolomics), structural bioinformatics, and computational immunomics.
+hero:
+  eyebrow: Applied & Translational Bioinformatics · Tübingen
+  title: Algorithms, software and infrastructure for
+  highlight: omics and clinical data.
+  description: From mass spectrometry, immunomics and structural bioinformatics to national research data platforms such as GHGA, DNPM and PrivateAIM.
+  actions:
+    - text: Our research
+      link: /research
+    - text: Publications
+      link: /publications
 
-The Kohlbacher lab thrives on collaboration, working closely with experimental labs to develop and apply innovative methods and algorithms to tackle complex challenges in the life sciences.
-It has a well-earned reputation for its contributions to the field, particularly in the development of high-quality research software.
+groups:
+  intro: Founded in 2000 and led by Prof. Dr. Oliver Kohlbacher. Both groups work side by side in the Tübingen AI Research Building.
+  items:
+    - id: abi
+      name: Applied Bioinformatics
+      institution: University of Tübingen
+      summary: Analysis of omics data (genomics, proteomics, metabolomics), structural bioinformatics and computational immunomics, with a reputation for high-quality research software.
+    - id: tbi
+      name: Translational Bioinformatics
+      institution: University Hospital Tübingen
+      summary: At the intersection of medical informatics and bioinformatics. As part of DIFUTURE, the group builds Data Integration Centers for the German Medical Informatics Initiative.
+---
 
-## TBI
+<script setup>
+import KHome from './.vitepress/components/home/KHome.vue';
+</script>
 
-The TBI group at the University Hospital Tübingen operates at the intersection of medical informatics and bioinformatics.
-As a vital member of the DIFUTURE consortium, the group is dedicated to developing and establishing Data Integration Centers as part of the German Medical Informatics Initiative.
+<KHome />
