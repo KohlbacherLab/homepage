@@ -48,10 +48,22 @@ The team domain (`domains/team/`) defines constants (e.g., team groupings). `tea
 The custom theme (`src/.vitepress/theme/index.mjs`):
 
 1. Extends VitePress `DefaultTheme`
-2. Imports Bootstrap CSS (grid, reboot, utilities only — no JS)
-3. Registers FontAwesome icons via `@vuecs/preset-font-awesome`
-4. Installs `@vuecs/pagination` with custom class configuration
-5. Applies project-wide styles from `style.css`
+2. Imports FontAwesome CSS (icons are plain `<i class="fa ...">` elements)
+3. Installs `@vuecs/core` with the `@vuecs/theme-tailwind` theme, plus `@vuecs/pagination`
+4. Loads Tailwind CSS v4 from `style.css` (via `@tailwindcss/vite`, registered in `config.mjs`)
+
+### Styling with Tailwind
+
+- Components are styled with Tailwind utility classes. Shared styles live in `style.css`
+  (`@layer base` for the heading scale and token bindings, `@layer components` for `.entity-card`).
+- VitePress's base and doc CSS is unlayered and would override Tailwind utilities. Every page-level
+  component root therefore carries the `vp-raw` class; `postcssIsolateStyles()` in `config.mjs`
+  excludes `.vp-raw` subtrees from those VitePress styles.
+- The vuecs semantic tokens (`bg-bg-muted`, `text-fg-muted`, `border-border`, ...) are bound to the
+  VitePress palette in `style.css`, so they follow VitePress's `.dark` mode. `primary` maps to indigo.
+- Tailwind only scans `src/.vitepress/components` and `node_modules/@vuecs` (`@source` in `style.css`);
+  classes used elsewhere are not generated.
+- Avoid the Tailwind `container` utility: it also matches VitePress's own `.container` elements.
 
 ## Component Naming
 

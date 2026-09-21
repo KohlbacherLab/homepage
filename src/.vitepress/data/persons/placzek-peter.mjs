@@ -7,7 +7,18 @@ export default definePerson({
     phone: '+49 7071 29 70458',
     address: 'Maria-von-Linden-Straße 6, Room 20-30/A15, 72076 Tübingen',
     team: TeamID.TBI,
-    role: 'Researcher',
+    role: [
+        'Researcher',
+        'Technical Lead PrivateAIM',
+        'Co-Developer DNPM:DIP',
+    ],
+    description: 'I build the central infrastructure for privacy-preserving analysis of medical data ' +
+        'across hospitals. I am technical lead of the FLAME platform in the BMFTR-funded ' +
+        'PrivateAIM consortium, part of the Medical Informatics Initiative, and co-develop ' +
+        'DNPM:DIP, the data integration platform of the German Network for Personalized Medicine. ' +
+        'My work covers distributed backend architecture, Kubernetes deployment and identity and ' +
+        'access management, much of it released as open-source libraries that both platforms ' +
+        'build on.',
     socialLinks: [
         { icon: 'github', link: 'https://github.com/tada5hi' },
         { icon: 'twitter', link: 'https://twitter.com/tada5hi' },
@@ -17,6 +28,10 @@ export default definePerson({
         'Personalized Medicine',
         'Privacy',
         'Security',
+        'Federated Analytics',
+        'Distributed Systems',
+        'Software Architecture',
+        'Open Source',
     ],
     education: [
         {
@@ -52,6 +67,18 @@ export default definePerson({
         {
             year: 2020,
             value: 'Researcher at the Institute for Translational Bioinformatics (TBI) at the University of Tübingen',
+        },
+        {
+            year: 2021,
+            value: 'Developer of the FLAME Hub, the central service of the PrivateAIM platform',
+        },
+        {
+            year: 2023,
+            value: 'Co-developer of DNPM:DIP, the data integration platform of the German Network for Personalized Medicine (DNPM)',
+        },
+        {
+            year: 2023,
+            value: 'Technical Lead of the FLAME platform in the PrivateAIM consortium',
         },
     ],
 });

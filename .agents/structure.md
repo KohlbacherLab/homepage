@@ -16,7 +16,7 @@ src/
 │   │   ├── person/          # KPerson.vue
 │   │   ├── publication/     # KPublications.vue, KPublication.vue, KPublicationTitle.vue
 │   │   ├── team/            # KTeam.vue, KTeamMembers.vue, KTeamMembersItem.vue, KTeamSwitch.vue
-│   │   └── utilities/       # Reusable UI: KContactDetails, KSwitch
+│   │   └── utilities/       # Reusable UI: KContactDetails, KPageTitle, KPagination, KSwitch
 │   ├── data/                # Data layer: loaders and static data
 │   │   ├── bib.data.ts      # BibTeX publication loader (VitePress data loader)
 │   │   ├── team.data.ts     # Team data loader
@@ -29,7 +29,7 @@ src/
 │   ├── dist/                # Build output (git-ignored)
 │   └── theme/               # Custom VitePress theme
 │       ├── index.mjs        # Theme entry: extends DefaultTheme, registers plugins
-│       └── style.css        # Global custom styles
+│       └── style.css        # Tailwind entry: layers, vuecs tokens, shared component styles
 ├── index.md                 # Home page
 ├── contact.md               # Contact page
 ├── persons/                 # Dynamic member pages
@@ -50,7 +50,7 @@ src/
 | `components/`        | Vue SFCs for rendering domain-specific content                  |
 | `data/`              | VitePress data loaders — parse BibTeX, read person JSON files   |
 | `domains/`           | Pure TypeScript: type definitions, data reading/transformation  |
-| `theme/`             | Extends VitePress DefaultTheme with Bootstrap grid, FontAwesome, pagination |
+| `theme/`             | Extends VitePress DefaultTheme with Tailwind CSS, vuecs theme, FontAwesome, pagination |
 | `constants.ts`       | File system paths used by data loaders at build time            |
 
 ## Key Dependencies
@@ -58,9 +58,10 @@ src/
 | Package                      | Role                                  |
 |------------------------------|---------------------------------------|
 | `vitepress`                  | Static site generator (Vue 3 + Vite)  |
-| `bootstrap`                  | CSS grid, reboot, and utilities only  |
+| `tailwindcss`, `@tailwindcss/vite` | Utility-first CSS (v4)          |
+| `@vuecs/core`, `@vuecs/theme-tailwind`, `@vuecs/design` | vuecs theme system + design tokens |
 | `@fortawesome/fontawesome-free` | Icon library                       |
-| `@vuecs/pagination`          | Pagination component and store        |
+| `@vuecs/pagination`          | Pagination component                  |
 | `@retorquere/bibtex-parser`  | Parses .bib files into structured data|
 | `locter`                     | File/module locating utility          |
 | `smob`                       | Object merging utility                |

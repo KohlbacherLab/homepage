@@ -15,7 +15,7 @@ export default defineComponent({
         group: {
             type: String as PropType<`${TeamFilter}`>,
             required: true,
-            default: `${TeamFilter.ACTIVE}`,
+            default: TeamFilter.ACTIVE,
         },
     },
     emits: ['picked'],
@@ -37,17 +37,17 @@ export default defineComponent({
 });
 </script>
 <template>
-    <div class="d-flex flex-row gap-2 w-100">
+    <div class="flex w-full flex-row gap-2">
         <div
             v-for="(item, key) in items"
             :key="key"
-            class="entity-card w-100 ratio-1x1 text-center"
+            class="entity-card w-full text-center"
             :class="{'active': group === item.id}"
         >
             <h3 class="mb-0">
                 <a
                     href=""
-                    class="stretched-link"
+                    class="after:absolute after:inset-0 after:z-1"
                     @click.prevent="pick(item.id)"
                 >{{ item.value }}</a>
             </h3>

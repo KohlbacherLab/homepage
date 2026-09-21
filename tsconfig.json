@@ -1,5 +1,8 @@
 {
     "extends": "@tada5hi/tsconfig",
+    "compilerOptions": {
+        "types": ["node"]
+    },
     "include": [
         "src/**/*",
         "src/.vitepress/**/*"

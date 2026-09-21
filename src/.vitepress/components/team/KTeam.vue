@@ -7,15 +7,19 @@
 
 <script lang="ts">
 import {
-    computed, defineComponent, ref,
+    computed,
+    defineComponent,
+    ref,
 } from 'vue';
 import { TeamFilter } from '../../domains/team/constants.ts';
 import { data } from '../../data/team.data';
+import KPageTitle from '../utilities/page-title/KPageTitle.vue';
 import KTeamMembers from './KTeamMembers.vue';
 import KTeamSwitch from './KTeamSwitch.vue';
 
 export default defineComponent({
     components: {
+        KPageTitle,
         KTeamMembers,
         KTeamSwitch,
     },
@@ -46,13 +50,11 @@ export default defineComponent({
 });
 </script>
 <template>
-    <div class="container">
-        <div class="page-title">
-            <h1 class="page-title-text">
-                <i class="fas fa-user-friends" /> Team
-            </h1>
-        </div>
-        <div class="d-flex flex-column gap-2">
+    <div class="vp-raw mx-auto w-full max-w-[1320px] px-3">
+        <KPageTitle icon="fas fa-user-friends">
+            Team
+        </KPageTitle>
+        <div class="flex flex-col gap-2">
             <div>
                 <KTeamSwitch
                     :group="group"
@@ -65,7 +67,7 @@ export default defineComponent({
             />
             <div
                 v-else
-                class="empty-state text-center py-4"
+                class="py-6 text-center text-fg-muted"
             >
                 {{ group === 'inactive'
                     ? 'No inactive members.'
@@ -74,18 +76,3 @@ export default defineComponent({
         </div>
     </div>
 </template>
-<style scoped>
-.VPTeamPage {
-    margin: 0 !important;
-}
-
-.title {
-    letter-spacing: -0.5px;
-    line-height: 56px;
-    font-size: 48px;
-}
-
-.empty-state {
-    color: var(--vp-c-text-2);
-}
-</style>

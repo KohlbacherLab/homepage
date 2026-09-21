@@ -21,7 +21,7 @@ npm run lint
 npm run lint:fix
 ```
 
-- **Node.js**: >= 20.0.0
+- **Node.js**: >= 22.0.0
 - **Package manager**: npm
 - **Framework**: VitePress 1.x (Vue 3 + Vite)
 
