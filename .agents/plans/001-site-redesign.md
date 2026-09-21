@@ -104,7 +104,7 @@ name: German Human Genome-Phenome Archive
 website: https://ghga.de
 funding:
   - funder: DFG
-    number: '441914366'
+    reference: 'funding number: 441914366'
 runtime:
   start: '2020-10-01'
   end: '2028-12-31'
@@ -114,6 +114,7 @@ featured: true
 
 - The `**Funding:**` and `**Project runtime:**` lines leave the body. `<KProjectMeta />` is placed where they were
   and renders them from `useData().frontmatter`. Multiple funders (GDI, Epic-XS) are supported via the list.
+  `reference` keeps the original wording (e.g. "Grant agreement ID: 765502") and is optional (CRG has none).
 - Dates are quoted ISO strings: unquoted YAML dates become `Date` objects and don't survive the loader's JSON
   serialization unchanged.
 - Initially featured: GHGA, de.NBI, PrivateAIM, PM4Onco.
@@ -145,19 +146,27 @@ areas:
 
 - Cards link to the heading anchor on `/research` (VitePress slug of `title`). The page body stays unchanged.
 
-**Start page** (`src/index.md` frontmatter): hero texts and actions, plus the two groups (`id`, `name`,
-`institution`, `summary`), so lab members can edit them without touching components. The body only mounts
-`<KHome />`.
+**Start page** (`src/index.md` frontmatter): `lead` (person slug, display name "Prof. Dr. Oliver Kohlbacher", role
+label, one-line summary), `hero` (`eyebrow`, `title`, `highlight`, `description`, `actions`), and `groups` (`intro`
+plus items with `id`, `name`, `institution`, `summary`), so lab members can edit them without touching components.
+The body only mounts `<KHome />`.
 
 **Domain + loaders:**
 
 | File                                    | Purpose                                                                  |
 |-----------------------------------------|--------------------------------------------------------------------------|
-| `domains/project/{types,index}.ts`      | `Project` type, `isProjectActive(project, date)`                         |
-| `domains/software/{types,index}.ts`     | `Software` type                                                          |
-| `domains/research/{types,index}.ts`     | `ResearchArea` type                                                      |
-| `domains/publication/format.ts`         | `formatAuthors()`, `formatVenue()` extracted from `KPublication.vue`     |
-| `domains/contact/constants.ts`          | Lab contact details, extracted from `KContact.vue`                       |
+| `domains/content/frontmatter.ts`        | `readString()`, `readOptionalString()`, `readDate()` with clear build errors |
+| `domains/project/*`                     | `Project` type, `buildProject()`, `isProjectRunning()`, `selectFeaturedProjects()`, runtime/funding formatting |
+| `domains/software/*`                    | `Software` type, `buildSoftware()`, `selectFeaturedSoftware()`           |
+| `domains/research/*`                    | `ResearchArea` type, `buildResearchAreas()`, `slugify()` (same algorithm as VitePress heading anchors) |
+| `domains/publication/*`                 | `formatAuthors()`, `formatSource()`, `getPublicationLink()` extracted from `KPublication(Title).vue` |
+| `domains/person/avatar.ts`              | `getPersonAvatar()` with the default avatar fallback                     |
+| `domains/team/select.ts`                | `isTeamMember()`, `selectActiveMembers()`, `selectTeamMembers()`, `parseTeamQuery()` |
+| `domains/contact/constants.ts`          | Lab address and contact details, extracted from `KContact.vue`           |
+
+Pure domain functions get unit tests with Node's built-in test runner (`npm test`, no new dependency). Client
+components import runtime code from the concrete domain file, never from `domains/index.ts`, which pulls in
+`node:fs` via `person/read.ts`.
 | `data/projects.data.ts`                 | `createContentLoader('projects/*.md')` → `Project[]` (with `url`)        |
 | `data/software.data.ts`                 | `createContentLoader('software/*.md')` → `Software[]`                    |
 | `data/research.data.ts`                 | `createContentLoader('research/index.md')` → `ResearchArea[]`            |
@@ -173,7 +182,7 @@ Every section root carries `vp-raw`. `KHome` composes them in order.
 | `KHomeResearch`        | `research.data.ts`                                      | 3-column grid of 5 area cards plus a dark "Explore our research" card  |
 | `KHomeProjects`        | `projects.data.ts`, `software.data.ts`                  | Left: featured projects that are still running, max 4, with funder and years. Right: featured software as 2×2 tiles with repository link |
 | `KHomePublications`    | `bib.data.ts` + `parse()`                               | Newest 4 entries: year, journal badge, title, one-line author list    |
-| `KHomeTeam`            | `team.data.ts`                                          | Lead card (person whose roles include `Lead`) + grid of all other active members, linking to their person pages |
+| `KHomeTeam`            | `index.md` frontmatter (`lead`), `team.data.ts`         | Lead card + grid of all other active members, linking to their person pages |
 | `KHomeContact`         | `domains/contact`                                       | Address, phone, email, "How to find us" → `/contact`, MVL6 photo       |
 
 Small related changes:
@@ -198,7 +207,7 @@ Small related changes:
   in light and dark mode (click `.VPSwitchAppearance`).
 - Mobile: 390px `<iframe>` technique from the resume notes, check `scrollWidth > innerWidth` on every page touched.
 - Check nav transparency at the top and after scrolling on the start page, and the footer next to the sidebar.
-- `npm run build`, `npm run lint`, `npm run typecheck`.
+- `npm test`, `npm run build`, `npm run lint`, `npm run typecheck`.
 - Update `.agents/structure.md` and `.agents/architecture.md` (new `layout/` and `home/` components, loaders,
   frontmatter model, `Layout.vue`).
 
