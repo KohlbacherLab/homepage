@@ -8,7 +8,9 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
 import { buildResearchAreas } from './build.ts';
+import { extractHeadings, verifyResearchAnchors } from './headings.ts';
 import { slugify } from './slugify.ts';
+import type { ResearchArea } from './types.ts';
 
 describe('slugify', () => {
     it('matches VitePress heading anchors', () => {
@@ -47,6 +49,58 @@ describe('buildResearchAreas', () => {
         assert.throws(
             () => buildResearchAreas('/research/', { areas: [{ title: 'A', summary: 'B' }] }),
             /^Error: \/research\/: frontmatter "icon"/,
+        );
+    });
+});
+
+describe('extractHeadings', () => {
+    it('collects "## " headings in document order', () => {
+        const src = [
+            '# Research',
+            'Intro text.',
+            '',
+            '## Computational Immunomics',
+            'Body.',
+            '',
+            '## Structural Bioinformatics',
+            'Body.',
+        ].join('\n');
+
+        assert.deepEqual(extractHeadings(src), ['Computational Immunomics', 'Structural Bioinformatics']);
+    });
+
+    it('ignores deeper headings', () => {
+        const src = '## Area\n### Not a match\n#### Also not a match';
+        assert.deepEqual(extractHeadings(src), ['Area']);
+    });
+});
+
+describe('verifyResearchAnchors', () => {
+    function area(title: string) : ResearchArea {
+        return {
+            title,
+            summary: 'Summary.',
+            icon: 'fa-solid fa-flask',
+            anchor: slugify(title),
+        };
+    }
+
+    it('passes when every anchor matches a heading', () => {
+        assert.doesNotThrow(() => verifyResearchAnchors(
+            [area('Personalized Medicine')],
+            ['Personalized Medicine'],
+            '/research/',
+        ));
+    });
+
+    it('names the offending title and the headings that do exist', () => {
+        assert.throws(
+            () => verifyResearchAnchors(
+                [area('Personalized Medicine')],
+                ['Structural Bioinformatics'],
+                '/research/',
+            ),
+            /^Error: \/research\/: research area "Personalized Medicine" has no matching "## " heading on the page \(found: Structural Bioinformatics\)\.$/,
         );
     });
 });

@@ -6,5 +6,6 @@
  */
 
 export * from './build.ts';
+export * from './headings.ts';
 export * from './slugify.ts';
 export * from './types.ts';
