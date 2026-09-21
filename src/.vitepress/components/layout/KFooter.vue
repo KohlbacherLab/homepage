@@ -5,14 +5,12 @@
   - view the LICENSE file that was distributed with this source code.
   -->
 <script lang="ts">
-import { VPLink, useSidebar } from 'vitepress/theme';
+import { VPLink } from 'vitepress/theme';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
     components: { VPLink },
     setup() {
-        const { hasSidebar } = useSidebar();
-
         const columns = [
             {
                 title: 'Lab',
@@ -41,18 +39,12 @@ export default defineComponent({
             },
         ];
 
-        return {
-            columns,
-            hasSidebar,
-        };
+        return { columns };
     },
 });
 </script>
 <template>
-    <footer
-        class="vp-raw k-footer bg-night text-night-fg-muted"
-        :class="{ 'has-sidebar': hasSidebar }"
-    >
+    <footer class="vp-raw k-footer bg-night text-night-fg-muted">
         <div class="k-wrap grid gap-8 py-14 md:grid-cols-[1.6fr_1fr_1fr_1.2fr]">
             <div>
                 <img
