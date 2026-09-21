@@ -5,11 +5,9 @@
   - view the LICENSE file that was distributed with this source code.
   -->
 <script lang="ts">
-import { useData } from 'vitepress';
 import { VPLink } from 'vitepress/theme';
 import { computed, defineComponent } from 'vue';
-import { useHomeLead } from './composables.ts';
-import type { HomeHero } from './types.ts';
+import { useHome, useHomeLead } from './composables.ts';
 
 // Bar heights in percent, shaped like the peaks in the logo.
 const SPECTRUM = [
@@ -73,9 +71,9 @@ const SECONDARY_BUTTON_CLASS = 'rounded-[10px] border border-white/20 bg-white/5
 export default defineComponent({
     components: { VPLink },
     setup() {
-        const { frontmatter } = useData();
+        const home = useHome();
 
-        const hero = computed(() => frontmatter.value.hero as HomeHero);
+        const hero = computed(() => home.value.hero);
         const lead = useHomeLead();
 
         const bars = SPECTRUM.map((height, index) => ({

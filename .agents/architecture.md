@@ -62,7 +62,10 @@ compares against `new Date(projects.generatedAt)`.
 
 `src/index.md` uses `layout: page` and `pageClass: k-home`, holds the editable texts in frontmatter (`lead`, `hero`,
 `groups`) and mounts `KHome`, which composes `KHomeHero`, `KHomeGroups`, `KHomeResearch`, `KHomeProjects`,
-`KHomePublications`, `KHomeTeam` and `KHomeContact`.
+`KHomePublications`, `KHomeTeam` and `KHomeContact`. That frontmatter is read client-side via `useData()`, so
+`domains/home/build.ts` validates it the same way the `project`/`software`/`research` builders validate theirs;
+`components/home/composables.ts` exposes it as `useHome()` (and `useHomeLead()`, which additionally checks
+`lead.person` against the person data files).
 
 ## Theme Architecture
 

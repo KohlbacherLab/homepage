@@ -5,15 +5,13 @@
   - view the LICENSE file that was distributed with this source code.
   -->
 <script lang="ts">
-import { useData } from 'vitepress';
 import { VPLink } from 'vitepress/theme';
 import { computed, defineComponent } from 'vue';
 import { data } from '../../data/team.data';
 import { getPersonAvatar } from '../../domains/person/avatar.ts';
 import { selectTeamMembers } from '../../domains/team/select.ts';
 import KHomeSectionHeader from './KHomeSectionHeader.vue';
-import { useHomeLead } from './composables.ts';
-import type { HomeGroups } from './types.ts';
+import { useHome, useHomeLead } from './composables.ts';
 
 const STACK_SIZE = 6;
 
@@ -27,10 +25,10 @@ export default defineComponent({
         VPLink,
     },
     setup() {
-        const { frontmatter } = useData();
+        const home = useHome();
         const lead = useHomeLead();
 
-        const homeGroups = computed(() => frontmatter.value.groups as HomeGroups);
+        const homeGroups = computed(() => home.value.groups);
 
         const intro = computed(() => homeGroups.value.intro);
 

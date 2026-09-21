@@ -31,6 +31,7 @@ src/
 │   │   ├── contact/         # Contact constants
 │   │   ├── content/         # Frontmatter readers, shared by project/research/software builders
 │   │   ├── history/         # History types and logic
+│   │   ├── home/            # Start page types, frontmatter builder (lead, hero, groups)
 │   │   ├── person/          # Person define/read/types
 │   │   ├── project/         # Project types, frontmatter builder, selection/formatting
 │   │   ├── publication/     # Publication formatting/linking

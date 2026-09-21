@@ -5,11 +5,5 @@
  * view the LICENSE file that was distributed with this source code.
  */
 
-export type {
-    Home,
-    HomeAction,
-    HomeGroup,
-    HomeGroups,
-    HomeHero,
-    HomeLead,
-} from '../../domains/home/types.ts';
+export * from './build.ts';
+export * from './types.ts';
