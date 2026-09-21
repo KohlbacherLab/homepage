@@ -19,7 +19,7 @@ describe('slugify', () => {
     });
 
     it('handles Unicode curly quotes', () => {
-        assert.equal(slugify('A "smart" and ‘curly’ title'), 'a-smart-and-curly-title');
+        assert.equal(slugify('A \u201csmart\u201d and \u2018curly\u2019 title'), 'a-smart-and-curly-title');
     });
 });
 
@@ -45,11 +45,7 @@ describe('buildResearchAreas', () => {
 
     it('requires an icon', () => {
         assert.throws(
-            () => buildResearchAreas('/research/', {
-                areas: [
-                    { title: 'A', summary: 'B' },
-                ],
-            }),
+            () => buildResearchAreas('/research/', { areas: [{ title: 'A', summary: 'B' }] }),
             /^Error: \/research\/: frontmatter "icon"/,
         );
     });

@@ -9,7 +9,7 @@
 // eslint-disable-next-line no-control-regex
 const CONTROL = /[\u0000-\u001F]/g;
 const SPECIAL = /[\s~`!@#$%^&*()\-_+=[\]{}|\\;:"'“”‘’<>,.?/]+/g;
-const COMBINING = /[̀-ͯ]/g;
+const COMBINING = /[\u0300-\u036F]/g;
 
 export function slugify(value: string) : string {
     return value
