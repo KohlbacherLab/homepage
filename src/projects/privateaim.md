@@ -1,3 +1,15 @@
+---
+title: PrivateAIM
+name: Privacy-preserving Analytics in Medicine
+website: https://privateaim.de/
+funding:
+  - funder: BMFTR
+    reference: 'funding number: 01ZZ2316A'
+runtime:
+  start: '2023-04-01'
+  end: '2027-03-31'
+featured: true
+---
 <script setup>
 import { VPImage } from 'vitepress/theme';
 const image = {
@@ -9,8 +21,7 @@ const image = {
 # PrivateAIM
 Privacy-preserving Analytics in Medicine - [PrivateAIM](https://privateaim.de/) 
 
-**Funding:** BMFTR (funding number: 01ZZ2316A)\
-**Project runtime:** 01.04.2023 - 31.03.2027
+<KProjectMeta />
 
 PrivateAIM is a leading initiative within Germany’s Medical Informatics Initiative
 ([MII](https://www.medizininformatik-initiative.de/de/start)), dedicated to developing secure, scalable methods for analyzing

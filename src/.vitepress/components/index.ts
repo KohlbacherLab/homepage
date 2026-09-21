@@ -7,5 +7,6 @@
 
 export * from './history/index.ts';
 export * from './person/index.ts';
+export * from './project/index.ts';
 export * from './publication/index.ts';
 export * from './team/index.ts';
