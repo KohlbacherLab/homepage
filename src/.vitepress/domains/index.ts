@@ -6,6 +6,7 @@
  */
 
 export * from './content/index.ts';
+export * from './contact/index.ts';
 export * from './history/index.ts';
 export * from './person/index.ts';
 export * from './project/index.ts';

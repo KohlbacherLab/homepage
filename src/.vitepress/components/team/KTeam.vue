@@ -9,9 +9,12 @@
 import {
     computed,
     defineComponent,
+    onMounted,
     ref,
 } from 'vue';
+import type { TeamID } from '../../domains/team/constants.ts';
 import { TeamFilter } from '../../domains/team/constants.ts';
+import { isTeamMember, parseTeamQuery } from '../../domains/team/select.ts';
 import { data } from '../../data/team.data';
 import KPageTitle from '../utilities/page-title/KPageTitle.vue';
 import KTeamMembers from './KTeamMembers.vue';
@@ -29,10 +32,26 @@ export default defineComponent({
             group.value = value;
         };
 
+        // `?group=abi|tbi`, used by the start page. Read after mount: the query
+        // is not available during SSR.
+        const team = ref<TeamID | undefined>(undefined);
+        onMounted(() => {
+            team.value = parseTeamQuery(window.location.search);
+        });
+
+        const clearTeam = () => {
+            team.value = undefined;
+            window.history.replaceState(window.history.state, '', window.location.pathname);
+        };
+
         const members = data;
 
         const items = computed(() => members
             .filter(([, member]) => {
+                if (team.value && !isTeamMember(member, team.value)) {
+                    return false;
+                }
+
                 if (group.value === TeamFilter.INACTIVE) {
                     return !!member.inactive;
                 }
@@ -43,6 +62,9 @@ export default defineComponent({
         return {
             group,
             handlePicked,
+
+            team,
+            clearTeam,
 
             items,
         };
@@ -61,6 +83,19 @@ export default defineComponent({
                     @picked="handlePicked"
                 />
             </div>
+            <p
+                v-if="team"
+                class="m-0 text-sm text-fg-muted"
+            >
+                Showing {{ team.toUpperCase() }} members only.
+                <button
+                    type="button"
+                    class="font-semibold text-primary-700 hover:underline dark:text-primary-300"
+                    @click="clearTeam"
+                >
+                    Show all
+                </button>
+            </p>
             <KTeamMembers
                 v-if="items.length > 0"
                 :members="items"

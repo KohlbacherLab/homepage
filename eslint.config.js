@@ -12,5 +12,11 @@ export default eslintConfig(
             'import-x/no-extraneous-dependencies': 'off',
         },
     },
+    {
+        // Vue components run in the browser; make the browser globals they
+        // reference (e.g. `window`) known to `no-undef`.
+        files: ['**/*.vue'],
+        languageOptions: { globals: { window: 'readonly' } },
+    },
     { ignores: ['src/.vitepress/cache/**', 'src/.vitepress/dist/**'] },
 );
