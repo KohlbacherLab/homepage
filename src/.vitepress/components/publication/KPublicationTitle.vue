@@ -13,6 +13,7 @@ import {
     defineComponent,
 } from 'vue';
 import type { Entry } from '@retorquere/bibtex-parser';
+import { getPublicationLink } from '../../domains/publication/link.ts';
 
 export default defineComponent({
     components: { VCLink },
@@ -23,49 +24,22 @@ export default defineComponent({
         },
     },
     setup(props) {
-        const pmID = computed(() => {
-            const match = props.entity.key.match(/pmid(\d+)/);
-            if (match && match[1]) {
-                return match[1];
-            }
+        const link = computed(() => getPublicationLink(props.entity));
 
-            return null;
-        });
-
-        const url = computed(() => {
-            if ('url' in props.entity.fields) {
-                return props.entity.fields.url;
-            }
-
-            return undefined; // Make the linter happy.
-        });
-
-        return {
-            pmID,
-            url,
-        };
+        return { link };
     },
 });
 </script>
 <template>
     <h5>
         <i class="fa-solid fa-book me-2" />
-        <template v-if="pmID">
-            <VCLink
-                :href="'https://pubmed.ncbi.nlm.nih.gov/'+ pmID"
-                target="_blank"
-            >
-                {{ entity.fields.title }}
-            </VCLink>
-        </template>
-        <template v-else-if="url">
-            <VCLink
-                :href="url"
-                target="_blank"
-            >
-                {{ entity.fields.title }}
-            </VCLink>
-        </template>
+        <VCLink
+            v-if="link"
+            :href="link"
+            target="_blank"
+        >
+            {{ entity.fields.title }}
+        </VCLink>
         <template v-else>
             {{ entity.fields.title }}
         </template>

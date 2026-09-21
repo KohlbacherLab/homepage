@@ -26,6 +26,7 @@
         "typecheck": "vue-tsc --noEmit -p tsconfig.app.json",
         "lint": "eslint .",
         "lint:fix": "npm run lint -- --fix",
+        "test": "node --disable-warning=ExperimentalWarning --experimental-transform-types --test 'src/.vitepress/domains/**/*.spec.ts'",
         "prepare": "husky"
     },
     "keywords": [
