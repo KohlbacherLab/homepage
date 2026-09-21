@@ -4,10 +4,12 @@ import tailwind from '@vuecs/theme-tailwind';
 import DefaultTheme from 'vitepress/theme';
 import '@fortawesome/fontawesome-free/css/all.css';
 import KProjectMeta from '../components/project/KProjectMeta.vue';
+import Layout from './Layout.vue';
 import './style.css';
 
 export default {
     extends: DefaultTheme,
+    Layout,
     enhanceApp({ app }) {
         // Used in src/projects/*.md, so lab members don't need a script block.
         app.component('KProjectMeta', KProjectMeta);

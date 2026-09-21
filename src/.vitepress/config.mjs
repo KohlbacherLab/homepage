@@ -36,7 +36,6 @@ export default defineConfig({
         socialLinks: [
             // { icon: 'github', link: 'https://github.com/KohlbacherLab/homepage' }
         ],
-        footer: { copyright: 'Copyright © 2024-present KohlbacherLab' },
         editLink: {
             pattern: 'https://github.com/KohlbacherLab/homepage/edit/master/src/:path',
             text: 'Edit this page on GitHub',
