@@ -43,6 +43,27 @@ Publications use `@retorquere/bibtex-parser` to parse `.bib` files in `src/.vite
 
 The team domain (`domains/team/`) defines constants (e.g., team groupings). `team.data.ts` loads team data for the team overview components.
 
+### Projects, Software, Research Areas
+
+Metadata lives in frontmatter and is validated by `domains/content/frontmatter.ts` (build errors name the page and
+key). Dates are quoted ISO strings.
+
+- `src/projects/*.md`: `title`, `name`, `website`, `funding[]` (`funder`, `reference`), `runtime` (`start`, `end`),
+  `featured`. Pages place `<KProjectMeta />` where funding and runtime should render.
+- `src/software/*.md`: `title`, `summary`, `website`, `repository`, `featured`.
+- `src/research/index.md`: `areas[]` (`title` = the `##` heading, `summary`, `icon`).
+
+`projects.data.ts`, `software.data.ts` and `research.data.ts` use `createContentLoader` and the domain builders.
+`projects.data.ts` exports `{ generatedAt: string, items: Project[] }` rather than a bare array: the loader stamps
+the build time once so "current" filtering is deterministic between SSR and client hydration; `KHomeProjects`
+compares against `new Date(projects.generatedAt)`.
+
+### Start Page
+
+`src/index.md` uses `layout: page` and `pageClass: k-home`, holds the editable texts in frontmatter (`lead`, `hero`,
+`groups`) and mounts `KHome`, which composes `KHomeHero`, `KHomeGroups`, `KHomeResearch`, `KHomeProjects`,
+`KHomePublications`, `KHomeTeam` and `KHomeContact`.
+
 ## Theme Architecture
 
 The custom theme (`src/.vitepress/theme/index.mjs`):
@@ -51,6 +72,7 @@ The custom theme (`src/.vitepress/theme/index.mjs`):
 2. Imports FontAwesome CSS (icons are plain `<i class="fa ...">` elements)
 3. Installs `@vuecs/core` with the `@vuecs/theme-tailwind` theme, plus `@vuecs/pagination`
 4. Loads Tailwind CSS v4 from `style.css` (via `@tailwindcss/vite`, registered in `config.mjs`)
+5. Wraps `DefaultTheme.Layout` in `theme/Layout.vue` to render `KFooter` in the `layout-bottom` slot
 
 ### Styling with Tailwind
 
@@ -64,6 +86,13 @@ The custom theme (`src/.vitepress/theme/index.mjs`):
 - Tailwind only scans `src/.vitepress/components` and `node_modules/@vuecs` (`@source` in `style.css`);
   classes used elsewhere are not generated.
 - Avoid the Tailwind `container` utility: it also matches VitePress's own `.container` elements.
+- Lab tokens: `--k-dark-*` (fixed-dark hero/footer surfaces, Tailwind colors `night`, `night-fg`, `night-fg-muted`,
+  `night-border`) and logo accents (`accent-sky`, `accent-pink`). Shared classes: `k-section`, `k-section-alt`,
+  `k-wrap`, `k-eyebrow`, `k-heading`, `k-link`, `k-card`, `k-card-interactive`, `k-night`, `k-gradient-text`.
+- VitePress brand variables are bound to the vuecs primary scale. Overrides of VitePress variables and component
+  styles (e.g. the transparent start page nav) live in the unlayered part at the end of `style.css`.
+- Client components import runtime code from concrete domain files, never from `domains/index.ts` (it re-exports
+  `person/read.ts`, which uses `node:fs`).
 
 ## Component Naming
 

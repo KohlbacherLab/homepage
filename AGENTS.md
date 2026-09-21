@@ -19,6 +19,9 @@ npm run build
 # Lint
 npm run lint
 npm run lint:fix
+
+# Test (domain logic, Node's built-in test runner)
+npm test
 ```
 
 - **Node.js**: >= 22.0.0
@@ -29,7 +32,7 @@ npm run lint:fix
 
 | Section      | Source path          | Notes                                          |
 |--------------|----------------------|------------------------------------------------|
-| Home         | `src/index.md`       | Landing page                                   |
+| Home         | `src/index.md`       | Start page: frontmatter (hero, lead, groups) rendered by KHome |
 | Team         | `src/team/`          | Team overview, links to individual member pages |
 | Persons      | `src/persons/`       | Dynamic routes via `[member].paths.js`          |
 | Research     | `src/research/`      | Research area descriptions                     |

@@ -12,23 +12,35 @@ src/
 │   ├── components/          # Vue components organized by domain
 │   │   ├── contact/         # KContact.vue
 │   │   ├── history/         # KHistoryEntries.vue, KHistoryEntry.vue
-│   │   ├── home/            # (currently empty)
+│   │   ├── home/            # KHome + section components (KHomeHero, KHomeGroups, ...), types, composables
+│   │   ├── layout/          # KFooter
 │   │   ├── person/          # KPerson.vue
+│   │   ├── project/         # KProjectMeta (global, used in projects/*.md)
 │   │   ├── publication/     # KPublications.vue, KPublication.vue, KPublicationTitle.vue
 │   │   ├── team/            # KTeam.vue, KTeamMembers.vue, KTeamMembersItem.vue, KTeamSwitch.vue
 │   │   └── utilities/       # Reusable UI: KContactDetails, KPageTitle, KPagination, KSwitch
 │   ├── data/                # Data layer: loaders and static data
 │   │   ├── bib.data.ts      # BibTeX publication loader (VitePress data loader)
 │   │   ├── team.data.ts     # Team data loader
+│   │   ├── research.data.ts # Research areas loader (createContentLoader over frontmatter)
+│   │   ├── projects.data.ts # Projects loader (createContentLoader over frontmatter)
+│   │   ├── software.data.ts # Software loader (createContentLoader over frontmatter)
 │   │   ├── persons/         # Per-person JSON/data files
 │   │   └── publications/    # BibTeX source files
 │   ├── domains/             # Domain logic (TypeScript)
+│   │   ├── contact/         # Contact constants
+│   │   ├── content/         # Frontmatter readers, shared by project/research/software builders
 │   │   ├── history/         # History types and logic
 │   │   ├── person/          # Person define/read/types
+│   │   ├── project/         # Project types, frontmatter builder, selection/formatting
+│   │   ├── publication/     # Publication formatting/linking
+│   │   ├── research/        # Research area types, frontmatter builder, slugify
+│   │   ├── software/        # Software types, frontmatter builder, selection
 │   │   └── team/            # Team constants and logic
 │   ├── dist/                # Build output (git-ignored)
 │   └── theme/               # Custom VitePress theme
 │       ├── index.mjs        # Theme entry: extends DefaultTheme, registers plugins
+│       ├── Layout.vue        # Wraps DefaultTheme.Layout, mounts KFooter in layout-bottom
 │       └── style.css        # Tailwind entry: layers, vuecs tokens, shared component styles
 ├── index.md                 # Home page
 ├── contact.md               # Contact page
@@ -42,6 +54,12 @@ src/
 └── team/                    # Team overview pages
 ```
 
+`*.spec.ts` files next to the code in `domains/` are unit tests, run with `npm test`.
+
+`projects.data.ts` exports `{ generatedAt: string, items: Project[] }`, not a bare `Project[]`: the loader
+stamps the build time once so "current" filtering (e.g. in `KHomeProjects`) is deterministic between SSR and
+client hydration, comparing against `new Date(projects.generatedAt)`.
+
 ## Module Responsibilities
 
 | Module               | Purpose                                                         |
@@ -51,7 +69,9 @@ src/
 | `data/`              | VitePress data loaders — parse BibTeX, read person JSON files   |
 | `domains/`           | Pure TypeScript: type definitions, data reading/transformation  |
 | `theme/`             | Extends VitePress DefaultTheme with Tailwind CSS, vuecs theme, FontAwesome, pagination |
+| `theme/Layout.vue`   | Adds the site footer via the layout-bottom slot                 |
 | `constants.ts`       | File system paths used by data loaders at build time            |
+| `*.spec.ts`          | Unit tests for domain logic (npm test)                          |
 
 ## Key Dependencies
 
