@@ -8,12 +8,16 @@
 import { defineComponent } from 'vue';
 import KHomeGroups from './KHomeGroups.vue';
 import KHomeHero from './KHomeHero.vue';
+import KHomeProjects from './KHomeProjects.vue';
+import KHomePublications from './KHomePublications.vue';
 import KHomeResearch from './KHomeResearch.vue';
 
 export default defineComponent({
     components: {
         KHomeGroups,
         KHomeHero,
+        KHomeProjects,
+        KHomePublications,
         KHomeResearch,
     },
 });
@@ -23,5 +27,7 @@ export default defineComponent({
         <KHomeHero />
         <KHomeGroups />
         <KHomeResearch />
+        <KHomeProjects />
+        <KHomePublications />
     </div>
 </template>
