@@ -13,3 +13,4 @@ reports
 cache
 *.swp
 .superpowers
+.agents/plans
