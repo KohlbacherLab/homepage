@@ -47,8 +47,6 @@ export default defineComponent({
                 {{ startYear }} <template v-if="endYear">- {{ endYear }}</template>
             </strong>
         </div>
-        <div>
-            {{ item.value }}
-        </div>
+        <div v-html="item.value" />
     </div>
 </template>
