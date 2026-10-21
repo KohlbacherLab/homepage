@@ -1,0 +1,12 @@
+**/node_modules
+**/.vitepress/dist
+**/.vitepress/cache
+.temp
+.git
+.github
+.husky
+.idea
+.vscode
+.claude
+.agents
+*.log

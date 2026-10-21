@@ -25,14 +25,18 @@
 
 ## CI/CD
 
-Two GitHub Actions workflows:
+Three GitHub Actions workflows:
 
 | Workflow    | Trigger        | Steps                          |
 |-------------|----------------|--------------------------------|
 | `check.yml` | Pull requests  | Install, Build, Lint           |
 | `main.yml`  | Push to master | Install, Build, Deploy to GH Pages |
+| `docker.yml` | Push to master | Build and push the Docker image (craneship) |
 
 Deployment uses `peaceiris/actions-gh-pages` to publish `src/.vitepress/dist/` with a CNAME for `kohlbacherlab.org`.
+
+`docker.yml` uses `tada5hi/craneship` to build the `Dockerfile` (VitePress build stage, then `nginx:alpine` serving
+`dist/` with `docker/nginx.conf`) and push it as `ghcr.io/kohlbacherlab/homepage:latest`.
 
 ## File Conventions
 
