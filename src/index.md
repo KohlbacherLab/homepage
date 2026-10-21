@@ -17,9 +17,9 @@ hero:
   description: From mass spectrometry, immunomics and structural bioinformatics to national research data platforms such as GHGA, DNPM and PrivateAIM.
   actions:
     - text: Our research
-      link: /research
+      link: /research/
     - text: Publications
-      link: /publications
+      link: /publications/
 
 groups:
   intro: Founded in 2000 and led by Prof. Dr. Oliver Kohlbacher. Both groups work side by side in the Tübingen AI Research Building.

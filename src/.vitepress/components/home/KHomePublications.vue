@@ -48,7 +48,7 @@ export default defineComponent({
             <KHomeSectionHeader
                 eyebrow="Output"
                 title="Latest publications"
-                link="/publications"
+                link="/publications/"
                 link-text="All publications"
             />
             <ol class="m-0 list-none border-t border-border p-0">

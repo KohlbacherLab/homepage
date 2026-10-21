@@ -32,17 +32,17 @@ export default defineComponent({
             {
                 title: 'Lab',
                 links: [
-                    { text: 'Team', link: '/team' },
-                    { text: 'Research', link: '/research' },
-                    { text: 'Publications', link: '/publications' },
+                    { text: 'Team', link: '/team/' },
+                    { text: 'Research', link: '/research/' },
+                    { text: 'Publications', link: '/publications/' },
                     { text: 'Contact', link: '/contact' },
                 ],
             },
             {
                 title: 'Work',
                 links: [
-                    { text: 'Projects', link: '/projects' },
-                    { text: 'Software', link: '/software' },
+                    { text: 'Projects', link: '/projects/' },
+                    { text: 'Software', link: '/software/' },
                     {
                         text: 'Teaching',
                         link: 'https://alma.uni-tuebingen.de/alma/pages/startFlow.xhtml?_flowId=searchCourseNonStaff-flow',

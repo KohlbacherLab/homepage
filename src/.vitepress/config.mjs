@@ -48,12 +48,12 @@ export default defineConfig({
             },
             {
                 text: 'Team',
-                link: '/team',
+                link: '/team/',
                 activeMatch: '/team',
             },
             {
                 text: 'Research',
-                link: '/research',
+                link: '/research/',
             },
             {
                 text: 'Teaching',
@@ -61,16 +61,16 @@ export default defineConfig({
             },
             {
                 text: 'Publications',
-                link: '/publications',
+                link: '/publications/',
             },
             {
                 text: 'Projects',
-                link: '/projects',
+                link: '/projects/',
                 activeMatch: '/projects/',
             },
             {
                 text: 'Software',
-                link: '/software',
+                link: '/software/',
                 activeMatch: '/software/',
             },
             {

@@ -31,14 +31,14 @@ export default defineComponent({
             <KHomeSectionHeader
                 eyebrow="What we work on"
                 title="Research areas"
-                link="/research"
+                link="/research/"
                 link-text="All research"
             />
             <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 <VPLink
                     v-for="area in areas"
                     :key="area.anchor"
-                    :href="`/research#${area.anchor}`"
+                    :href="`/research/#${area.anchor}`"
                     class="k-card k-card-interactive block p-6"
                 >
                     <div :class="iconTileClass">
@@ -55,7 +55,7 @@ export default defineComponent({
                     </p>
                 </VPLink>
                 <VPLink
-                    href="/research"
+                    href="/research/"
                     class="k-night k-card-interactive flex min-h-40 flex-col justify-between rounded-[16px] p-6"
                 >
                     <h3 class="m-0 text-lg font-semibold text-white">

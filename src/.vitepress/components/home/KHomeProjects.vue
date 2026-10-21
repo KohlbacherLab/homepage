@@ -54,7 +54,7 @@ export default defineComponent({
                             Current projects
                         </h3>
                         <VPLink
-                            href="/projects"
+                            href="/projects/"
                             class="k-link text-sm"
                         >
                             All {{ projectCount }} projects →
@@ -92,7 +92,7 @@ export default defineComponent({
                             Open-source software
                         </h3>
                         <VPLink
-                            href="/software"
+                            href="/software/"
                             class="k-link text-sm"
                         >
                             All software →

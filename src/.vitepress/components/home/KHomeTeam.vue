@@ -46,7 +46,7 @@ export default defineComponent({
             <KHomeSectionHeader
                 eyebrow="People"
                 title="The team"
-                link="/team"
+                link="/team/"
                 link-text="Meet the team"
             />
             <div class="grid gap-7 lg:grid-cols-[340px_1fr]">

@@ -104,7 +104,7 @@ export default defineComponent({
                         </div>
                         <VPLink
                             class="k-link text-sm"
-                            :href="`/team?group=${group.id}`"
+                            :href="`/team/?group=${group.id}`"
                         >
                             Meet the {{ group.id.toUpperCase() }} team →
                         </VPLink>
