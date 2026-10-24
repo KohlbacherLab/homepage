@@ -12,3 +12,5 @@ npm-debug.log*
 reports
 cache
 *.swp
+.superpowers
+.agents/plans

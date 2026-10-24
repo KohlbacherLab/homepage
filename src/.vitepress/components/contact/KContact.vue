@@ -7,8 +7,8 @@
 <script lang="ts">
 import { VPImage } from 'vitepress/theme';
 import { defineComponent } from 'vue';
+import { LAB_CONTACT } from '../../domains/contact/constants.ts';
 import KContactDetails from '../utilities/contact/KContactDetails.vue';
-import type { ContactDetails } from '../utilities/contact/types.ts';
 import KPageTitle from '../utilities/page-title/KPageTitle.vue';
 
 export default defineComponent({
@@ -18,18 +18,7 @@ export default defineComponent({
         VPImage,
     },
     setup() {
-        const contact : ContactDetails = {
-            address: [
-                'University of Tübingen',
-                'Tübingen AI Research Building',
-                'Maria-von-Linden-Straße 6',
-                '72076 Tübingen',
-            ],
-            phone: '+49 7071 29 70457',
-            email: 'oliver.kohlbacher@uni-tuebingen.de',
-        };
-
-        return { contact };
+        return { contact: LAB_CONTACT };
     },
 });
 </script>

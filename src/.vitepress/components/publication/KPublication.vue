@@ -9,6 +9,7 @@
 import type { Entry } from '@retorquere/bibtex-parser';
 import type { PropType } from 'vue';
 import { computed, defineComponent, toRef } from 'vue';
+import { formatAuthors, formatSource } from '../../domains/publication/format.ts';
 import KPublicationTitle from './KPublicationTitle.vue';
 
 export default defineComponent({
@@ -22,54 +23,8 @@ export default defineComponent({
     setup(props) {
         const entity = toRef(props, 'entity');
 
-        const publication = computed(() => {
-            const parts : string[] = [];
-            if (entity.value.fields.journal) {
-                parts.push(entity.value.fields.journal);
-            }
-
-            if (entity.value.fields.volume) {
-                let text = entity.value.fields.volume;
-                if (entity.value.fields.number) {
-                    text += ` (${entity.value.fields.number})`;
-                }
-
-                parts.push(text);
-            }
-
-            if (entity.value.fields.pages) {
-                parts.push(`pp. ${entity.value.fields.pages}`);
-            }
-
-            if (entity.value.fields.year) {
-                return `(${entity.value.fields.year}). ${parts.join(', ')}`;
-            }
-
-            return parts.join(', ');
-        });
-
-        const authors = computed(() => {
-            const names = (entity.value.fields.author ?? []).map((author) => {
-                if (author.lastName && author.lastName !== 'others') {
-                    if (author.firstName && author.firstName.length > 0) {
-                        return `${author.lastName}, ${author.firstName.at(0)}.`;
-                    }
-
-                    return author.lastName;
-                }
-
-                return undefined; // Make linter hapy.
-            }).filter((name) => name !== undefined);
-
-            const suffix = names.pop();
-            const prefix = names.join(', ');
-
-            if (suffix) {
-                return `${prefix} & ${suffix}`;
-            }
-
-            return prefix;
-        });
+        const publication = computed(() => formatSource(entity.value));
+        const authors = computed(() => formatAuthors(entity.value));
 
         return {
             publication,

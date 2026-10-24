@@ -19,6 +19,20 @@
 @source "../components";
 @source "../../../node_modules/@vuecs";
 
+@theme inline {
+    --font-sans: var(--vp-font-family-base);
+
+    /* Fixed-dark surfaces (hero, footer) that ignore the color mode. */
+    --color-night: var(--k-dark-bg);
+    --color-night-fg: var(--k-dark-fg);
+    --color-night-fg-muted: var(--k-dark-fg-muted);
+    --color-night-border: var(--k-dark-border);
+
+    /* Accents taken from the logo. */
+    --color-accent-sky: var(--k-accent-sky);
+    --color-accent-pink: var(--k-accent-pink);
+}
+
 @layer base {
     :root {
         /*
@@ -34,7 +48,7 @@
         --vc-color-border: var(--vp-c-divider);
         --vc-color-border-muted: var(--vp-c-gutter);
 
-        /* primary → indigo, the VitePress brand color */
+        /* primary → indigo */
         --vc-color-primary-50: var(--color-indigo-50);
         --vc-color-primary-100: var(--color-indigo-100);
         --vc-color-primary-200: var(--color-indigo-200);
@@ -46,6 +60,17 @@
         --vc-color-primary-800: var(--color-indigo-800);
         --vc-color-primary-900: var(--color-indigo-900);
         --vc-color-primary-950: var(--color-indigo-950);
+
+        /* Lab tokens: fixed-dark surfaces, logo accents, hero glow. */
+        --k-dark-bg: #070b18;
+        --k-dark-fg: #e8ecf6;
+        --k-dark-fg-muted: #aeb6cc;
+        --k-dark-border: rgb(255 255 255 / 0.12);
+        --k-accent-sky: #7dd3fc;
+        --k-accent-pink: #f5a0a3;
+        --k-glow-primary: rgb(99 102 241 / 0.4);
+        --k-glow-sky: rgb(110 207 246 / 0.18);
+        --k-glow-pink: rgb(245 160 163 / 0.1);
     }
 
     /* Preflight resets headings to inherit; restore a heading scale. */
@@ -75,5 +100,226 @@
     .entity-card.active {
         @apply border-neutral-700 bg-neutral-700 text-neutral-100
             dark:border-primary-400 dark:bg-primary-500 dark:text-white;
+    }
+
+    /* Vertical rhythm of a start page section. */
+    .k-section {
+        @apply py-16 md:py-20;
+    }
+
+    .k-section-alt {
+        background-color: var(--vp-c-bg-alt);
+    }
+
+    /* Centered content column. Not `container`: VitePress uses that class. */
+    .k-wrap {
+        @apply mx-auto w-full max-w-[1160px] px-4 sm:px-6 lg:px-10;
+    }
+
+    .k-eyebrow {
+        @apply m-0 mb-2 text-xs font-semibold tracking-[0.12em] text-primary-600 uppercase dark:text-primary-400;
+    }
+
+    .k-heading {
+        @apply m-0 text-3xl leading-tight font-bold tracking-tight text-fg md:text-4xl;
+    }
+
+    .k-link {
+        @apply font-semibold text-primary-700 dark:text-primary-300;
+    }
+
+    .k-card {
+        @apply rounded-[16px] border border-border bg-bg-elevated;
+    }
+
+    .k-card-interactive {
+        @apply transition duration-200 hover:-translate-y-0.5 hover:border-primary-500
+            hover:shadow-[0_12px_30px_-16px_rgb(79_70_229/0.45)];
+    }
+
+    /* Fixed-dark surface with glow and a faint grid (hero, call-to-action cards). */
+    .k-night {
+        @apply relative overflow-hidden bg-night text-night-fg;
+    }
+
+    .k-night::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+            radial-gradient(640px 420px at 80% 10%, var(--k-glow-primary), transparent 70%),
+            radial-gradient(520px 360px at 100% 95%, var(--k-glow-sky), transparent 70%),
+            radial-gradient(420px 300px at 5% 100%, var(--k-glow-pink), transparent 70%);
+    }
+
+    .k-night::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.5;
+        background-image:
+            linear-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+        background-size: 44px 44px;
+        mask-image: radial-gradient(circle at 72% 28%, #000 15%, transparent 70%);
+    }
+
+    .k-night > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    .k-gradient-text {
+        background-image: linear-gradient(90deg, var(--k-accent-sky), var(--vc-color-primary-300) 50%, var(--k-accent-pink));
+        background-clip: text;
+        color: transparent;
+    }
+
+    .k-hero {
+        padding-top: 4rem;
+    }
+
+    /* Spectrum bars in the hero: gentle, staggered height changes. */
+    .k-spectrum-bar {
+        transform-origin: bottom;
+        animation: k-breathe 3.2s ease-in-out infinite;
+    }
+
+    .k-spectrum-bar:nth-child(3n) {
+        animation-duration: 2.6s;
+        animation-delay: -0.8s;
+    }
+
+    .k-spectrum-bar:nth-child(4n + 1) {
+        animation-duration: 3.8s;
+        animation-delay: -1.9s;
+    }
+
+    .k-spectrum-bar:nth-child(5n + 2) {
+        animation-duration: 2.2s;
+        animation-delay: -1.1s;
+    }
+
+    @keyframes k-breathe {
+        0%,
+        100% {
+            transform: scaleY(1);
+        }
+
+        50% {
+            transform: scaleY(0.55);
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .k-spectrum-bar {
+            animation: none;
+        }
+    }
+
+    /*
+     * Run the full page width and paint above the fixed sidebar instead of
+     * dodging it. `--vp-z-index-sidebar` is 25 from 960px up (the desktop
+     * sidebar), so 26 clears it; below 960px it is 60 (the mobile drawer),
+     * so an open drawer still covers the footer.
+     */
+    .k-footer {
+        position: relative;
+        z-index: 26;
+    }
+}
+
+/*
+ * Unlayered: VitePress defines its variables and component styles unlayered,
+ * so overrides of them must stay outside of any @layer to win.
+ */
+
+/* VitePress brand colors follow the vuecs primary scale. */
+:root {
+    --vp-c-brand-1: var(--vc-color-primary-600);
+    --vp-c-brand-2: var(--vc-color-primary-500);
+    --vp-c-brand-3: var(--vc-color-primary-500);
+    --vp-c-brand-soft: color-mix(in srgb, var(--vc-color-primary-500) 14%, transparent);
+}
+
+.dark {
+    --vp-c-brand-1: var(--vc-color-primary-300);
+    --vp-c-brand-2: var(--vc-color-primary-400);
+    --vp-c-brand-3: var(--vc-color-primary-500);
+    --vp-c-brand-soft: color-mix(in srgb, var(--vc-color-primary-400) 16%, transparent);
+}
+
+/*
+ * Start page (`pageClass: k-home`): the nav sits transparently on the dark
+ * hero while scrolled to the top (`.VPNavBar.top`), and the hero extends
+ * under the fixed nav (≥ 960px, the VitePress breakpoint).
+ */
+@media (min-width: 960px) {
+    .Layout.k-home .VPContent {
+        padding-top: 0;
+    }
+
+    .Layout.k-home .k-hero {
+        padding-top: calc(var(--vp-nav-height) + 5rem);
+    }
+}
+
+/* Below 960px the nav is not fixed and sits above the hero. */
+@media (max-width: 959px) {
+    .Layout.k-home .VPNav {
+        background-color: var(--k-dark-bg);
+    }
+}
+
+.Layout.k-home .VPNavBar.top:not(.screen-open) {
+    --vp-nav-bg-color: transparent;
+    --vp-c-gutter: transparent;
+}
+
+/* Scoped to the bar's own items so flyout menus keep their normal colors. */
+.Layout.k-home .VPNavBar.top:not(.screen-open) :is(
+    .VPNavBarTitle,
+    .VPNavBarMenu,
+    .VPNavBarSearch,
+    .VPNavBarAppearance,
+    .VPNavBarSocialLinks,
+    .VPNavBarHamburger
+),
+.Layout.k-home .VPNavBar.top:not(.screen-open) .VPNavBarExtra > .button {
+    --vp-c-text-1: var(--k-dark-fg);
+    --vp-c-text-2: var(--k-dark-fg-muted);
+    --vp-c-brand-1: var(--vc-color-primary-300);
+    --vp-c-divider: var(--k-dark-border);
+    --vp-c-bg-alt: rgb(255 255 255 / 0.06);
+    --vp-input-border-color: var(--k-dark-border);
+    --vp-input-switch-bg-color: rgb(255 255 255 / 0.08);
+}
+
+/* Light logo variant on the dark hero, in both color modes. */
+.Layout.k-home .VPNavBar.top:not(.screen-open) .VPNavBarTitle .VPImage.light {
+    display: none;
+}
+
+html:not(.dark) .Layout.k-home .VPNavBar.top:not(.screen-open) .VPNavBarTitle .VPImage.dark {
+    display: inline;
+}
+
+/*
+ * `.k-footer` runs full width and paints above the fixed desktop sidebar
+ * (`--vp-z-index-sidebar` is 25 from 960px up; the footer is 26 — see
+ * `.k-footer` above), so at the bottom of a long page it covers the
+ * sidebar's lowest ~300px. The sidebar scrolls independently
+ * (`.VPSidebar { overflow-y: auto }`), so give its nav enough bottom
+ * padding that every link — including the last one — can still be
+ * scrolled clear of the footer band, even on a short sidebar that would
+ * not otherwise overflow. Scoped to >= 960px, where the sidebar is
+ * `position: fixed`; below that it is the mobile drawer, which already
+ * sits above the footer (z-index 60), so it is left untouched.
+ */
+@media (min-width: 960px) {
+    .VPSidebar .nav {
+        padding-bottom: 24rem;
     }
 }

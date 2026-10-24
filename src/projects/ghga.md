@@ -1,9 +1,20 @@
+---
+title: GHGA
+name: German Human Genome-Phenome Archive
+website: https://ghga.de
+funding:
+  - funder: DFG
+    reference: 'funding number: 441914366'
+runtime:
+  start: '2020-10-01'
+  end: '2028-12-31'
+featured: true
+---
 # GHGA
 
 The German Human Genome-Phenome Archive - [GHGA](https://ghga.de)
 
-**Funding:** DFG (funding number: 441914366)\
-**Project runtime:** 01.10.2020 - 31.12.2028
+<KProjectMeta />
 
 As a secure national omics data infrastructure, GHGA enables the use of human omics data in research, while ensuring data security and preventing misuse. By bridging the gap between research and healthcare, we drive the development of new therapies and diagnostics. 
 

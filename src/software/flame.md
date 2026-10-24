@@ -1,3 +1,11 @@
+---
+title: FLAME
+summary: Federated learning and analyses in medicine, the open-source core of PrivateAIM.
+website: https://docs.privateaim.net/
+repository: https://github.com/PrivateAim
+featured: true
+---
+
 # FLAME – A Privacy-Preserving Federated Learning Platform
 
 As part of the German national research initiative [PrivateAIM](../projects/privateaim), the open-source platform FLAME
