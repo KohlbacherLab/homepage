@@ -1,0 +1,1 @@
+const i={institution:"University of Tübingen",building:"Tübingen AI Research Building",street:"Maria-von-Linden-Straße 6",city:"72076 Tübingen"},n={address:[i.institution,i.building,i.street,i.city],phone:"+49 7071 29 70457",email:"oliver.kohlbacher@uni-tuebingen.de"};export{n as L,i as a};
