@@ -36,7 +36,6 @@ export default defineConfig({
         socialLinks: [
             // { icon: 'github', link: 'https://github.com/KohlbacherLab/homepage' }
         ],
-        footer: { copyright: 'Copyright © 2024-present KohlbacherLab' },
         editLink: {
             pattern: 'https://github.com/KohlbacherLab/homepage/edit/master/src/:path',
             text: 'Edit this page on GitHub',
@@ -49,12 +48,12 @@ export default defineConfig({
             },
             {
                 text: 'Team',
-                link: '/team',
+                link: '/team/',
                 activeMatch: '/team',
             },
             {
                 text: 'Research',
-                link: '/research',
+                link: '/research/',
             },
             {
                 text: 'Teaching',
@@ -62,16 +61,16 @@ export default defineConfig({
             },
             {
                 text: 'Publications',
-                link: '/publications',
+                link: '/publications/',
             },
             {
                 text: 'Projects',
-                link: '/projects',
+                link: '/projects/',
                 activeMatch: '/projects/',
             },
             {
                 text: 'Software',
-                link: '/software',
+                link: '/software/',
                 activeMatch: '/software/',
             },
             {

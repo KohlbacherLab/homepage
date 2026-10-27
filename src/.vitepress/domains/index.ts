@@ -5,6 +5,13 @@
  * view the LICENSE file that was distributed with this source code.
  */
 
+export * from './content/index.ts';
+export * from './contact/index.ts';
 export * from './history/index.ts';
+export * from './home/index.ts';
 export * from './person/index.ts';
+export * from './project/index.ts';
+export * from './publication/index.ts';
+export * from './research/index.ts';
+export * from './software/index.ts';
 export * from './team/index.ts';

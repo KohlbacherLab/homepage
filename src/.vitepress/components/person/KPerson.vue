@@ -8,6 +8,7 @@
 <script lang="ts">
 import { computed, defineComponent } from 'vue';
 import type { Person } from '../../domains/index.ts';
+import { getPersonAvatar } from '../../domains/person/avatar.ts';
 import { KHistoryEntries } from '../history/index.ts';
 
 import { data } from '../../data/team.data';
@@ -25,7 +26,9 @@ export default defineComponent({
             return match[1];
         });
 
-        return { entity };
+        const avatar = computed(() => getPersonAvatar(entity.value));
+
+        return { entity, avatar };
     },
 });
 </script>
@@ -35,7 +38,7 @@ export default defineComponent({
             <div class="shrink-0">
                 <img
                     class="size-40 rounded-full object-cover"
-                    :src="entity.avatar"
+                    :src="avatar"
                     :alt="entity.name"
                 >
             </div>

@@ -1,9 +1,20 @@
+---
+title: de.NBI
+name: German Network for Bioinformatics Infrastructure
+website: https://www.denbi.de/
+funding:
+  - funder: BMFTR
+    reference: 'funding number: W-de.NBI-022'
+runtime:
+  start: '2023-01-01'
+  end: '2027-12-31'
+featured: true
+---
 # de.NBI
 
 The German Network for Bioinformatics Infrastructure - [de.NBI](https://www.denbi.de/)
 
-**Funding:** BMFTR (funding number: W-de.NBI-022)\
-**Project runtime:** 01.01.2023 - 31.12.2027
+<KProjectMeta />
 
 ## de.NBI and ELIXIR-DE
 
