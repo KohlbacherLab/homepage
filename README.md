@@ -10,7 +10,8 @@
 
 **Source of kohlbacherlab.org, the website of the Applied and Translational Bioinformatics group in Tübingen.**
 
-Team members, publications, projects and software are data files and frontmatter, not hand-written HTML.
+Every lab member keeps their own content up to date: their profile, papers, projects and software are plain data files
+and Markdown, edited in a pull request, with no web developer in between.
 Built with [VitePress](https://vitepress.dev/) and deployed to [kohlbacherlab.org](https://kohlbacherlab.org) on every push to `master`.
 
 [Getting Started](#getting-started) · [Recipes](#recipes) · [Deployment](#deployment) · [Contributing](#contributing)
@@ -22,13 +23,14 @@ Built with [VitePress](https://vitepress.dev/) and deployed to [kohlbacherlab.or
 ## Why this setup?
 
 A lab website changes all the time: people join and leave, papers come out, projects start and end. When every change
-means editing HTML in several places, the team page, the member page and the navigation drift apart, and the
-publication list falls behind.
+has to go through one person who knows the site, updates queue up and pages go stale.
 
-Here, each kind of content has one source, and the build turns it into every page that shows it:
+Here, each person edits their own content. Each kind of content has one source in a simple format, and the build turns
+it into every page that shows it, so nobody needs to know Vue, CSS or the site's internals:
 
 | Concern | Hand-maintained pages or a CMS | This repository |
 |---|---|---|
+| **Who edits** | One maintainer collects updates by email and applies them | Each member edits their own profile, papers and projects; the [Recipes](#recipes) show the file and fields for each |
 | **Team** | Update the team list, the member page and the navigation separately | One file per person in `src/.vitepress/data/persons/` yields the member page, the team listing and the sidebar entry |
 | **Publications** | Copy each paper into a list by hand | Paste the BibTeX export into `pub.bib`; the publications page renders and paginates it |
 | **Projects and software** | Funding, runtime and links typed into prose, easy to get wrong | Frontmatter checked at build time; a missing or mistyped key fails the build and names the page and the key |
