@@ -118,7 +118,17 @@ export default defineComponent({
         </div>
         <div class="border-t border-night-border">
             <div class="k-wrap flex flex-wrap justify-between gap-2 py-4 text-xs">
-                <span>© 2024–present KohlbacherLab</span>
+                <span class="flex flex-wrap gap-x-4 gap-y-2">
+                    <span>© 2024–present KohlbacherLab</span>
+                    <VPLink
+                        class="text-night-fg hover:underline"
+                        href="/imprint"
+                    >Imprint</VPLink>
+                    <VPLink
+                        class="text-night-fg hover:underline"
+                        href="/privacy"
+                    >Privacy Policy</VPLink>
+                </span>
                 <span>
                     Website by
                     <a
