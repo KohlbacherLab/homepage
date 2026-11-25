@@ -36,10 +36,6 @@ Here, each kind of content has one source, and the build turns it into every pag
 | **Review** | Changes go live as soon as they are saved | Every change is a pull request; CI runs tests, type checks, the build and lint |
 | **Hosting** | A server, a database and CMS updates | Static HTML on GitHub Pages, or one nginx Docker image |
 
-<p align="center">
-    <img src="./.github/assets/content-flow.svg" alt="Content lives in the repository: person files, a BibTeX file and Markdown frontmatter. At build time VitePress data loaders read it, and the domain builders validate the frontmatter, failing the build with the page and key. The result is static HTML: member pages, team, publications, projects and the start page. A push to master deploys it to GitHub Pages at kohlbacherlab.org and publishes a Docker image to ghcr.io." width="100%" />
-</p>
-
 **Table of Contents**
 
 - [Getting Started](#getting-started)
