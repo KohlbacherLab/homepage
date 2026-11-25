@@ -26,17 +26,18 @@ A lab website changes all the time: people join and leave, papers come out, proj
 has to go through one person who knows the site, updates queue up and pages go stale.
 
 Here, each person edits their own content. Each kind of content has one source in a simple format, and the build turns
-it into every page that shows it, so nobody needs to know Vue, CSS or the site's internals:
+it into every page that shows it, so nobody needs to know Vue, CSS or the site's internals.
+And there is no WordPress or other CMS to host, patch and back up:
 
-| Concern | Hand-maintained pages or a CMS | This repository |
+| Concern | WordPress or a similar CMS | This repository |
 |---|---|---|
-| **Who edits** | One maintainer collects updates by email and applies them | Each member edits their own profile, papers and projects; the [Recipes](#recipes) show the file and fields for each |
+| **Who edits** | Each editor needs an account and has to learn the admin screens, so updates often end up with one maintainer | Each member edits their own profile, papers and projects; the [Recipes](#recipes) show the file and fields for each |
 | **Team** | Update the team list, the member page and the navigation separately | One file per person in `src/.vitepress/data/persons/` yields the member page, the team listing and the sidebar entry |
 | **Publications** | Copy each paper into a list by hand | Paste the BibTeX export into `pub.bib`; the publications page renders and paginates it |
 | **Projects and software** | Funding, runtime and links typed into prose, easy to get wrong | Frontmatter checked at build time; a missing or mistyped key fails the build and names the page and the key |
 | **Current projects** | Someone has to notice a project ended | The start page shows featured projects only until their `runtime.end` date |
-| **Review** | Changes go live as soon as they are saved | Every change is a pull request; CI runs tests, type checks, the build and lint |
-| **Hosting** | A server, a database and CMS updates | Static HTML on GitHub Pages, or one nginx Docker image |
+| **Review** | Changes go live as soon as someone clicks publish | Every change is a pull request; CI runs tests, type checks, the build and lint |
+| **Operations** | A server, a database, PHP, plugin and security updates, user accounts and backups | No server-side code or database: static HTML on GitHub Pages, or one nginx Docker image; git history is the backup |
 
 **Table of Contents**
 
