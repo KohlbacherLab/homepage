@@ -15,6 +15,13 @@ export default defineConfig({
     title: 'KohlbacherLab',
     description: 'Applied and Translational Bioinformatics',
     base: '/',
+    head: [
+        ['link', {
+            rel: 'icon', 
+            type: 'image/svg+xml', 
+            href: '/favicon.svg', 
+        }],
+    ],
     vite: {
         plugins: [tailwindcss()],
         css: {
