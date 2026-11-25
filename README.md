@@ -1,14 +1,57 @@
-# Homepage
+<div align="center">
+
+<img src="./.github/assets/logo.svg" alt="KohlbacherLab" width="128" height="128" />
+
+<h1>KohlbacherLab Homepage</h1>
 
 [![Deploy](https://github.com/KohlbacherLab/homepage/actions/workflows/main.yml/badge.svg)](https://github.com/KohlbacherLab/homepage/actions/workflows/main.yml)
+[![Check](https://github.com/KohlbacherLab/homepage/actions/workflows/check.yml/badge.svg)](https://github.com/KohlbacherLab/homepage/actions/workflows/check.yml)
+[![Docker](https://github.com/KohlbacherLab/homepage/actions/workflows/docker.yml/badge.svg)](https://github.com/KohlbacherLab/homepage/actions/workflows/docker.yml)
 
-[VitePress](https://vitepress.dev/)-powered academic website for the [KohlbacherLab](https://kohlbacherlab.org) group at the University of Tubingen. Built with [Vue.js](https://vuejs.org/) and deployed to [kohlbacherlab.org](https://kohlbacherlab.org) via GitHub Pages.
+**Source of kohlbacherlab.org, the website of the Applied and Translational Bioinformatics group in Tübingen.**
+
+Team members, publications, projects and software are data files and frontmatter, not hand-written HTML.
+Built with [VitePress](https://vitepress.dev/) and deployed to [kohlbacherlab.org](https://kohlbacherlab.org) on every push to `master`.
+
+[Getting Started](#getting-started) · [Recipes](#recipes) · [Deployment](#deployment) · [Contributing](#contributing)
+
+</div>
+
+---
+
+## Why this setup?
+
+A lab website changes all the time: people join and leave, papers come out, projects start and end. When every change
+means editing HTML in several places, the team page, the member page and the navigation drift apart, and the
+publication list falls behind.
+
+Here, each kind of content has one source, and the build turns it into every page that shows it:
+
+| Concern | Hand-maintained pages or a CMS | This repository |
+|---|---|---|
+| **Team** | Update the team list, the member page and the navigation separately | One file per person in `src/.vitepress/data/persons/` yields the member page, the team listing and the sidebar entry |
+| **Publications** | Copy each paper into a list by hand | Paste the BibTeX export into `pub.bib`; the publications page renders and paginates it |
+| **Projects and software** | Funding, runtime and links typed into prose, easy to get wrong | Frontmatter checked at build time; a missing or mistyped key fails the build and names the page and the key |
+| **Current projects** | Someone has to notice a project ended | The start page shows featured projects only until their `runtime.end` date |
+| **Review** | Changes go live as soon as they are saved | Every change is a pull request; CI runs tests, type checks, the build and lint |
+| **Hosting** | A server, a database and CMS updates | Static HTML on GitHub Pages, or one nginx Docker image |
+
+<p align="center">
+    <img src="./.github/assets/content-flow.svg" alt="Content lives in the repository: person files, a BibTeX file and Markdown frontmatter. At build time VitePress data loaders read it, and the domain builders validate the frontmatter, failing the build with the page and key. The result is static HTML: member pages, team, publications, projects and the start page. A push to master deploys it to GitHub Pages at kohlbacherlab.org and publishes a Docker image to ghcr.io." width="100%" />
+</p>
 
 **Table of Contents**
 
 - [Getting Started](#getting-started)
 - [Scripts](#scripts)
 - [Recipes](#recipes)
+  - [Person](#person)
+  - [Publication](#publication)
+  - [Project](#project)
+  - [Software](#software)
+  - [Research Area](#research-area)
+- [Deployment](#deployment)
+- [Notes](#notes)
 - [Contributing](#contributing)
   - [Fork Workflow](#fork-workflow)
   - [Keeping Your Fork Up to Date](#keeping-your-fork-up-to-date)
@@ -37,13 +80,14 @@ npm run dev
 
 ## Scripts
 
-| Command              | Description                              |
-|----------------------|------------------------------------------|
-| `npm run dev`        | Start local dev server with HMR          |
-| `npm run build`      | Build the static site                    |
-| `npm run typecheck`  | Run type checking with `vue-tsc`         |
-| `npm run lint`       | Lint source files with ESLint            |
-| `npm run lint:fix`   | Lint and auto-fix source files           |
+| Command              | Description                                         |
+|----------------------|-----------------------------------------------------|
+| `npm run dev`        | Start local dev server with HMR                     |
+| `npm run build`      | Build the static site into `src/.vitepress/dist/`   |
+| `npm test`           | Run the domain unit tests (Node's built-in runner)  |
+| `npm run typecheck`  | Run type checking with `vue-tsc`                    |
+| `npm run lint`       | Lint source files with ESLint                       |
+| `npm run lint:fix`   | Lint and auto-fix source files                      |
 
 ## Recipes
 
@@ -53,20 +97,21 @@ For general page editing, refer to the [VitePress documentation](https://vitepre
 ### Person
 
 To add a new person, create a file in `src/.vitepress/data/persons/` following the naming pattern `<lastname>-<firstname>.mjs`.
+The file name (without `.mjs`) becomes the URL of the member page: `/persons/<lastname>-<firstname>`.
 
 Use existing person files as reference. A minimal example:
 
-```ts
-import { definePerson } from '../../index.ts';
+```js
+import { TeamID, definePerson } from '../..';
 
 export default definePerson({
     name: 'Peter Placzek',
     role: 'Researcher',
-    avatar: 'https://www.github.com/tada5hi.png',
+    avatar: '/images/persons/placzek-peter.jpg',
     email: 'peter.placzek@medizin.uni-tuebingen.de',
     phone: '+49 7071 29 84309',
-    address: 'Sand 14, Room A301, Tubingen, 72076',
-    team: 'tbi',
+    address: 'Sand 14, Room A301, Tübingen, 72076',
+    team: TeamID.TBI,
     socialLinks: [
         { icon: 'github', link: 'https://github.com/tada5hi' },
         { icon: 'linkedin', link: 'https://www.linkedin.com/in/peter-placzek-047a74210/' },
@@ -97,7 +142,13 @@ export default definePerson({
 });
 ```
 
-Since person data files are processed at build time, the dev server must be restarted after changes.
+- Put the avatar image in `src/public/images/persons/` and reference it as `/images/persons/<file>`. Without an avatar,
+  the page shows `/images/persons/default.png`.
+- `team` takes `TeamID.TBI` (`'tbi'`) or `TeamID.ABI` (`'abi'`), or an array of both.
+- When someone leaves, set `inactive: true` instead of deleting the file. The person moves to the inactive tab of the
+  team page and keeps their member page.
+- Person files are read at build time, and the sidebar and member routes are generated when the dev server starts.
+  Restart the dev server after adding or renaming a person.
 
 #### Structure
 
@@ -111,8 +162,8 @@ interface Person {
     /** The full name of the person. */
     name: string;
 
-    /** The professional role (e.g., 'Researcher', 'Professor'). */
-    role?: string;
+    /** The professional role (e.g., 'Researcher', 'Professor'). Can be an array for several roles. */
+    role?: string | string[];
 
     /** URL to the person's avatar image. Can be absolute or relative. */
     avatar?: string;
@@ -134,6 +185,9 @@ interface Person {
 
     /** The team or teams the person is part of (e.g., 'tbi', 'abi'). */
     team: string | string[];
+
+    /** Marks a former member: listed under "inactive" on the team page. */
+    inactive?: boolean;
 
     /** The person's educational background. */
     education?: HistoryEntry[];
@@ -187,6 +241,100 @@ type SocialLink = {
     ariaLabel?: string;
 };
 ```
+
+### Publication
+
+Publications come from one BibTeX file: `src/.vitepress/data/publications/pub.bib`.
+Append new entries to it, for example from the export of a reference manager.
+The file is read once at build time, so restart the dev server to see new entries.
+
+### Project
+
+Each project is a Markdown page in `src/projects/`. Its metadata lives in the frontmatter:
+
+```yaml
+---
+title: PrivateAIM
+name: Privacy-preserving Analytics in Medicine
+website: https://privateaim.de/
+funding:
+  - funder: BMFTR
+    reference: 'funding number: 01ZZ2316A'
+runtime:
+  start: '2023-04-01'
+  end: '2027-03-31'
+featured: true
+---
+```
+
+| Key | Description |
+|---|---|
+| `title` | Short name, used in lists and the sidebar |
+| `name` | Full project name |
+| `website` | Project website |
+| `funding[]` | `funder` and an optional `reference`, rendered in parentheses |
+| `runtime` | `start` and `end` as quoted ISO dates (`'2027-03-31'`) |
+| `featured` | Show the project on the start page while it runs (up to four, newest `start` first) |
+
+- Place `<KProjectMeta />` in the page body where funding and runtime should appear.
+- Add the page to the `/projects` sidebar in `src/.vitepress/config.mjs`.
+
+### Software
+
+Each package is a Markdown page in `src/software/`:
+
+```yaml
+---
+title: FLAME
+summary: Federated learning and analyses in medicine, the open-source core of PrivateAIM.
+website: https://docs.privateaim.net/
+repository: https://github.com/PrivateAim
+featured: true
+---
+```
+
+`title` and `summary` appear in lists, `website` and `repository` as links, and `featured` puts the package on the
+start page (up to four, sorted by title). Add the page to the `/software` sidebar in `src/.vitepress/config.mjs`.
+
+### Research Area
+
+Research areas live in the frontmatter of `src/research/index.md`:
+
+```yaml
+---
+areas:
+  - title: Computational Immunomics
+    summary: MHC ligandomics, HLA typing and neoepitope discovery from mass spectrometry and NGS data.
+    icon: fa-solid fa-shield-virus
+---
+```
+
+Each `title` must match a `##` heading in the same page, or the build fails; the start page links to that heading.
+`icon` is a [Font Awesome](https://fontawesome.com/icons) class.
+
+## Deployment
+
+A push to `master` runs two workflows:
+
+- [`main.yml`](./.github/workflows/main.yml) builds the site and publishes `src/.vitepress/dist/` to GitHub Pages
+  under [kohlbacherlab.org](https://kohlbacherlab.org).
+- [`docker.yml`](./.github/workflows/docker.yml) builds the [`Dockerfile`](./Dockerfile) and pushes
+  `ghcr.io/kohlbacherlab/homepage:latest`, an nginx image that serves the built site on port 80:
+
+```shell
+docker run -p 8080:80 ghcr.io/kohlbacherlab/homepage:latest
+```
+
+Pull requests run [`check.yml`](./.github/workflows/check.yml): install, test, type check, build and lint.
+
+## Notes
+
+- **Content errors fail the build.** A project, software or research page with a missing or mistyped frontmatter key,
+  or a research area without its `##` heading, stops `npm run build` and names the page. Fix the frontmatter; the error is not a code bug.
+- **"Current" projects are fixed at build time.** The start page compares `runtime.end` with the build date, so a
+  project that ends drops off only with the next deploy.
+- **The privacy policy describes GitHub Pages hosting.** If you serve the site from the Docker image on your own server,
+  update `src/privacy.md` to describe that server's logs.
 
 ## Contributing
 

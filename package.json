@@ -3,7 +3,7 @@
     "type": "module",
     "private": true,
     "version": "1.0.0",
-    "description": "This is a package for the KohlbacherLab website.",
+    "description": "Source of kohlbacherlab.org, the website of the Applied and Translational Bioinformatics group in Tübingen.",
     "repository": {
         "type": "git",
         "url": "https://github.com/kohlbacherlab/homepage.git"
